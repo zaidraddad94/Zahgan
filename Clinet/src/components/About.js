@@ -4,7 +4,7 @@ const About=()=>{
 
     return(
        
-        <div class="container-fluid page-cont">
+        <div className="container-fluid page-cont">
   <h3>About us</h3>
   <p>this about us please add </p>
  <p>add your name</p><input type='text'></input>
