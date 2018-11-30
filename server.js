@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var students = require('../database-mongo');
+var students = require('./database-mongo');
 var connect = require ('connect');
 const path = require('path')
 
