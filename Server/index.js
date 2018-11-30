@@ -6,6 +6,7 @@ var connect = require ('connect');
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
+ app.use(express.static(__dirname + '/react-client/public'));
 //var data=[{Name:'asraf' ,HomeWork:'y7ya'}]
 
 
