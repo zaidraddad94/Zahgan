@@ -10,6 +10,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 //var data=[{Name:'asraf' ,HomeWork:'y7ya'}]
 
 app.get('/items', function (req, res) {
+  console.log('hhhhh',data)
+  //students.save(data);
   students.selectAll(function(err, data) {
     if(err) {
       res.sendStatus(500);
