@@ -54,6 +54,7 @@ class App extends Component {
     )}}
   />
 <Route path='/About' component={About} />
+<Route path component={Error} />
 </Switch>
 </div>
 </div>
