@@ -1,7 +1,11 @@
 import React from 'react'
 
-const Home=()=>{
-
+const Home=(props)=>{
+ const content = props.items.map((item) =>
+    <div >
+      <h3>{item.Name} &nbsp;&nbsp;&nbsp;&nbsp;{item.HomeWork}</h3>
+    </div>
+  );
     return(
         
         <div className="container-fluid page-cont">
@@ -9,6 +13,7 @@ const Home=()=>{
 			
 			<div className="col-4 data-box">
 				<div>
+				{content}
 				</div>
 			</div>
 			
@@ -26,4 +31,6 @@ const Home=()=>{
 	</div>
     )
 }
+
 export default Home
+

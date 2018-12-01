@@ -48,11 +48,12 @@ class App extends Component {
       
       <Nav />
       <Switch>
-<Route path='/' component={Home} exact/>
-<Route path='/home' component={Home} exact />
-<Route path='/about' component={About} />
-<Route component={Error} />
-<h1>{this.state.items}</h1>
+  <Route path='/Home' render={()=>{
+    return (
+      <Home items={this.state.items} />
+    )}}
+  />
+<Route path='/About' component={About} />
 </Switch>
 </div>
 </div>

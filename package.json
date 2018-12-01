@@ -4,15 +4,18 @@
  "description": "",
  "main": "server/index.js",
  "scripts": {
-  "start": "node Server/index.js ",
-  "heroku-postbuild": "cd react-client && npm install && npm run build",
-  "server-dev": "nodemon server/index.js"
+  "client": "cd react-client && yarn start",
+  "server": "nodemon server.js",
+  "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn react-client\"",
+  "start": "node server.js",
+  "heroku-postbuild": "cd react-client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
  },
  "dependencies": {
   "body-parser": "^1.18.3",
   "connect": "^3.6.6",
   "express": "^4.15.0",
   "jquery": "^3.1.1",
-  "mongoose": "^5.3.14"
+  "mongoose": "^5.3.14",
+  "nodemon": "^1.18.7"
  }
 }
