@@ -1,45 +1,73 @@
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://ashraf:ashraf123@ds163300.mlab.com:63300/testashraf');
+const mongoose = require ('mongoose');
+const Schema = mongoose.Schema;
 
-var db = mongoose.connection;
+// mongoose.connect('mongodb://localhost/RBKevent');
 
-db.on('error', function() {
-  console.log('mongoose connection error');
-});
+// var db = mongoose.connection;
 
-db.once('open', function() {
-console.log('mongoose connected successfully');
-});
+// db.on('error', function() {
+//   console.log('mongoose connection error');
+// });
 
-var itemSchema = mongoose.Schema({
-  Name: String,
-  HomeWork: String,
-});
+// db.once('open', function() {
+// console.log('mongoose connected successfully');
+// });
 
-var Student = mongoose.model('Student', itemSchema);
-// var save=Student(data).save(function(err){
-// if(err)throw err ;
-// console.log("saved")
-// })
+const EventSchema = new Schema({
+  creatorName : {
+    type : String,
+    required :[true,'Name Field is Required']
+},
+eventName : {
+    type : String,
+    required :[true,'Name Field is Required']
+},
+des : {
+    type : String,
+    required :[true,'Name Field is Required']
+},
+url : {
+    type: String,
+    required :[true,'Name Field is Required']
+},
+date : {
+    type : String,
+    required :[true,'Name Field is Required']
+},
+availableSeats : {
+    type : Number,
+    required :[true,'Name Field is Required']
 
-
-let save = (data ,cb) => {
-       console.log('hhhhh',data[0].Name)
-    let student = new Student({Name:data[0].Name,HomeWork:data[0].HomeWork});
-    student.save();
+},
+eventLocation : {
+    type : String,
+    required :[true,'Name Field is Required']
+},
+attending : {
+    type : Array
 }
+});
+
+var Event = mongoose.model('Event', EventSchema);
 
 
-var selectAll = function(callback) {
-  Student.find({}, function(err, items) {
-    if(err) {
-      callback(err, null);
-    } else {
-      callback(null, items);
-    }
-  });
-};
+// let save = (data ,cb) => {
+//        console.log('hhhhh',data[0].Name)
+//     let student = new Student({Name:data[0].Name,HomeWork:data[0].HomeWork});
+//     student.save();
+// }
 
-module.exports.selectAll = selectAll;
-module.exports.save=save;
-module.exports.Student = Student;
+
+// var selectAll = function(callback) {
+//   Student.find({}, function(err, items) {
+//     if(err) {
+//       callback(err, null);
+//     } else {
+//       callback(null, items);
+//     }
+//   });
+// };
+
+// module.exports.selectAll = selectAll;
+// module.exports.save=save;
+module.exports = Event;
