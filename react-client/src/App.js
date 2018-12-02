@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 import Nav from './components/Nav'
 import {BrowserRouter ,Route ,Switch} from 'react-router-dom'
 import Home from './components/Home'
 import About from './components/About'
-import Error from './components/Error'
-import $ from 'jquery';
+
+import Create from './components/create'
+
 
 class App extends Component {
 
@@ -20,21 +21,21 @@ class App extends Component {
 
   }
 
-  componentDidMount() {
-    $.ajax({
-      url: '/items', 
-      type:"GET",
-      success: (data) => {
-        console.log(data)
-        this.setState({
-          items: data
-        })
-      },
-      error: (err) => {
-        console.log('err', err);
-      }
-    });
-  }
+  // componentDidMount() {
+  //   $.ajax({
+  //     url: '/items', 
+  //     type:"GET",
+  //     success: (data) => {
+  //       console.log(data)
+  //       this.setState({
+  //         items: data
+  //       })
+  //     },
+  //     error: (err) => {
+  //       console.log('err', err);
+  //     }
+  //   });
+  // }
   render() {
     return (
 
@@ -54,7 +55,7 @@ class App extends Component {
     )}}
   />
 <Route path='/About' component={About} />
-<Route path component={Error} />
+<Route path='/create' component={Create} />
 </Switch>
 </div>
 </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const Home=(props)=>{
  const content = props.items.map((item) =>
     <div className="images">
@@ -47,6 +48,7 @@ const Home=(props)=>{
               </div>
     )
 }
+
 
 export default Home
 
