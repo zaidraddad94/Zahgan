@@ -278,4 +278,36 @@ app.get('/api/account/verify', (req, res, next) => {
 				})
 			}
 		})
-	});
+  });
+  
+  // User Logout
+app.get('/api/account/logout', (req, res, next) => {
+		// Get the token
+		const { query } = req;
+		const { token } = query;
+		// ?token = test
+
+		// Verify the token is one of a kind and is not deleted
+
+		UserSession.findOneAndUpdate({
+			_id: token,
+			isDeleted: false
+		}, {
+			$set: {
+				isDeleted:true
+			}
+		}, null, (err, sessions) => {
+			if (err) {
+				return res.send({
+					success: false,
+					message: 'Error: server error'
+				});
+			}
+
+			return res.send({
+				success: true,
+				message: 'Good'
+			})
+
+		})
+  });
