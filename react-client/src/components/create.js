@@ -20,25 +20,27 @@ class Create extends React.Component {
   
 
   handleSubmit(event) {
-    var obj = {host: this.state.host,
-    event:this.state.event,
-    description : this.state.description,
-    photo : this.state.photo,
-    sets: this.state.sets,
+    var obj = {creatorName: this.state.host,
+      eventName:this.state.event,
+      des : this.state.description,
+      url : this.state.photo,
+      availableSeats: this.state.sets,
     date:this.state.date,
-    location : this.state.location ,
+    eventLocation : this.state.location ,
+    attending:[]
     }
-     
+    
+     console.log(obj)
     $.ajax({
       type: "POST",
       url: '/create',
-      data: {data:obj},
+      data: {obj},
       success: function (xxx){
         console.log(xxx)
         } 
      });
 
-    alert('A name was submitted: ' + obj.host );
+    alert(obj.eventName + 'saved !' );
     event.preventDefault();
   }
 

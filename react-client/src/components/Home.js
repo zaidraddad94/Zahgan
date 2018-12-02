@@ -1,19 +1,6 @@
 import React from 'react'
 
-<<<<<<< HEAD
-class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {value: ''};
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({value: event.target.value});
-  }
-=======
 const Home=(props)=>{
  const content = props.items.map((item) =>
     <div className="images">
@@ -61,24 +48,7 @@ const Home=(props)=>{
               </div>
     )
 }
->>>>>>> d17d83d82f6daeb35724a0126e7c2b13f5356dda
 
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
-    event.preventDefault();
-  }
 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
-    );
-  }
-}
 export default Home
 

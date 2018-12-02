@@ -1,51 +1,41 @@
-const mongoose = require ('mongoose');
+const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// mongoose.connect('mongodb://localhost/RBKevent');
 
-// var db = mongoose.connection;
-
-// db.on('error', function() {
-//   console.log('mongoose connection error');
-// });
-
-// db.once('open', function() {
-// console.log('mongoose connected successfully');
-// });
 
 const EventSchema = new Schema({
-  creatorName : {
-    type : String,
-    required :[true,'Name Field is Required']
-},
-eventName : {
-    type : String,
-    required :[true,'Name Field is Required']
-},
-des : {
-    type : String,
-    required :[true,'Name Field is Required']
-},
-url : {
-    type: String,
-    required :[true,'Name Field is Required']
-},
-date : {
-    type : String,
-    required :[true,'Name Field is Required']
-},
-availableSeats : {
-    type : Number,
-    required :[true,'Name Field is Required']
+    creatorName: {
+        type: String,
+        required: [true, 'Name Field is Required']
+    },
+    eventName: {
+        type: String,
+        required: [true, 'Name Field is Required']
+    },
+    des: {
+        type: String,
+        required: [true, 'Name Field is Required']
+    },
+    url: {
+        type: String,
+        required: [true, 'Name Field is Required']
+    },
+    date: {
+        type: String,
+        required: [true, 'Name Field is Required']
+    },
+    availableSeats: {
+        type: Number,
+        required: [true, 'Name Field is Required']
 
-},
-eventLocation : {
-    type : String,
-    required :[true,'Name Field is Required']
-},
-attending : {
-    type : Array
-}
+    },
+    eventLocation: {
+        type: String,
+        required: [true, 'Name Field is Required']
+    },
+    attending: {
+        type: Array
+    }
 });
 
 var Event = mongoose.model('Event', EventSchema);
