@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const bcrypt = require('bcrypt');
 
 const EventSchema = new Schema({
     creatorName: {
@@ -39,51 +38,7 @@ const EventSchema = new Schema({
 
 var Event = mongoose.model('Event', EventSchema);
 
-const UserSchema = new mongoose.Schema({
-    firstName: {
-      type: String,
-      default: ''
-    },
-    lastName: {
-      type: String,
-      default: ''
-    },
-    email: {
-      type: String,
-      default: ''
-    },
-    password: {
-      type: String,
-      default: ''
-    },
-    isDeleted: {
-      type: Boolean,
-      default: false
-    }
-  });
-  
-  UserSchema.methods.generateHash = function(password) {
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-  };
-  
-  UserSchema.methods.validPassword = function(password) {
-    return bcrypt.compareSync(password, this.password);
-  };
 
-  const UserSessionSchema = new mongoose.Schema({
-    userId: {
-      type: String,
-      default: ''
-    },
-    timeStamp: {
-          type: Date,
-          default: Date.now()
-      },
-      isDeleted: {
-          type: Boolean,
-          default: false
-      }
-  });
 
 // let save = (data ,cb) => {
 //        console.log('hhhhh',data[0].Name)
@@ -105,5 +60,3 @@ const UserSchema = new mongoose.Schema({
 // module.exports.selectAll = selectAll;
 // module.exports.save=save;
 module.exports = Event;
-module.exports = mongoose.model('User', UserSchema);
-module.exports = mongoose.model('UserSession', UserSessionSchema);
