@@ -5,15 +5,9 @@ import Nav from './components/Nav'
 import {BrowserRouter ,Route ,Switch} from 'react-router-dom'
 import Home from './components/Home'
 import About from './components/About'
-<<<<<<< HEAD
 import Error from './components/Error'
 import Event from './components/Event'
 import $ from 'jquery';
-=======
-
-import Create from './components/create'
-
->>>>>>> c246f3a4853a68db76d39fe50b1179893f29276c
 
 class App extends Component {
 
@@ -27,7 +21,6 @@ class App extends Component {
 
   }
 
-<<<<<<< HEAD
   componentDidMount() {
     $.ajax({
       url: '/items', 
@@ -44,23 +37,6 @@ class App extends Component {
       }
     });
   }
-=======
-  // componentDidMount() {
-  //   $.ajax({
-  //     url: '/items', 
-  //     type:"GET",
-  //     success: (data) => {
-  //       console.log(data)
-  //       this.setState({
-  //         items: data
-  //       })
-  //     },
-  //     error: (err) => {
-  //       console.log('err', err);
-  //     }
-  //   });
-  // }
->>>>>>> c246f3a4853a68db76d39fe50b1179893f29276c
   render() {
     return (
 
