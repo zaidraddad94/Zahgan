@@ -53,6 +53,8 @@ class App extends Component {
       <Home items={this.state.items} />
     )}}
   />
+<Route path='/About' component={About} />
+<Route path component={Error} />
 </Switch>
 </div>
 </div>
