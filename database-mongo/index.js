@@ -1,44 +1,63 @@
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://ashraf:ashraf123@ds163300.mlab.com:63300/testashraf');
-
-var db = mongoose.connection;
-
-db.on('error', function() {
-  console.log('mongoose connection error');
-});
-
-db.once('open', function() {
-console.log('mongoose connected successfully');
-});
-
-var itemSchema = mongoose.Schema({
-  Name: String,
-  HomeWork: String
-});
-
-var Student = mongoose.model('Student', itemSchema);
-// var save=Student(data).save(function(err){
-// if(err)throw err ;
-// console.log("saved")
-// })
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 
-let save = (data ,cb) => {
-       console.log('hhhhh',data[0].Name)
-    let student = new Student({Name:data[0].Name,HomeWork:data[0].HomeWork});
-    student.save();
-}
 
+const EventSchema = new Schema({
+    creatorName: {
+        type: String,
+        required: [true, 'Name Field is Required']
+    },
+    eventName: {
+        type: String,
+        required: [true, 'Name Field is Required']
+    },
+    des: {
+        type: String,
+        required: [true, 'Name Field is Required']
+    },
+    url: {
+        type: String,
+        required: [true, 'Name Field is Required']
+    },
+    date: {
+        type: String,
+        required: [true, 'Name Field is Required']
+    },
+    availableSeats: {
+        type: Number,
+        required: [true, 'Name Field is Required']
 
-var selectAll = function(callback) {
-  Student.find({}, function(err, items) {
-    if(err) {
-      callback(err, null);
-    } else {
-      callback(null, items);
+    },
+    eventLocation: {
+        type: String,
+        required: [true, 'Name Field is Required']
+    },
+    attending: {
+        type: Array
     }
-  });
-};
+});
 
-module.exports.selectAll = selectAll;
-module.exports.save=save
+var Event = mongoose.model('Event', EventSchema);
+
+
+// let save = (data ,cb) => {
+//        console.log('hhhhh',data[0].Name)
+//     let student = new Student({Name:data[0].Name,HomeWork:data[0].HomeWork});
+//     student.save();
+// }
+
+
+// var selectAll = function(callback) {
+//   Student.find({}, function(err, items) {
+//     if(err) {
+//       callback(err, null);
+//     } else {
+//       callback(null, items);
+//     }
+//   });
+// };
+
+// module.exports.selectAll = selectAll;
+// module.exports.save=save;
+module.exports = Event;

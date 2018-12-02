@@ -3,6 +3,7 @@ import {BrowserRouter ,Route ,Switch} from 'react-router-dom'
 import About from './About'
 import Event from './Event'
 
+
 const Home=(props)=>{
 
     return(
@@ -26,6 +27,7 @@ const Home=(props)=>{
               </div>
     )
 }
+
 
 export default Home
 
