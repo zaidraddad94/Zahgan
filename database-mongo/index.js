@@ -13,7 +13,7 @@ console.log('mongoose connected successfully');
 
 var itemSchema = mongoose.Schema({
   Name: String,
-  HomeWork: String
+  HomeWork: String,
 });
 
 var Student = mongoose.model('Student', itemSchema);
@@ -41,4 +41,5 @@ var selectAll = function(callback) {
 };
 
 module.exports.selectAll = selectAll;
-module.exports.save=save
+module.exports.save=save;
+module.exports.Student = Student;
