@@ -55,7 +55,11 @@ class App extends Component {
     )}}
   />
 <Route path='/About' component={About} />
+<<<<<<< HEAD
 <Route path='/create' component={Create} />
+=======
+<Route path component={Error} />
+>>>>>>> d17d83d82f6daeb35724a0126e7c2b13f5356dda
 </Switch>
 </div>
 </div>
