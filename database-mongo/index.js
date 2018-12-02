@@ -70,6 +70,20 @@ const UserSchema = new mongoose.Schema({
     return bcrypt.compareSync(password, this.password);
   };
 
+  const UserSessionSchema = new mongoose.Schema({
+    userId: {
+      type: String,
+      default: ''
+    },
+    timeStamp: {
+          type: Date,
+          default: Date.now()
+      },
+      isDeleted: {
+          type: Boolean,
+          default: false
+      }
+  });
 
 // let save = (data ,cb) => {
 //        console.log('hhhhh',data[0].Name)
@@ -92,3 +106,4 @@ const UserSchema = new mongoose.Schema({
 // module.exports.save=save;
 module.exports = Event;
 module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('UserSession', UserSessionSchema);
