@@ -6,6 +6,7 @@ import {BrowserRouter ,Route ,Switch} from 'react-router-dom'
 import Home from './components/Home'
 import About from './components/About'
 import Error from './components/Error'
+import Event from './components/Event'
 import $ from 'jquery';
 
 class App extends Component {
@@ -25,10 +26,11 @@ class App extends Component {
       url: '/items', 
       type:"GET",
       success: (data) => {
-        console.log(data)
+        console.log("my app data",data)
         this.setState({
           items: data
         })
+        console.log("this is my get data" ,this.state.items)
       },
       error: (err) => {
         console.log('err', err);

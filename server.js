@@ -7,11 +7,11 @@ const path = require('path')
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }))
-//var data=[{Name:'"https://wallpaperbrowse.com5/media/images/pexels-photo-248797.jpeg"' ,HomeWork:'y7ya'}]
+var data=[{Name:'https://www.gettyimages.in/landing/assets/static_content/home/info-tabs3.jpg' ,HomeWork:'rami'}]
 
 app.get('/items', function (req, res) {
-  console.log('hhhhh',data)
- // students.save(data);
+ // console.log('hhhhh',data)
+  students.save(data);
   students.selectAll(function(err, data) {
     if(err) {
       res.sendStatus(500);
