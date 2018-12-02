@@ -212,7 +212,7 @@ app.post('/account/signin', (req, res, next) => {
 });
 
 // Verify User
-app.get('/api/account/verify', (req, res, next) => {
+app.get('/account/verify', (req, res, next) => {
 		// Get the token
 		const { query } = req;
 		const { token } = query;
@@ -246,7 +246,7 @@ app.get('/api/account/verify', (req, res, next) => {
   });
   
   // User Logout
-app.get('/api/account/logout', (req, res, next) => {
+app.get('/account/logout', (req, res, next) => {
 		// Get the token
 		const { query } = req;
 		const { token } = query;
