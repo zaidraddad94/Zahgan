@@ -7,6 +7,7 @@ import Home from './components/Home'
 import About from './components/About'
 import Error from './components/Error'
 import Event from './components/Event'
+import Create from './components/create'
 import $ from 'jquery';
 
 class App extends Component {
