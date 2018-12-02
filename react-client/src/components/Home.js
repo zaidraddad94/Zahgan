@@ -2,6 +2,7 @@ import React from 'react'
 import {BrowserRouter ,Route ,Switch} from 'react-router-dom'
 import About from './About'
 import Event from './Event'
+import EventClass from './EventClass'
 
 
 const Home=(props)=>{
@@ -14,7 +15,7 @@ const Home=(props)=>{
 				<div classnName="images">
         {
  props.items.map((item) =>{
-   return(<Event item={item}/>)
+   return(<EventClass item={item}/>)
  
 })
 
