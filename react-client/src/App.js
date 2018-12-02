@@ -23,7 +23,7 @@ class App extends Component {
 
   componentDidMount() {
     $.ajax({
-      url: '/items', 
+      url: '/create', 
       type:"GET",
       success: (data) => {
         console.log("my app data",data)
