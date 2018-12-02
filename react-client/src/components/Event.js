@@ -16,8 +16,8 @@ const Event=(props)=>{
         <div>
        <div className="container">
        <div className="images">
-      <a href="#" data-toggle="modal" data-target="#modalYT"> <img src={props.item.Name}></img></a>
-      <div className="content">{props.item.HomeWork}</div>
+      <a href="#" data-toggle="modal" data-target="#modalYT"> <img src={props.item.url}></img></a>
+      <div className="content">{props.item.eventName}</div>
       </div>
       </div>
 
@@ -39,8 +39,8 @@ const Event=(props)=>{
 
       <div class="modal-body mb-0 p-0">
       <div className="images-popup">
-       <img src={props.item.Name}></img></div>
-       <div className="popup-desc">{props.item.HomeWork}</div>
+       <img src={props.item.url}></img></div>
+       <div className="popup-desc">{props.item.eventName}</div>
       
       </div>
 
