@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
-
 const EventSchema = new Schema({
     creatorName: {
         type: String,
@@ -39,6 +37,7 @@ const EventSchema = new Schema({
 });
 
 var Event = mongoose.model('Event', EventSchema);
+
 
 
 // let save = (data ,cb) => {
