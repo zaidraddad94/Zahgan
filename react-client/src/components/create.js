@@ -9,7 +9,7 @@ class Create extends React.Component {
         host: '',
         event: '',
         description: '',
-        photo: '',
+        photo1: '',
         sets: '',
         date: '',
         location: '',
@@ -43,7 +43,7 @@ class Create extends React.Component {
         creatorName: this.state.host,
         eventName: this.state.event,
         des: this.state.description,
-        url: this.state.photo,
+        url: this.state.photo1 , 
         availableSeats: this.state.sets,
         date: this.state.date,
         eventLocation: this.state.location,
@@ -90,40 +90,40 @@ class Create extends React.Component {
       return zz
     }
 
-    x(props) {
-      var t = props.state.items.length - 1
-      var z = props.state.items[t]
-      var zz = 0
-      for (var key in z) {
-        if (key === 'attending') {
+    // x(props) {
+    //   var t = props.state.items.length - 1
+    //   var z = props.state.items[t]
+    //   var zz = 0
+    //   for (var key in z) {
+    //     if (key === 'attending') {
 
-          zz = z[key].length
-        }
-      }
-      return zz
-        }
+    //       zz = z[key].length
+    //     }
+    //   }
+    //   return zz
+    //     }
 
     viewlest(props) {
-      var x = ""
+      var counter = ""
 
       var c = function (i) {
         console.log(i.availableSeats)
-        var xx = i.availableSeats - i.attending.length
+        var avalblsets = i.availableSeats - i.attending.length
 
-        x = x + `${i.eventName} : ${xx}/${i.availableSeats}   `
+        counter = counter + `${i.eventName} : ${avalblsets}/${i.availableSeats}   `
       }
       for (var i = 0; i < props.state.items.length; i++) {
         c(props.state.items[i])
       }
 
-      return x
+      return counter
     }
 
   render() {
     return (
       <div id="zz" className="container-fluid" >
       <div className="container-fluid">evnts : {this.state.items.length}</div>
-      <h6 className="container-fluid" > remaning sets for each event  : {"\n"} <h6>{this.viewlest(this)}</h6></h6>
+      <h6 className="container-fluid" > remaning sets for each event  : {"\n"} <h6>{ this.viewlest(this)}</h6></h6>
      
      
       
@@ -147,10 +147,10 @@ class Create extends React.Component {
         value={this.state.description}
         onChange={e=>this.setState({description:e.target.value})}/>
         <br></br>
-        photo URL :<input 
+        photo URL  :<input 
         placeholder="URL"
-        value={this.state.photo}
-        onChange={e=>this.setState({photo:e.target.value})}/>
+        value={this.state.photo1}
+        onChange={e=>this.setState({photo1:e.target.value})}/>
         <br></br>
         sets available  :     <input 
         placeholder="sets"
