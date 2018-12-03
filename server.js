@@ -98,6 +98,7 @@ app.listen(process.env.PORT || 4000, function () {
 
 // Signup User
 app.post('/account/signup', (req, res, next) => {
+  // console.log(req.body);
   const { body } = req;
   const {
     firstName,

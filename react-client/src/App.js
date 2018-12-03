@@ -9,6 +9,8 @@ import Error from './components/Error'
 import Event from './components/Event'
 import Create from './components/create'
 import $ from 'jquery';
+import Signup from './components/Signup';
+import Signin from './components/Signin';
 
 
 
