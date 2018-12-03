@@ -9,6 +9,8 @@ import Error from './components/Error'
 import Event from './components/Event'
 import Create from './components/create'
 import $ from 'jquery';
+import Signup from './components/Signup';
+import Signin from './components/Signin';
 
 class App extends Component {
 
@@ -58,6 +60,8 @@ class App extends Component {
   />
 <Route path='/About' component={About} />
 <Route path='/create' component={Create} />
+<Route path='/signup' component={Signup} />
+<Route path='/signin' component={Signin} />
 </Switch>
 </div>
 </div>
