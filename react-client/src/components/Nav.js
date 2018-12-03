@@ -9,8 +9,10 @@ const Nav=()=>{
             <li className="active"><a href="/home">Home</a></li>
             <li><a href="/about">about</a></li>
             <li><a href="#" data-toggle="modal" data-target="#myModal">Page 2</a></li>
-            <li><a href="#">Page 3</a></li>
             <li><a href="/create">create</a></li>
+            <li><a href="#">sign in</a></li>
+           < li><a href="#">sign up</a></li>
+            
           </ul>
        
       </nav>
