@@ -1,5 +1,6 @@
 import React from 'react'
 import $ from 'jquery';
+import EventClass from './EventClass'
 
 class Create extends React.Component {
     constructor(props) {
@@ -22,12 +23,12 @@ class Create extends React.Component {
 
 
     componentDidMount() {
-      var that = this
+     
       $.ajax({
         url: '/create',
         success: (data) => {
           console.log(data)
-          that.setState({
+          this.setState({
             items: data
           })
         },
@@ -95,35 +96,36 @@ class Create extends React.Component {
       var zz = 0
       for (var key in z) {
         if (key === 'attending') {
-          
+
           zz = z[key].length
         }
       }
       return zz
-    }
+        }
 
-viewlest(props) {
-  var x = ""
-  {
-    var c = function (i) {
-      console.log( i.availableSeats)
-       var xx= i.availableSeats - i.attending.length
-    
-      x = x +  `${i.eventName} : ${xx} / ${i.availableSeats}   \n `
+    viewlest(props) {
+      var x = ""
+
+      var c = function (i) {
+        console.log(i.availableSeats)
+        var xx = i.availableSeats - i.attending.length
+
+        x = x + `${i.eventName} : ${xx}/${i.availableSeats}   `
+      }
+      for (var i = 0; i < props.state.items.length; i++) {
+        c(props.state.items[i])
+      }
+
+      return x
     }
-    for (var i = 0; i < props.state.items.length; i++) {
-      c(props.state.items[i])
-    }
-  }
-return x
-}
 
   render() {
     return (
-      <div id="zz">
-      <h6> remaning sets for each event  : {"\n"} <h6>{this.viewlest(this)}</h6></h6>
-      <div className='dashbord'>evnts : {this.state.items.length}</div>
-      
+      <div id="zz" className="container-fluid" >
+      <div className="container-fluid">evnts : {this.state.items.length}</div>
+      <h6 className="container-fluid" > remaning sets for each event  : {"\n"} <h6>{this.viewlest(this)}</h6></h6>
+     
+     
       
       
       

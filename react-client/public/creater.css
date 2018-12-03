@@ -20,3 +20,11 @@ input {
     background-color: rgb(93, 93, 97);
     text-align: center;
     }
+
+    .sss{
+        width: 100%;
+        padding: 10px;
+        border: 10px solid rgb(156, 12, 12);
+        margin: 0; 
+    }
+    
