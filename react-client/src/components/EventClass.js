@@ -32,19 +32,14 @@ class EventClass extends React.Component {
             <div>
            <div className="container">
            <div className="images">
-          <a href="#" data-toggle="modal" data-target="#modalYT" onClick={this.handleSubmit}> <img src={this.state.url}></img></a>
+          <a href="#" data-toggle="modal" data-target="#modalYT"  onClick={this.handleSubmit} onClick={ () => {this.props.bala()}} > <img src={this.state.url}></img></a>
           <div className="content">{this.state.eventName}</div>
           </div>
           </div>
     
     
     
-    
-    
-    
-    
-    
-    
+
     
     <div class="modal fade" id="modalYT" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
@@ -63,7 +58,7 @@ class EventClass extends React.Component {
          
           <div class="modal-footer justify-content-center flex-column flex-md-row">
             <span class="mr-4">Please Submit </span>
-            <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal" onClick={this.handleSubmit} onClick={ () => {this.props.bala()}}>Close</button>
             <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Submit</button>
     
     
@@ -81,3 +76,9 @@ class EventClass extends React.Component {
   }
 }
 export default EventClass
+
+
+
+//onClick={ () => {props.delete(props.item.id)}}
+
+//onClick={ () => {this.state.hello(this.state.item)}}
