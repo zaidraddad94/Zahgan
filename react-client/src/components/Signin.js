@@ -1,12 +1,14 @@
 import React from 'react'
 import $ from 'jquery';
+import {Redirect} from 'react-router-dom'
 
 class Signin extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
         email: '',
-        password: ''
+        password: '',
+        isLoggedIn: false
       };
 
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,9 +28,14 @@ class Signin extends React.Component {
           email: obj.email,
           password: obj.password
         },
-        success: function (res) {
+        success: (res) => {
           console.log(res)
           alert(res.message)
+          if (res.success){
+            this.setState({
+                isLoggedIn: true
+            })
+          }
         }
       });
 
@@ -37,6 +44,11 @@ class Signin extends React.Component {
     
 
   render() {
+      if (this.state.isLoggedIn) {
+        return  <Redirect to={{
+            pathname: '/Home',
+          }} />
+      }
     return (
       <div id="zz" className="container-fluid" >
       <h2> Sign in </h2>
