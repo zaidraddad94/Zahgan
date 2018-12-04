@@ -1,25 +1,9 @@
+   .textboxes-creator{
+        width:500px;
+        margin:1px;
+    }  
 
 
-input {
-    width: 40%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: 2px solid rgb(9, 0, 63);
-    border-radius: 4px;
-  
-}
-.dashbord{
-    display:inline-block;
-    margin:10px;
-    border:1px solid#eee;
-    box-shadow:1px 2px 2px #ccc;
-    width:200px;
-    padding:20px;
-    height:200px;
-    background-color: rgb(93, 93, 97);
-    text-align: center;
-    }
 
    
     

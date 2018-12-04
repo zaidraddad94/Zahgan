@@ -6,11 +6,12 @@ import {BrowserRouter ,Route ,Switch} from 'react-router-dom'
 import Home from './components/Home'
 import About from './components/About'
 import Error from './components/Error'
-import Event from './components/Event'
 import Create from './components/create'
 import $ from 'jquery';
 import Signup from './components/Signup';
 import Signin from './components/Signin';
+import Slideshow from './components/Slider/Slideshow';
+import Info from './components/Info';
 
 class App extends Component {
 
@@ -50,8 +51,10 @@ class App extends Component {
     
       <div>
       
+      <Info/>
       
       <Nav />
+      <Slideshow />
       <Switch>
   <Route path='/Home' render={()=>{
     return (
