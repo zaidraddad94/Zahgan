@@ -35,7 +35,7 @@ class EventClass extends React.Component {
       eventLocation: this.state.location,
       attending: []
     }
-    console.log("ashraf", obj)
+    
 
   }
 
@@ -71,12 +71,15 @@ class EventClass extends React.Component {
           
         </Modal>
         <div>
-          <div className="container">
+          <div className="my-events">
+         
             <div className="images">
+            
               <a href="#" onClick={this.showModal}>
                 <img src={this.state.items.url}></img></a>
               <div className="content">{this.state.items.eventName}</div>
-            </div>
+           
+              </div>
           </div>
 
 
