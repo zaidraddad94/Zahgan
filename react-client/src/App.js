@@ -6,11 +6,13 @@ import { browserHistory } from "react-router";
 import Home from './components/Home'
 import About from './components/About'
 import Error from './components/Error'
-import Event from './components/Event'
 import Create from './components/create'
 import $ from 'jquery';
 import Signup from './components/Signup';
 import Signin from './components/Signin';
+import Slideshow from './components/Slider/Slideshow';
+import Info from './components/Info';
+import Footer from './components/Footer';
 
 class App extends Component {
 
@@ -63,52 +65,37 @@ class App extends Component {
 
 
   render() {
-    console.log('authorized', this.state.authorized)
-    if (this.state.authorized) {
-      return (
+    return (
 
 
-        <BrowserRouter history={browserHistory}>
-          <div className="App">
-
-
-            <div>
-
-
-              <Nav />
-              <Switch>
-                <Route path='/Home' render={() => {
-                  return (
-                    <Home items={this.state.items} />
-                  )
-                }}
-                />
-                <Route path='/About' component={About} />
-                <Route path='/create' component={Create} />
-                <Route path='/signup' component={Signup} />
-              </Switch>
-            </div>
-          </div>
-        </BrowserRouter>
-
-
-      );
-    } else {
-      return (
-        <BrowserRouter history={browserHistory}>
-          <div className="App">
-            <div>
-              <Nav />
-              <Switch>
-                <Route path='/signin' component={Signin} />
-              </Switch>
-            </div>
-          </div>
-        </BrowserRouter>
-
-
-      );
-    }
+      <BrowserRouter>  
+      <div className="App">
+     
+    
+      <div>
+      
+      <Info/>
+      
+      <Nav />
+      
+      <Switch>
+  <Route path='/Home' render={()=>{
+    return (
+      <Home items={this.state.items} />
+    )}}
+  />
+<Route path='/About' component={About} />
+<Route path='/create' component={Create} />
+<Route path='/signup' component={Signup} />
+<Route path='/signin' component={Signin} />
+</Switch>
+</div>
+<Footer/>
+</div>
+      </BrowserRouter>
+    
+     
+    );
   }
 }
 

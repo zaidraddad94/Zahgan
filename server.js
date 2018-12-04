@@ -21,6 +21,7 @@ mongoose.Promise = global.Promise;
 
 var db = mongoose.connection;
 
+
 db.on('error', function () {
   console.log('mongoose connection error');
 });
@@ -42,11 +43,12 @@ app.get('/create', function (req, res, next) {
 //add new event to the db
 app.post('/create', function (req, res, next) {
 
-
   Event.create(req.body.obj).then(function (event) {;
     res.send(event)
   }).catch(next)
 });
+
+
 
 //update a event in the database
 app.put('/create/:id', function (req, res, next) {
@@ -223,7 +225,7 @@ app.post('/account/signin', (req, res, next) => {
     if(!user.validPassword(password)) {
       return res.send({
         success: false,
-        message: 'Error: invalid.'
+        message: 'Error: Invalid Password.'
       });
     }
 
@@ -237,7 +239,6 @@ app.post('/account/signin', (req, res, next) => {
           message: 'Error: server error.'
         });
       }
-      
       return res.send({
         success: true,
         message: 'Valid sign in',
