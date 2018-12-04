@@ -19,7 +19,7 @@ const Vision = () => {
                             </div>
                         </div>
                         <div class="service-content">
-                            <h3>design</h3>
+                            <h3>mission</h3>
                             <p>Our mission is to provide the best event services
                         <br />
                                 <u> <a href="/Mission">read more</a></u>
@@ -32,11 +32,11 @@ const Vision = () => {
                         <div class="service-icon red">
                             <div class="front-content">
                                 <i class="glyphicon glyphicon-globe	"></i>
-                                <h3>php</h3>
+                                <h3>vision</h3>
                             </div>
                         </div>
                         <div class="service-content">
-                            <h3>php developer</h3>
+                            <h3>vision</h3>
                             <p>Our mission is to provide the best event services
                         <br />
                                 <u>read more</u>
@@ -72,7 +72,7 @@ const Vision = () => {
                             <p>
                             Our team will be happy to help you contact us at
                             <br/>
-                                <u> 06-5515383 </u>
+                                <u> 06-xxxxxxx </u>
                             </p>                </div>
                     </div>
                 </div>
