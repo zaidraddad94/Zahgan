@@ -36,7 +36,8 @@ db.once('open', function () {
 
 // get a list for all events from the db
 app.get('/create', function (req, res, next) {
-  Event.find({}).then(function (events) {;
+  Event.find({}).then(function (events) {
+    ;
     res.send(events)
   }).catch(next)
 });
@@ -45,7 +46,8 @@ app.get('/create', function (req, res, next) {
 //add new event to the db
 app.post('/create', function (req, res, next) {
 
-  Event.create(req.body.obj).then(function (event) {;
+  Event.create(req.body.obj).then(function (event) {
+    ;
     res.send(event)
   }).catch(next)
 });
@@ -54,12 +56,14 @@ app.post('/create', function (req, res, next) {
 
 //update a event in the database
 app.put('/create/:id', function (req, res, next) {
+  console.log("hello world")
   Event.findByIdAndUpdate({
     _id: req.params.id
   }, req.body).then(function () {
     Event.findOne({
       _id: req.params.id
     }).then(function (event) {
+      console.log('eeee',event)
       res.send(event);
 
     })
@@ -69,6 +73,7 @@ app.put('/create/:id', function (req, res, next) {
 
 //delete a event in  the database
 app.delete('/create/:id', function (req, res, next) {
+
   Event.findByIdAndRemove({
     _id: req.params.id
   }).then(function (event) {
@@ -224,7 +229,7 @@ app.post('/account/signin', (req, res, next) => {
     }
 
     const user = users[0];
-    if(!user.validPassword(password)) {
+    if (!user.validPassword(password)) {
       return res.send({
         success: false,
         message: 'Error: Invalid Password.'
@@ -252,39 +257,39 @@ app.post('/account/signin', (req, res, next) => {
 
 // Verify User
 app.get('/account/verify', (req, res, next) => {
-		// Get the token
-		const { query } = req;
-		const { token } = query;
-		// ?token = test
+  // Get the token
+  const { query } = req;
+  const { token } = query;
+  // ?token = test
 
-		// Verify the token is one of a kind and is not deleted
+  // Verify the token is one of a kind and is not deleted
 
-		UserSession.find({
-			_id: token,
-			isDeleted: false
-		}, (err, sessions) => {
-			if (err) {
-				return res.send({
-					success: false,
-					message: 'Error: server error'
-				});
-			}
+  UserSession.find({
+    _id: token,
+    isDeleted: false
+  }, (err, sessions) => {
+    if (err) {
+      return res.send({
+        success: false,
+        message: 'Error: server error'
+      });
+    }
 
-			if (sessions.length != 1) {
-				return res.send({
-					success: false,
-					message: 'Error: Invalid'
-				});
-			} else {
-				return res.send({
-					success: true,
-					message: 'Good'
-				})
-			}
-		})
-  });
-  
-  // User Logout
+    if (sessions.length != 1) {
+      return res.send({
+        success: false,
+        message: 'Error: Invalid'
+      });
+    } else {
+      return res.send({
+        success: true,
+        message: 'Good'
+      })
+    }
+  })
+});
+
+// User Logout
 app.get('/account/logout', (req, res, next) => {
 		// Get the token
 		const { query } = req;

@@ -13,6 +13,8 @@ import Signin from './components/Signin';
 import Slideshow from './components/Slider/Slideshow';
 import Info from './components/Info';
 import Footer from './components/Footer';
+import SignInCreator from './components/SignInCreator';
+
 
 class App extends Component {
 
@@ -31,11 +33,11 @@ class App extends Component {
       url: '/create', 
       type:"GET",
       success: (data) => {
-        console.log("my app data",data)
+       
         this.setState({
           items: data
         })
-        console.log("this is my get data" ,this.state.items)
+        
       },
       error: (err) => {
         console.log('err', err);
@@ -63,7 +65,7 @@ class App extends Component {
     )}}
   />
 <Route path='/About' component={About} />
-<Route path='/create' component={Create} />
+<Route path='/SignInCreator' component={SignInCreator} />
 <Route path='/signup' component={Signup} />
 <Route path='/signin' component={Signin} />
 </Switch>
