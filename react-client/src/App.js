@@ -12,6 +12,7 @@ import Signup from './components/Signup';
 import Signin from './components/Signin';
 import Slideshow from './components/Slider/Slideshow';
 import Info from './components/Info';
+import Footer from './components/Footer';
 
 class App extends Component {
 
@@ -54,7 +55,7 @@ class App extends Component {
       <Info/>
       
       <Nav />
-      <Slideshow />
+      
       <Switch>
   <Route path='/Home' render={()=>{
     return (
@@ -67,9 +68,10 @@ class App extends Component {
 <Route path='/signin' component={Signin} />
 </Switch>
 </div>
+<Footer/>
 </div>
       </BrowserRouter>
-     
+    
      
     );
   }
