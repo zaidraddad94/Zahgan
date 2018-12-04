@@ -32,7 +32,7 @@ class EventClass extends React.Component {
             <div>
            <div className="container">
            <div className="images">
-          <a href="#" data-toggle="modal" data-target="#modalYT"  onClick={this.handleSubmit} onClick={ () => {this.props.bala()}} > <img src={this.state.url}></img></a>
+          <a href="#" data-toggle="modal" data-target="#modalYT"  onClick={this.handleSubmit} > <img src={this.state.url}></img></a>
           <div className="content">{this.state.eventName}</div>
           </div>
           </div>
@@ -58,7 +58,7 @@ class EventClass extends React.Component {
          
           <div class="modal-footer justify-content-center flex-column flex-md-row">
             <span class="mr-4">Please Submit </span>
-            <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal" onClick={this.handleSubmit} onClick={ () => {this.props.bala()}}>Close</button>
+            <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal" onClick={this.handleSubmit}>Close</button>
             <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Submit</button>
     
     

@@ -3,51 +3,38 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import About from './About'
 import Event from './Event'
 import EventClass from './EventClass'
+import Create from './create'
 
 
-class Home extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = false;
-    this.bala = this.bala.bind(this);
-  }
 
-  bala() {
-    this.state = !this.state
-    console.log('bbbbb', this.state)
-  }
+const Home = (props) => {
 
-  render() {
-    if (this.state) {
-       return(
-         <h1>hello world</h1>
-       )
-      
-    
-    } else {
-      return (
+  return (
 
-        <div>
+    <div>
 
-          <div className="container-fluid" >
-            <div classnName="images">
-              {
-                this.props.items.map((item) => {
-                  return (<EventClass item={item} bala={this.bala} />)
+      <div className="container-fluid" >
+        <div classnName="images">
+          {
+            props.items.map((item) => {
+              return (
+                <div>
+                  <EventClass item={item} />
+                </div>
+              )
 
-                })
+            })
 
-              }
-
-            </div>
-
-          </div>
+          }
 
         </div>
-      )
-    }
-  }
 
+      </div>
+
+    </div>
+  )
 }
+
+
 export default Home
 
