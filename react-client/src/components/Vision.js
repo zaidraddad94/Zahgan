@@ -1,6 +1,9 @@
 import React from 'react'
 import zahgan from './zahgan.jpg';
 import Mission from './pages/Mission'
+import location from './pages/location'
+import vision from './pages/vision'
+
 
 const Vision = () => {
 
@@ -8,7 +11,7 @@ const Vision = () => {
 
 
         <div class="container">
-            <h1>Service box</h1>
+            <br/>
             <div class="row">
                 <div class="col-md-3 col-sm-6 ">
                     <div class="service-box">
@@ -39,7 +42,7 @@ const Vision = () => {
                             <h3>vision</h3>
                             <p>Our mission is to provide the best event services
                         <br />
-                                <u>read more</u>
+                                <u><a href="/vision">read more</a></u>
                             </p>                </div>
                     </div>
                 </div>
@@ -47,15 +50,15 @@ const Vision = () => {
                     <div class="service-box ">
                         <div class="service-icon red">
                             <div class="front-content">
-                                <i class="fa fa-trophy"></i>
-                                <h3>Ui Developer</h3>
+                                <i class="glyphicon glyphicon-map-marker"></i>
+                                <h3>location</h3>
                             </div>
                         </div>
                         <div class="service-content">
-                            <h3>Developer</h3>
-                            <p>Our mission is to provide the best event services
-                        <br />
-                                <u>read more</u>
+                            <h3>location</h3>
+                            <p>Our team will be happy to meet you 
+                                <br/><u><a href="/location"> Our location</a></u>
+
                             </p>                </div>
                     </div>
                 </div>
@@ -70,7 +73,7 @@ const Vision = () => {
                         <div class="service-content">
                             <h3>Help</h3>
                             <p>
-                            Our team will be happy to help you contact us at
+                            Do you need help? <br/> Our team will be happy to help you contact us at
                             <br/>
                                 <u> 06-xxxxxxx </u>
                             </p>                </div>
