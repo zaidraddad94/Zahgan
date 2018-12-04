@@ -23,7 +23,7 @@ class SignInCreator extends React.Component {
       console.log(obj)
       $.ajax({
         type: "POST",
-        url: '/account/signin',
+        url: '/creator/signin',
         data: {
           email: obj.email,
           password: obj.password
@@ -46,7 +46,7 @@ class SignInCreator extends React.Component {
   render() {
       if (this.state.isLoggedIn) {
         return  <Redirect to={{
-            pathname: '/Home',
+            pathname: '/create',
           }} />
       }
     return (

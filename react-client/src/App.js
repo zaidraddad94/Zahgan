@@ -66,7 +66,11 @@ class App extends Component {
   />
 <Route path='/About' component={About} />
 <Route path='/SignInCreator' component={SignInCreator} />
+<<<<<<< HEAD
 <Route path='/Create' component={Create} />
+=======
+<Route path='/create' component={Create} />
+>>>>>>> 223a8a21dbbb869e7c986890eacb7a0123fc1fff
 <Route path='/signup' component={Signup} />
 <Route path='/signin' component={Signin} />
 </Switch>
