@@ -103,7 +103,7 @@ class EventClass extends React.Component {
               <div className="row">
             <div className="col-sm-3"> <p>Event Location</p></div>
               <div className="col-sm-3">{this.state.items.eventLocation}</div></div>
-              <button type="submit" onClick={this.handleSubmit} onClick={this.showModal}>submit</button>
+              <button type="submit" onClick={this.handleSubmit} >submit</button>
           </div>
           
         </Modal>

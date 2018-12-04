@@ -13,6 +13,8 @@ import Signin from './components/Signin';
 import Slideshow from './components/Slider/Slideshow';
 import Info from './components/Info';
 import Footer from './components/Footer';
+import SignInCreator from './components/SignInCreator';
+
 
 class App extends Component {
 
@@ -63,7 +65,7 @@ class App extends Component {
     )}}
   />
 <Route path='/About' component={About} />
-<Route path='/create' component={Create} />
+<Route path='/SignInCreator' component={SignInCreator} />
 <Route path='/signup' component={Signup} />
 <Route path='/signin' component={Signin} />
 </Switch>

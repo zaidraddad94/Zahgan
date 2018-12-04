@@ -61,6 +61,7 @@ app.put('/create/:id', function (req, res, next) {
     Event.findOne({
       _id: req.params.id
     }).then(function (event) {
+      console.log('eeee',event)
       res.send(event);
 
     })

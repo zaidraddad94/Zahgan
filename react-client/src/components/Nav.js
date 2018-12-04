@@ -12,7 +12,7 @@ const Nav=()=>{
             <li><a href="/about">About</a></li>
             <li><a href="#">Contact us</a></li>
             <img src={zahgan}></img>
-            <li><a href="/create">Create</a></li>
+            <li><a href="/SignInCreator">Create</a></li>
             <li><a href="/signin">Sign in</a></li>
            
            
