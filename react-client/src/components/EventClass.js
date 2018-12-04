@@ -39,15 +39,18 @@ class EventClass extends React.Component {
     console.log("my items ana wy7ya",id)
     //var array =[obj]
    //var array= this.state.items.attending
-   getComputedStyle. this.state.items.attending.push(obj);
+   //getComputedStyle. 
+   this.state.items.attending.push(obj);
+   this.state.items.availableSeats=this.state.items.availableSeats-1
+
    
-   console.log('yahya',this.state.items)
+    var yahya=this.state.items
      var y7ya ='/create/'+id;
     
     $.ajax({
       type: "PUT",
       url: '/create/'+id,
-      data:obj,
+      data:yahya,
       success: function (data) {
         console.log("my data",data)
       }
@@ -103,7 +106,7 @@ class EventClass extends React.Component {
               <div className="row">
             <div className="col-sm-3"> <p>Event Location</p></div>
               <div className="col-sm-3">{this.state.items.eventLocation}</div></div>
-              <button type="submit" onClick={this.handleSubmit} >submit</button>
+              <button type="submit" onClick={this.handleSubmit} onClick={this.showModal} >submit</button>
           </div>
           
         </Modal>
