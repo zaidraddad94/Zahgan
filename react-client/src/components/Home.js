@@ -7,6 +7,7 @@ import Create from './create'
 import Slideshow from './Slider/Slideshow';
 import Vision from './Vision';
 const Home=(props)=>{
+  console.log('hhhh',props.items)
 
     return(
        

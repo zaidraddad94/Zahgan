@@ -32,29 +32,11 @@ class App extends Component {
       url: '/create',
       type: "GET",
       success: (data) => {
-        console.log("my app data", data)
+       
         this.setState({
           items: data
         })
-        console.log("this is my get data", this.state.items)
-      },
-      error: (err) => {
-        console.log('err', err);
-      }
-    });
-  }
-
-
-  componentDidMount() {
-    $.ajax({
-      url: '/account/verify',
-      type: "GET",
-      success: (data) => {
-        console.log("hello world", data)
-        this.setState({
-          authorized: data.success
-        })
-
+        
       },
       error: (err) => {
         console.log('err', err);
