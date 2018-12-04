@@ -1,52 +1,97 @@
 import React from 'react'
 import $ from 'jquery';
+import Modal from './Modal/Modal'
+
 
 class EventClass extends React.Component {
   constructor(props) {
     super(props);
-    this.state = props.item;
+    this.state = {
+      items: props.item,
+      show: false
+    }
 
-   
+
+
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  
+  showModal = () => {
+    this.setState({
+      ...this.state,
+      show: !this.state.show
+    });
+
+  }
 
   handleSubmit(event) {
-    var obj = {creatorName: this.state.host,
-      eventName:this.state.event,
-      des : this.state.description,
-      url : this.state.photo,
+    var obj = {
+      creatorName: this.state.host,
+      eventName: this.state.event,
+      des: this.state.description,
+      url: this.state.photo,
       availableSeats: this.state.sets,
-    date:this.state.date,
-    eventLocation : this.state.location ,
-    attending:[]
+      date: this.state.date,
+      eventLocation: this.state.location,
+      attending: []
     }
-    console.log("ashraf",obj)
+    
 
   }
 
   render() {
-    console.log("this is event class state",this.state)
-        return(
-            <div>
-           <div className="container">
-           <div className="images">
-          <a href="#" data-toggle="modal" data-target="#modalYT" onClick={this.handleSubmit}> <img src={this.state.url}></img></a>
-          <div className="content">{this.state.eventName}</div>
+    console.log("my item", this.state.items)
+
+
+    return (
+      <div>
+        <Modal
+          show={this.state.show}
+          onClose={this.showModal}>
+          <div className="container-fluid">
+            <div className="Popup-images">
+              <img src={this.state.items.url}></img></div>
+            <div className="row">
+              <div className="col-sm-3"> <p>Event Name</p></div>
+              <div className="col-sm-3">{this.state.items.eventName}</div>
+              <div className="col-sm-2">Name</div>
+              <div className="col-sm-4"><input type="text"></input></div>
+            </div>
+            <div className="row">
+            <div className="col-sm-3"> <p>Event Description</p></div>
+              <div className="col-sm-3">{this.state.items.des}</div>
+              <div className="col-sm-2">Phone</div>
+              <div className="col-sm-4"><input type="text"></input></div>
+              </div>
+              
+              <div className="row">
+            <div className="col-sm-3"> <p>Event Location</p></div>
+              <div className="col-sm-3">{this.state.items.eventLocation}</div></div>
           </div>
+          
+        </Modal>
+        <div>
+          <div className="my-events">
+         
+            <div className="images">
+            
+              <a href="#" onClick={this.showModal}>
+                <img src={this.state.items.url}></img></a>
+              <div className="content">{this.state.items.eventName}</div>
+           
+              </div>
           </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="modal fade" id="modalYT" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+          {/* <div class="modal fade" id="modalYT" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
     
     
@@ -75,8 +120,9 @@ class EventClass extends React.Component {
       </div>
     </div>
     
-          </div>
-        
+          </div> */}
+        </div>
+      </div>
     );
   }
 }

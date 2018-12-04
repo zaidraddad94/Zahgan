@@ -48,6 +48,8 @@ app.post('/create', function (req, res, next) {
   }).catch(next)
 });
 
+
+
 //update a event in the database
 app.put('/create/:id', function (req, res, next) {
   Event.findByIdAndUpdate({
