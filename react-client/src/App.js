@@ -54,7 +54,7 @@ class App extends Component {
       <Info/>
       
       <Nav />
-      <Slideshow />
+      
       <Switch>
   <Route path='/Home' render={()=>{
     return (
