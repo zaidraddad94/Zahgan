@@ -125,9 +125,9 @@ class Create extends React.Component {
 
   render() {
     return (
-
-      <div className="row m-1">
-        <div className="col-md-9">
+<div className="container-fluid">
+      <div className="row ">
+        <div className="col-md-7">
           <div className=" container border">
             <div className=" row ">
               <h4 className="col-sm-12 border p-3 mb-2 bg-primary text-white"> Create a new event </h4>
@@ -221,9 +221,8 @@ class Create extends React.Component {
           </div>
         </div>
 
-
-        <div className="col-md-3">
-          <div className=" container ">
+        <div className="col-md-4">
+         
             <div class="list-group">
               <h6 class="list-group-item active main-color-bg">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
@@ -231,7 +230,7 @@ class Create extends React.Component {
               <h6 className="list-group-item"><span className="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Number of your events : <h6 class="badge"> {this.state.items.length} </h6></h6>
               <h6 className="list-group-item"><span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>Remaning seats for each event <h6 class="badge"> {this.viewlest(this)} </h6></h6>
             </div>
-          </div>
+       
 
         </div>
 
@@ -239,6 +238,8 @@ class Create extends React.Component {
 
 
       </div>
+      </div>
+
     );
   }
 }

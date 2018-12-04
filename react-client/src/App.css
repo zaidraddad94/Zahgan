@@ -115,20 +115,19 @@ height: 600px;
     width: 100%;
 
   }
-  .info{
-    overflow: auto;
-    background-color: white;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 3;
-    height: 70px;
+ 
   
     
-  }
+  
   .my-events{
     margin: auto;
     width: 70%;
+  }
+  .container-fluid{
+    margin-top: 50px;
+ 
+  
+
   }
 
    
