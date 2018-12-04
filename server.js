@@ -317,203 +317,203 @@ app.get('/account/logout', (req, res, next) => {
   });
 
 
-// // Signup Creator
-// app.post('/creator/signup', (req, res, next) => {
-//   // console.log(req.body);
-//   const { body } = req;
-//   const {
-//     password
-//   } = body;
-//   let {
-//     email
-//   } = body;
+// Signup Creator
+app.post('/creator/signup', (req, res, next) => {
+  // console.log(req.body);
+  const { body } = req;
+  const {
+    password
+  } = body;
+  let {
+    email
+  } = body;
 
-//   if (!email) {
-//     return res.send({
-//       success: false,
-//       message: 'Error: Email cannot be blank.'
-//     });
-//   }
-//   if (!password) {
-//     return res.send({
-//       success: false,
-//       message: 'Error: Password cannot be blank.'
-//     });
-//   }
+  if (!email) {
+    return res.send({
+      success: false,
+      message: 'Error: Email cannot be blank.'
+    });
+  }
+  if (!password) {
+    return res.send({
+      success: false,
+      message: 'Error: Password cannot be blank.'
+    });
+  }
 
-//   console.log('here')
+  console.log('here')
 
-//   email = email.toLowerCase();
+  email = email.toLowerCase();
 
-//   // Steps:
-//   // 1. Verify email doesn't exist
-//   // 2. Save
-//   User.find({
-//     email: email,
-//   }, (err, previousUsers) => {
-//     if (err) {
-//       return res.send({
-//         success: false,
-//         message: 'Error: Server error.'
-//       })
-//     } else if (previousUsers.length > 0) {
-//       return res.send({
-//         success: false,
-//         message: 'Error: Account already exists.'
-//       });
-//     }
+  // Steps:
+  // 1. Verify email doesn't exist
+  // 2. Save
+  User.find({
+    email: email,
+  }, (err, previousUsers) => {
+    if (err) {
+      return res.send({
+        success: false,
+        message: 'Error: Server error.'
+      })
+    } else if (previousUsers.length > 0) {
+      return res.send({
+        success: false,
+        message: 'Error: Account already exists.'
+      });
+    }
 
-//     // Save the new user
-//     const newCreator = new Creator();
+    // Save the new user
+    const newCreator = new Creator();
 
-//     newCreator.email = email;
-//     newCreator.password = newCreator.generateHash(password);
-//     newCreator.save((err, user) => {
-//       if (err) {
-//         return res.send({
-//           success: false,
-//           message: 'Error: server error.'
-//         });
-//       }
-//       return res.send({
-//         success: true,
-//         message: 'Signed up'
-//       });
-//     });
-//   });
-// });
+    newCreator.email = email;
+    newCreator.password = newCreator.generateHash(password);
+    newCreator.save((err, user) => {
+      if (err) {
+        return res.send({
+          success: false,
+          message: 'Error: server error.'
+        });
+      }
+      return res.send({
+        success: true,
+        message: 'Signed up'
+      });
+    });
+  });
+});
 
 
-//   // Signin Creator
-// app.post('/creator/signin', (req, res, next) => {
-//   const { body } = req;
-//   const {
-//     password
-//   } = body;
-//   let {
-//     email
-//   } = body;
+  // Signin Creator
+app.post('/creator/signin', (req, res, next) => {
+  const { body } = req;
+  const {
+    password
+  } = body;
+  let {
+    email
+  } = body;
 
-//   if (!email) {
-//     return res.send({
-//       success: false,
-//       message: 'Error: Email cannot be blank.'
-//     });
-//   }
-//   if (!password) {
-//     return res.send({
-//       success: false,
-//       message: 'Error: Password cannot be blank.'
-//     });
-//   }
+  if (!email) {
+    return res.send({
+      success: false,
+      message: 'Error: Email cannot be blank.'
+    });
+  }
+  if (!password) {
+    return res.send({
+      success: false,
+      message: 'Error: Password cannot be blank.'
+    });
+  }
 
-//   email = email.toLowerCase();
+  email = email.toLowerCase();
 
-//   Creator.find({
-//     email: email
-//   }, (err, creators) => {
-//     if (err) {
-//       return res.send({
-//         success: false,
-//         message: 'Error: server error.'
-//       });
-//     }
-//     if (creators.length != 1) {
-//       return res.send({
-//         success: false,
-//         message: 'Error: invalid.'
-//       });
-//     }
+  Creator.find({
+    email: email
+  }, (err, creators) => {
+    if (err) {
+      return res.send({
+        success: false,
+        message: 'Error: server error.'
+      });
+    }
+    if (creators.length != 1) {
+      return res.send({
+        success: false,
+        message: 'Error: invalid.'
+      });
+    }
 
-//     const creator = creators[0];
-//     if(!creator.validPassword(password)) {
-//       return res.send({
-//         success: false,
-//         message: 'Error: Invalid Password.'
-//       });
-//     }
+    const creator = creators[0];
+    if(!creator.validPassword(password)) {
+      return res.send({
+        success: false,
+        message: 'Error: Invalid Password.'
+      });
+    }
 
-//     // Otherwise correct user
-//     const creatorSession = new CreatorSession();
-//     creatorSession.userId = creator._id;
-//     creatorSession.save((err, doc) => {
-//       if (err) {
-//         return res.send({
-//           success: false,
-//           message: 'Error: server error.'
-//         });
-//       }
-//       return res.send({
-//         success: true,
-//         message: 'Valid sign in',
-//         token: doc._id
-//       });
-//     })
-//   });
-// });
+    // Otherwise correct user
+    const creatorSession = new CreatorSession();
+    creatorSession.userId = creator._id;
+    creatorSession.save((err, doc) => {
+      if (err) {
+        return res.send({
+          success: false,
+          message: 'Error: server error.'
+        });
+      }
+      return res.send({
+        success: true,
+        message: 'Valid sign in',
+        token: doc._id
+      });
+    })
+  });
+});
 
-// // Verify Creator
-// app.get('/account/verify', (req, res, next) => {
-// 		// Get the token
-// 		const { query } = req;
-// 		const { token } = query;
-// 		// ?token = test
+// Verify Creator
+app.get('/account/verify', (req, res, next) => {
+		// Get the token
+		const { query } = req;
+		const { token } = query;
+		// ?token = test
 
-// 		// Verify the token is one of a kind and is not deleted
+		// Verify the token is one of a kind and is not deleted
 
-// 		CreatorSession.find({
-// 			_id: token,
-// 			isDeleted: false
-// 		}, (err, sessions) => {
-// 			if (err) {
-// 				return res.send({
-// 					success: false,
-// 					message: 'Error: server error'
-// 				});
-// 			}
+		CreatorSession.find({
+			_id: token,
+			isDeleted: false
+		}, (err, sessions) => {
+			if (err) {
+				return res.send({
+					success: false,
+					message: 'Error: server error'
+				});
+			}
 
-// 			if (sessions.length != 1) {
-// 				return res.send({
-// 					success: false,
-// 					message: 'Error: Invalid'
-// 				});
-// 			} else {
-// 				return res.send({
-// 					success: true,
-// 					message: 'Good'
-// 				})
-// 			}
-// 		})
-//   });
+			if (sessions.length != 1) {
+				return res.send({
+					success: false,
+					message: 'Error: Invalid'
+				});
+			} else {
+				return res.send({
+					success: true,
+					message: 'Good'
+				})
+			}
+		})
+  });
   
-//   // Creator Logout
-// app.get('/account/logout', (req, res, next) => {
-// 		// Get the token
-// 		const { query } = req;
-// 		const { token } = query;
-// 		// ?token = test
+  // Creator Logout
+app.get('/account/logout', (req, res, next) => {
+		// Get the token
+		const { query } = req;
+		const { token } = query;
+		// ?token = test
 
-// 		// Verify the token is one of a kind and is not deleted
+		// Verify the token is one of a kind and is not deleted
 
-// 		CreatorSession.findOneAndUpdate({
-// 			_id: token,
-// 			isDeleted: false
-// 		}, {
-// 			$set: {
-// 				isDeleted:true
-// 			}
-// 		}, null, (err, sessions) => {
-// 			if (err) {
-// 				return res.send({
-// 					success: false,
-// 					message: 'Error: server error'
-// 				});
-// 			}
+		CreatorSession.findOneAndUpdate({
+			_id: token,
+			isDeleted: false
+		}, {
+			$set: {
+				isDeleted:true
+			}
+		}, null, (err, sessions) => {
+			if (err) {
+				return res.send({
+					success: false,
+					message: 'Error: server error'
+				});
+			}
 
-// 			return res.send({
-// 				success: true,
-// 				message: 'Good'
-// 			})
+			return res.send({
+				success: true,
+				message: 'Good'
+			})
 
-// 		})
-//   });
+		})
+  });
