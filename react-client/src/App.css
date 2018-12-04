@@ -175,7 +175,7 @@ h1{
  padding: 20px;
  text-align: center;
  transition: all .5s ease;
- background-color: #474747;
+ background-color: #07163d;
  backface-visibility:hidden;
  transform-style: preserve-3d;
  -webkit-transform: translateY(110px) rotateX(-90deg);
@@ -196,13 +196,13 @@ h1{
 
 .service-box .service-icon .front-content i {
  font-size: 28px;
- color: #fff;
+ color: white;
  font-weight: normal;
 }
 
 .service-box .service-icon .front-content h3 {
  font-size: 15px;
- color: #fff;
+ color: white;
  text-align: center;
  margin-bottom: 15px;
  text-transform: uppercase;
@@ -210,19 +210,19 @@ h1{
 .service-box .service-content h3 {
  font-size: 15px;
  font-weight: 700;
- color: #fff;
+ color: white;
  margin-bottom:10px;
  text-transform: uppercase;
 }
 .service-box .service-content p {
  font-size: 13px;
- color: #b1b1b1;
+ color: white;
  margin:0;
 }
-.yellow{background-color: #ffc000;}
-.orange{background-color: #ffc000;}
-.red{background-color: #ffc000;}
-.grey{background-color: #ffc000;}
+.red{
+  background-color: #b50900;
+}
+
 .service-box:hover .service-icon{
  opacity: 0;
  -webkit-transform: translateY(-110px) rotateX(90deg);
