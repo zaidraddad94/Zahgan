@@ -4,7 +4,7 @@ const Mission =()=>{
 
     return( 
         <div className="mission">
-            <h1> Mission  </h1>
+            <h1> Our Mission  </h1>
 
         </div>
     )

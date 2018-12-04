@@ -4,7 +4,7 @@ const vision =()=>{
 
     return( 
         <div className="vision">
-            <h1>   </h1>
+            <h1> Our Vision  </h1>
 
         </div>
     )
