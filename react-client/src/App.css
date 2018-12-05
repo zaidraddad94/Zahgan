@@ -132,7 +132,9 @@ height: 600px;
   }
  
   
-    
+  .des {
+    overflow: auto;
+  }
   
   .my-events{
     margin: auto;

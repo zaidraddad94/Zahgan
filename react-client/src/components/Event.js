@@ -35,10 +35,8 @@ class Event extends React.Component {
                 <div className="images-popup">
                   <img src={this.props.item.url}></img></div>
                 <div className="popup-desc">{this.props.item.eventName}</div>
-
               </div>
-             
-            </div>
+           </div>
 
     )
   }

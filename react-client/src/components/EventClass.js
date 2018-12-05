@@ -108,13 +108,14 @@ class EventClass extends React.Component {
                 </div>
 
 
-
+              
                 <div className="form-group  row">
                   <label className="col-sm-4 col-form-label ">
                     Description</label>
-                  <div className="form-control col-sm-8 ">
+                  <div className="form-control col-sm-8 des ">
                     {this.state.items.des}
                   </div>
+                
                 </div>
 
                 <div className="form-group  row">
@@ -134,7 +135,6 @@ class EventClass extends React.Component {
 
 
               <div className='col-sm-6'>
-
                 <div className='row'>
                   <label className='col-sm-4 col-form-label'>
                     Insert Your Info:
