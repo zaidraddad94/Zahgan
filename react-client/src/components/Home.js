@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import About from './About'
+import Vision from './Vision'
 
 import EventClass from './EventClass'
 import Create from './create'

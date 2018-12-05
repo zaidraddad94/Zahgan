@@ -9,11 +9,13 @@ import Create from './components/create'
 import $ from 'jquery';
 import Signup from './components/Signup';
 import Signin from './components/Signin';
+import SignInCreator from './components/SignInCreator';
 import Slideshow from './components/Slider/Slideshow';
 
 import Footer from './components/Footer';
-import SignInCreator from './components/SignInCreator';
-import SimpleMap from './components/map';
+import Mission from './components/pages/Mission';
+import location from './components/pages/location';
+import vision from './components/pages/vision';
 
 
 class App extends Component {
@@ -74,6 +76,11 @@ class App extends Component {
 <Route path='/Create' component={Create} />
 <Route path='/signup' component={Signup} />
 <Route path='/signin' component={Signin} />
+<Route path='/mission' component={Mission}/>
+<Route path='/location' component={location}/>
+<Route path='/vision' component={vision}/>
+
+
 </Switch>
 </div>
 <Footer/>
