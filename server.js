@@ -56,7 +56,7 @@ app.post('/create', function (req, res, next) {
 
 //update a event in the database
 app.put('/create/:id', function (req, res, next) {
-  console.log("hello world")
+  console.log(req.body)
   Event.findByIdAndUpdate({
     _id: req.params.id
   }, req.body).then(function () {

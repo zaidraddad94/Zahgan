@@ -1,6 +1,7 @@
 import React from 'react'
 import $ from 'jquery';
 import EventClass from './EventClass'
+import SimpleMap from './map';
 
 class Create extends React.Component {
   constructor(props) {
@@ -244,7 +245,9 @@ class Create extends React.Component {
 
 
       </div>
+      <SimpleMap />
       </div>
+     
 
     );
   }

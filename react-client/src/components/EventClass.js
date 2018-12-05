@@ -16,8 +16,6 @@ class EventClass extends React.Component {
       
     }
 
-
-
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -158,7 +156,7 @@ class EventClass extends React.Component {
          
           <div class="modal-footer justify-content-center flex-column flex-md-row">
             <span class="mr-4">Please Submit </span>
-            <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal" onClick={this.handleSubmit}>Close</button>
             <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Submit</button>
     
     

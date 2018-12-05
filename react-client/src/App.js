@@ -13,24 +13,26 @@ import Slideshow from './components/Slider/Slideshow';
 
 import Footer from './components/Footer';
 import SignInCreator from './components/SignInCreator';
+import SimpleMap from './components/map';
 
 
 class App extends Component {
 
-  constructor(){
-  super()
-  this.state = { 
+  constructor() {
+    super()
+    this.state = {
 
-   items: []
+      items: [],
+      authorized: false
 
- }
+    }
 
   }
 
   componentDidMount() {
     $.ajax({
-      url: '/create', 
-      type:"GET",
+      url: '/create',
+      type: "GET",
       success: (data) => {
        
         this.setState({
@@ -43,6 +45,9 @@ class App extends Component {
       }
     });
   }
+
+
+
   render() {
     return (
 
