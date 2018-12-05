@@ -4377,6 +4377,11 @@ globby@^6.1.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
 
+google-map-marker@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/google-map-marker/-/google-map-marker-1.2.3.tgz#0a052c8c96ded563deb9d5fb8e4f2944a34dbced"
+  integrity sha1-CgUsjJbe1WPeudX7jk8pRKNNvO0=
+
 google-map-react@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/google-map-react/-/google-map-react-1.1.1.tgz#ffff4f21cf15bc25696ee523c614793054bb9b20"
@@ -4385,6 +4390,11 @@ google-map-react@^1.1.1:
     "@mapbox/point-geometry" "^0.1.0"
     eventemitter3 "^1.1.0"
     scriptjs "^2.5.7"
+
+google-maps-react@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/google-maps-react/-/google-maps-react-2.0.2.tgz#e03fbba032fe570fb38744bf9cd10b946c591cae"
+  integrity sha512-6cYauGwt22haDUrWxKQ6yoNOqjiuxHo8YYcmb+aBvNICokdXmZOUB6Ah4vD5VexMVlrwP2PFqA/D8sHpEB52KA==
 
 got@^6.7.1:
   version "6.7.1"
