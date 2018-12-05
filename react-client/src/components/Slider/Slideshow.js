@@ -17,6 +17,7 @@ const fadeProperties = {
  
 const Slideshow = () => {
   return (
+    <div className="slider">
     <Fade {...fadeProperties}>
       <div className="each-fade">
         <div className="image-container">
@@ -37,6 +38,7 @@ const Slideshow = () => {
        
       </div>
     </Fade>
+    </div>
   )
 }
 export default Slideshow
