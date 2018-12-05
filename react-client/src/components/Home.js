@@ -2,7 +2,6 @@ import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import About from './About'
 import Vision from './Vision'
-import eventclasscreate from './Eventclasscreate'
 
 import EventClass from './EventClass'
 import Create from './create'
@@ -24,8 +23,6 @@ const Home=(props)=>{
  props.items.map((item) =>{
    return(<div >
     <EventClass item={item}/>
-
-    
     </div>)
  
 })

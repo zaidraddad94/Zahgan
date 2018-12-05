@@ -170,6 +170,7 @@ class EventClass extends React.Component {
             </div>
           </div>
         </div>
+        
       </div>
     );
   }

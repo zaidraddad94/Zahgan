@@ -1,8 +1,7 @@
 import React from 'react'
 import $ from 'jquery';
-import Eventclasscreate from './Eventclasscreate'
-import SimpleMap from './map';
-
+import EventClassNew from '../EventClassNew'
+import SimpleMap from '../map';
 
 class Create extends React.Component {
   constructor(props) {
@@ -15,7 +14,7 @@ class Create extends React.Component {
       sets: '',
       date: '',
       location: '',
-      items: [],
+      items: '',
     };
 
 
@@ -121,17 +120,21 @@ class Create extends React.Component {
   });
   }
 
+  modal(){
+   $('#exampleModal').on('shown.bs.modal', function () {
+  $('#location-input').trigger('focus')
+})
+}
+  
+
   render() {
     return (
-     <div>
-     <div className="row ">kk</div>
      
 <div className="container-fluid">
 
-
       <div className="row ">
-      <div className="container">
-      <div className="col-md-12">
+   
+      <div className="col-md-6">
          
          <div className="list-group">
            <h6 className="list-group-item active main-color-bg">
@@ -146,7 +149,7 @@ class Create extends React.Component {
      
         <div className="col-md-12">
        
-          <div className=" container border">
+         
           <h4 className="col-sm-3 border p-3 mb-2 bg-primary text-white" id="createClick" onClick={this.appearCreate}> Create a new event </h4>
             <div className=" row ">
              
@@ -216,9 +219,9 @@ class Create extends React.Component {
               <div>
                 <div className="form-group row">
                   <label className="col-sm-2 col-form-label"> Event location:</label>
-                  <div className="col-sm-10">
-                    <input className="form-control" placeholder="city, street" value={this.state.location}
-                      onChange={e => this.setState({ location: e.target.value })} />
+                  <div class="col-sm-10">
+                    <input id="location-input" className="form-control" placeholder="city, street" value={this.state.location}
+                      onChange={e => this.setState({ location: e.target.value })} onClick={this.modal} />
                   </div>
                 </div>
               </div>
@@ -240,27 +243,31 @@ class Create extends React.Component {
               </div>
               <br />
             </form >
-          </div>
+         
         </div>
 
        
+{/* location modal */}
 
 
 
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
 
+</button>
+
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+  
+      <div class="modal-body">
+      <SimpleMap/>
       </div>
-     
-      </div>
-      <div className="row ">{
-        this.state.items.map((item) =>{
-          return(<div>
-           <Eventclasscreate item={item}/>
-       
-           
-           </div>)
-        
-       }) 
-      }</div>
+    
+    </div>
+  </div>
+</div>
+
      </div>
 
     );

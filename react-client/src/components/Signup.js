@@ -1,5 +1,6 @@
 import React from 'react'
 import $ from 'jquery';
+import './Signin.css';
 
 class Signup extends React.Component {
     constructor(props) {
@@ -45,7 +46,22 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <div id="zz" className="container-fluid" >
+      <div className="wrapper">
+      <form className="form-signin" onSubmit={this.handleSubmit}>       
+      <h2 className="form-signin-heading">Sign Up</h2>
+      <input type="text" className="form-control" name="firstName" placeholder="First Name" required="" autofocus="" value={this.state.firstName} onChange={e=>this.setState({firstName:e.target.value})} />
+      <input type="text" className="form-control" name="lastName" placeholder="Last Name" required="" autofocus="" value={this.state.lastName} onChange={e=>this.setState({lastName:e.target.value})} />
+      <input type="text" className="form-control" name="email" placeholder="Email Address" required="" autofocus="" value={this.state.email} onChange={e=>this.setState({email:e.target.value})} />
+      <input type="password" className="form-control" name="password" placeholder="Password" required="" value={this.state.password} onChange={e=>this.setState({password:e.target.value})}/>      
+      <button className="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>   
+      </form>
+      </div>
+    );
+  }
+}
+export default Signup
+
+      {/* <div id="zz" className="container-fluid" >
       <h2> Sign Up </h2>
       <form onSubmit={this.handleSubmit}>
         First Name : <input 
@@ -71,9 +87,5 @@ class Signup extends React.Component {
         <br></br>
         <input type="submit" value="create" />
       </form>
-      </div>
-    );
-  }
-}
-export default Signup
+      </div> */}
 
