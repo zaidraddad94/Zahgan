@@ -78,30 +78,36 @@ text-align: center;
     right: 0;
     background-color: rgba(0,0,0,0.3);
     padding: 50px;
-    z-index: 1;
+    z-index: 4;
   }
+  
   .modalStyle {
     background-color: #fff;
     border-radius: 5px;
-   
     height: 500px;
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
     position: relative;
-    z-index: 1;
+    z-index: 4;
     
   }
 
   .footerStyle{
-    position: absolute;
-    bottom: 29px
+    position: relative;
+    top: -35px;
+    left: 550px;
+  }
+
+  .sub {
+    position: relative;
+    top : 10px;
+    left : 10px;
   }
 
   .Popup-images{
-    
-   
     margin: auto;
-    width: 70%;
+    width: 40%;
+    border-radius: 8px
    
   }
 
@@ -253,3 +259,10 @@ h1{
   color: black;
   margin-top: 100px;
 }
+
+
+
+
+
+
+

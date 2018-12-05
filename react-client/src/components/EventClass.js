@@ -89,88 +89,100 @@ class EventClass extends React.Component {
           onClose={this.showModal}>
 
 
+          <div className='row'>
+            <div className="container">
 
-          <div className="container-fluid">
-            <div className="Popup-images">
-              <img src={this.state.items.url}></img>
-            </div>
+              <div className="Popup-images">
+                <img src={this.state.items.url}></img>
+              </div>
+          <br/>
 
-
-
-            <div className=" form-group border row">
-              <label className="col-sm-2 col-form-label border">
-                Event Name
+              <div className='col-sm-6' >
+                <div className=" form-group  row">
+                  <label className="col-sm-4 col-form-label ">
+                    Event Name
                 </label>
-              <div className=" form-contro col-sm-10 border">
-                {this.state.items.eventName}
-              </div>
-            </div>
+                  <div className=" form-control col-sm-8 border">
+                    {this.state.items.eventName}
+                  </div>
+                </div>
 
 
 
-            <div className="form-group border row">
-              <label className="col-sm-2 col-form-label border">
-                Event Description</label>
-              <div className="form-contro col-sm-10 border">
-                {this.state.items.des}
-              </div>
-            </div>
+                <div className="form-group  row">
+                  <label className="col-sm-4 col-form-label ">
+                    Description</label>
+                  <div className="form-control col-sm-8 ">
+                    {this.state.items.des}
+                  </div>
+                </div>
 
+                <div className="form-group  row">
+                  <label className="col-sm-4 col-form-label ">Location</label>
+                  <div className="form-control col-sm-8 ">
+                    {this.state.items.eventLocation}
+                  </div>
+                </div>
 
-
-
-            <div className="row">
-              <div className="col-sm-6">
-                <div className="col-sm-3"> <p>Event Location</p></div>
-                <div className="col-sm-3">{this.state.items.eventLocation}</div></div>
-            </div>
-
-
-
-
-
-            <div className='row'>
-              <div className='row'>
-                <div className="col-sm-6">
-                  <div className="col-sm-2">Name</div>
-                  <div className="col-sm-4"><input type="text" value={this.state.Name}
-                    onChange={e => this.setState({ Name: e.target.value })}></input></div>
+                <div className="form-group  row">
+                  <label className="col-sm-4 col-form-label ">Date & Time</label>
+                  <div className="form-control col-sm-8 ">
+                    {this.state.items.date}
+                  </div>
                 </div>
               </div>
 
-              <div className='row'>
-                <div className="col-sm-6">
-                  <div className="col-sm-2">Phone</div>
-                  <div className="col-sm-4"><input type="text" value={this.state.Phone}
+
+              <div className='col-sm-6'>
+
+                <div className='row'>
+                  <label className='col-sm-4 col-form-label'>
+                    Insert Your Info:
+                </label>
+                </div>
+
+
+                <div className="row">
+                  <label className='col-sm-4 col-form-label'>
+                    Name
+                      </label>
+                </div>
+                <div>
+                  <input type="text" value={this.state.Name}
+                    onChange={e => this.setState({ Name: e.target.value })}></input>
+                </div>
+
+                <div className='row'>
+                  <label className='col-sm-4 col-form-label'>Phone</label>
+                </div>
+
+                <div>
+                  <div><input type="text" value={this.state.Phone}
                     onChange={e => this.setState({ Phone: e.target.value })}></input></div>
                 </div>
+
+                <div className='sub'>
+
+                  <button className='btn btn-info' type="submit" onClick={this.handleSubmit}>Submit</button>
+                </div>
+
               </div>
-
             </div>
-
-            <button type="submit" onClick={this.handleSubmit}>submit</button>
-
           </div>
-
-
 
 
         </Modal>
 
-
         <div>
           <div id="events">
-
             <div className="images">
-
               <a href="#" onClick={this.showModal}>
                 <img src={this.state.items.url}></img></a>
               <div className="content">{this.state.items.eventName}</div>
-
             </div>
           </div>
         </div>
-      </div>
+      </div >
     );
   }
 }
