@@ -1,6 +1,7 @@
 import React from 'react'
 import $ from 'jquery';
 import {Redirect} from 'react-router-dom'
+import './Signin.css';
 
 class SignInCreator extends React.Component {
     constructor(props) {
@@ -50,23 +51,14 @@ class SignInCreator extends React.Component {
           }} />
       }
     return (
-      <div id="zz" className="container-fluid" >
-      <h2> Sign in </h2>
-      <form onSubmit={this.handleSubmit}>
-        Email : <input 
-        placeholder="email"
-        value={this.state.email}
-        onChange={e=>this.setState({email:e.target.value})}/>
-        <br></br>
-        Password :<input 
-        placeholder="password"
-        value={this.state.password}
-        type="password"
-        onChange={e=>this.setState({password:e.target.value})}/>
-        <br></br>
-        <input type="submit" value="Sign In" />
-      </form>
-      </div>
+      <div className="wrapper">
+    <form className="form-signin" onSubmit={this.handleSubmit}>       
+      <h2 className="form-signin-heading">Please login</h2>
+      <input type="text" className="form-control" name="email" placeholder="Email Address" required="" autofocus="" value={this.state.email} onChange={e=>this.setState({email:e.target.value})} />
+      <input type="password" className="form-control" name="password" placeholder="Password" required="" value={this.state.password} onChange={e=>this.setState({password:e.target.value})}/>      
+      <button className="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
+    </form>
+  </div>
     );
   }
 }
