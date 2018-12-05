@@ -20,20 +20,21 @@ import vision from './components/pages/vision';
 
 class App extends Component {
 
-  constructor(){
-  super()
-  this.state = { 
+  constructor() {
+    super()
+    this.state = {
 
-   items: []
+      items: [],
+      authorized: false
 
- }
+    }
 
   }
 
   componentDidMount() {
     $.ajax({
-      url: '/create', 
-      type:"GET",
+      url: '/create',
+      type: "GET",
       success: (data) => {
        
         this.setState({
@@ -46,6 +47,9 @@ class App extends Component {
       }
     });
   }
+
+
+
   render() {
     return (
 

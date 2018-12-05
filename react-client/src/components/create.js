@@ -1,6 +1,7 @@
 import React from 'react'
 import $ from 'jquery';
 import EventClass from './EventClass'
+import SimpleMap from './map';
 
 class Create extends React.Component {
   constructor(props) {
@@ -128,9 +129,9 @@ class Create extends React.Component {
       <div className="container">
       <div className="col-md-6">
          
-         <div class="list-group">
-           <h6 class="list-group-item active main-color-bg">
-             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
+         <div className="list-group">
+           <h6 className="list-group-item active main-color-bg">
+             <span className="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
            </h6>
            <h6 className="list-group-item"><span className="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Number of your events : <h6 class="badge"> {this.state.items.length} </h6></h6>
            <h6 className="list-group-item"><span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>Remaning seats for each event <h6 class="badge"> {this.viewlest(this)} </h6></h6>
@@ -152,7 +153,7 @@ class Create extends React.Component {
               <div>
                 <div className="form-group row">
                   <label className="col-sm-2 col-form-label">User name:</label>
-                  <div class="col-sm-10">
+                  <div className="col-sm-10">
                     <input className="form-control" placeholder="user name" value={this.state.host}
                       onChange={e => this.setState({ host: e.target.value })} />
                   </div>
@@ -163,7 +164,7 @@ class Create extends React.Component {
               <div>
                 <div className="form-group row">
                   <label className="col-sm-2 col-form-label">Event name: </label>
-                  <div class="col-sm-10">
+                  <div className="col-sm-10">
                     <input className="form-control" placeholder="event name" value={this.state.event}
                       onChange={e => this.setState({ event: e.target.value })} />
                   </div>
@@ -176,7 +177,7 @@ class Create extends React.Component {
               <div>
                 <div className="form-group row">
                   <label className="col-sm-2 col-form-label"> Photo: </label>
-                  <div class="col-sm-10">
+                  <div className="col-sm-10">
                     <input className="form-control" placeholder="insert a URL" value={this.state.photo}
                       onChange={e => this.setState({ photo: e.target.value })} />
                   </div>
@@ -188,7 +189,7 @@ class Create extends React.Component {
               <div>
                 <div className="form-group row">
                   <label className="col-sm-2 col-form-label"> Number of seats: </label>
-                  <div class="col-sm-10">
+                  <div className="col-sm-10">
                     <input className="form-control" placeholder="available seats number" value={this.state.sets}
                       type="number" onChange={e => this.setState({ sets: e.target.value })} />
                   </div>
@@ -200,7 +201,7 @@ class Create extends React.Component {
               <div>
                 <div className="form-group row">
                   <label className="col-sm-2 col-form-label"> Date and time:</label>
-                  <div class="col-sm-10">
+                  <div className="col-sm-10">
                     <input className="form-control" placeholder="mm/dd/yy" value={this.state.date}
                       type="datetime-local" onChange={e => this.setState({ date: e.target.value })} />
                   </div>
@@ -211,7 +212,7 @@ class Create extends React.Component {
               <div>
                 <div className="form-group row">
                   <label className="col-sm-2 col-form-label"> Event location:</label>
-                  <div class="col-sm-10">
+                  <div className="col-sm-10">
                     <input className="form-control" placeholder="city, street" value={this.state.location}
                       onChange={e => this.setState({ location: e.target.value })} />
                   </div>
@@ -221,7 +222,7 @@ class Create extends React.Component {
               <div>
                 <div className="form-group row">
                   <label className="col-sm-2 col-form-label">Event description:</label>
-                  <div class="col-sm-10">
+                  <div className="col-sm-10">
                     <textarea className="form-control" placeholder="event description" value={this.state.description}
                       onChange={e => this.setState({ description: e.target.value })} />
                   </div>
@@ -244,7 +245,9 @@ class Create extends React.Component {
 
 
       </div>
+      <SimpleMap />
       </div>
+     
 
     );
   }
