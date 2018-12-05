@@ -9,7 +9,7 @@ const fadeImages = [
 ];
 
 const fadeProperties = {
-  duration: 1000,
+  duration: 3000,
   transitionDuration: 500,
   infinite: true,
   indicators: true,

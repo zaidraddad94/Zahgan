@@ -1,7 +1,8 @@
 import React from 'react'
 import $ from 'jquery';
-import EventClass from './EventClass'
+import Eventclasscreate from './Eventclasscreate'
 import SimpleMap from './map';
+
 
 class Create extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class Create extends React.Component {
       sets: '',
       date: '',
       location: '',
-      items: '',
+      items: [],
     };
 
 
@@ -122,12 +123,15 @@ class Create extends React.Component {
 
   render() {
     return (
+     <div>
+     <div className="row ">kk</div>
      
 <div className="container-fluid">
 
+
       <div className="row ">
       <div className="container">
-      <div className="col-md-6">
+      <div className="col-md-12">
          
          <div className="list-group">
            <h6 className="list-group-item active main-color-bg">
@@ -245,9 +249,19 @@ class Create extends React.Component {
 
 
       </div>
-      <SimpleMap />
-      </div>
      
+      </div>
+      <div className="row ">{
+        this.state.items.map((item) =>{
+          return(<div>
+           <Eventclasscreate item={item}/>
+       
+           
+           </div>)
+        
+       }) 
+      }</div>
+     </div>
 
     );
   }
