@@ -39,7 +39,7 @@ class EventClass extends React.Component {
    //var array= this.state.items.attending
    //getComputedStyle. 
    this.state.items.attending.push(obj);
-   this.state.items.availableSeats=this.state.items.availableSeats-1
+   this.state.items.availableSeats=this.state.items.availableSeats
 
    
     var yahya=this.state.items
@@ -80,6 +80,8 @@ class EventClass extends React.Component {
 
     return (
       <div>
+     
+       
         <Modal
           show={this.state.show}
           onClose={this.showModal}>
@@ -87,29 +89,37 @@ class EventClass extends React.Component {
             <div className="Popup-images">
               <img src={this.state.items.url}></img></div>
             <div className="row">
+            <div className="col-sm-6">
               <div className="col-sm-3"> <p>Event Name</p></div>
               <div className="col-sm-3">{this.state.items.eventName}</div>
+              </div>
+              <div className="col-sm-6">
               <div className="col-sm-2">Name</div>
               <div className="col-sm-4"><input type="text" value={this.state.Name}
-                      onChange={e => this.setState({ Name: e.target.value })}></input></div>
+                      onChange={e => this.setState({ Name: e.target.value })}></input></div></div>
             </div>
             <div className="row">
+            <div className="col-sm-6">
             <div className="col-sm-3"> <p>Event Description</p></div>
               <div className="col-sm-3">{this.state.items.des}</div>
+              </div>
+              <div className="col-sm-6">
               <div className="col-sm-2">Phone</div>
               <div className="col-sm-4"><input type="text" value={this.state.Phone}
                       onChange={e => this.setState({ Phone: e.target.value })}></input></div>
-              </div>
+              </div></div>
               
               <div className="row">
+              <div className="col-sm-6">
             <div className="col-sm-3"> <p>Event Location</p></div>
               <div className="col-sm-3">{this.state.items.eventLocation}</div></div>
-              <button type="submit" onClick={this.handleSubmit} onClick={this.showModal} >submit</button>
+              </div>
+              <button type="submit" onClick={this.handleSubmit}>submit</button>
           </div>
           
         </Modal>
         <div>
-          <div className="my-events">
+          <div id="events">
          
             <div className="images">
             
