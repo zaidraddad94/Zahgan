@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter ,Route ,Switch} from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import About from './About'
 import Vision from './Vision'
 
@@ -7,32 +7,32 @@ import EventClass from './EventClass'
 import Create from './create'
 import Slideshow from './Slider/Slideshow';
 
-const Home=(props)=>{
+const Home = (props) => {
 
-    return(
-       
-  <div>
-			 <Slideshow />
-       <Vision/>
-			<div className="container-fluid" >
-			
-      	<div classnName="images">
-        {
- props.items.map((item) =>{
-   return(<div>
-    <EventClass item={item}/>
-    </div>)
- 
-})
+  return (
 
-        }  
-        
-				</div>
-				
-			</div>
-   
-              </div>
-    )
+    <div>
+      <Slideshow />
+      <Vision />
+      <div className="container-fluid" >
+
+        <div classnName="images">
+          {
+            props.items.map((item) => {
+              return (<div>
+                <EventClass item={item} />
+              </div>)
+
+            })
+
+          }
+
+        </div>
+
+      </div>
+
+    </div>
+  )
 }
 
 

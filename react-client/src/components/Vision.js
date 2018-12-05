@@ -23,7 +23,7 @@ const Vision = () => {
                         </div>
                         <div class="service-content">
                             <h3>mission</h3>
-                            <p>Our mission is to provide the best event services
+                            <p>Our mission is to provide you with a tool to find the best events happening around you
                         <br />
                                 <u> <a href="/Mission">read more</a></u>
                             </p>

@@ -1,17 +1,17 @@
 import React from 'react'
 import zahgan from './zahgan.jpg';
 
-const Info=()=>{
+const Info = () => {
 
-    return(
-   
-       <div className="info">
-      ashraf
-      ashraf ashraf ashraf
+    return (
+
+        <div className="info">
+            ashraf
+            ashraf ashraf ashraf
     </div>
-       
-       
-   
+
+
+
 
     )
 }
