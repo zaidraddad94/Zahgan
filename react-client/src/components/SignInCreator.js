@@ -2,7 +2,7 @@ import React from 'react'
 import $ from 'jquery';
 import {Redirect} from 'react-router-dom'
 
-class Signin extends React.Component {
+class SignInCreator extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -23,7 +23,7 @@ class Signin extends React.Component {
       console.log(obj)
       $.ajax({
         type: "POST",
-        url: '/account/signin',
+        url: '/creator/signin',
         data: {
           email: obj.email,
           password: obj.password
@@ -46,7 +46,7 @@ class Signin extends React.Component {
   render() {
       if (this.state.isLoggedIn) {
         return  <Redirect to={{
-            pathname: '/Home',
+            pathname: '/create',
           }} />
       }
     return (
@@ -70,4 +70,5 @@ class Signin extends React.Component {
     );
   }
 }
-export default Signin
+export default SignInCreator
+

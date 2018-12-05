@@ -2,67 +2,79 @@ import React from 'react';
 import { Fade } from 'react-slideshow-image';
 import $ from 'jquery';
 
- 
+const fadeImages = [
+  'http://www.okcsos.org/wp-content/uploads/2017/09/about-us.jpg',
+  'https://image.shutterstock.com/image-vector/banner-sign-now-260nw-1080843443.jpg',
+  'https://t3.ftcdn.net/jpg/00/35/05/98/240_F_35059814_35v530XQqkaFnc1fRBV2nfO2WvkzBi25.jpg'
+];
+
 const fadeProperties = {
   duration: 1000,
   transitionDuration: 500,
-  infinite: false,
+  infinite: true,
   indicators: true,
-  height:20
+  height: 20
 }
-var dd = async function getpics (){
- 
-  var x = await []
-  $.ajax({
-    url: '/create',
-    success:  (data) => {
-      console.log("zaid data 1" ,data)
-      for (var i = 0 ; i<data.length ; i++ ){
-        console.log("zaid data 2" ,data[i].url)
-         x.push(data[i].url)
-      
-      }
-    },
-    error: (err) => {
-      console.log('err', err);
+
+class Slideshow extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items:''
+
     }
-  });
- 
+  }
 
-//   var xx = async function(){
-//   for (var ii = 0 ; ii< x.length ; ii++){
-//    await  fadeImages.push(x[ii])
-//   }
-// }
-//  xx()
- return x
-}
 
-dd()
- 
-console.log('aaaaaaaaaaa', dd)
-const Slideshow = () => {
-  return (
-    <Fade {...fadeProperties}>
-      <div className="each-fade">
-        <div className="image-container">
-          <img src={dd[0]} />
+   componentDidMount() {
+    var that = this
+     $.ajax({
+      url: '/create',
+      type: "GET",
+      success: async (data) => {
+       console.log('data',data)
+       await that.setState({
+          items: data
+        })
+        console.log('zaid',this.state.items)
+      },
+      error: (err) => {
+        console.log('err', err);
+      }
+    });
+  }
+
+  render() {
+  
+  console.log('jjjj',this.state.items)
+    return (
+      <Fade {...fadeProperties}>
+        <div className="each-fade">
+          <div className="image-container">
+          <a href="http://localhost:3000/about">
+            <img src={fadeImages[0]} />
+            </a>
+          </div>
+
         </div>
-       
-      </div>
-      <div className="each-fade">
-        <div className="image-container">
-          <img src={dd[1]} />
+        <div className="each-fade">
+          <div className="image-container">
+          <a href="http://localhost:3000/signin">
+            <img src={fadeImages[1]} />
+            </a>
+          </div>
+
         </div>
-       
-      </div>
-      <div className="each-fade">
-        <div className="image-container">
-          <img src={dd[2]} />
+        <div className="each-fade">
+          <div className="image-container">
+          <a href="http://localhost:3000/signin">
+            <img src={fadeImages[2]} />
+            </a>
+          </div>
+
         </div>
-       
-      </div>
-    </Fade>
-  )
+      </Fade>
+    )
+  }
 }
 export default Slideshow

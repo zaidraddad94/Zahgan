@@ -8,10 +8,13 @@ class EventClass extends React.Component {
     super(props);
     this.state = {
       items: props.item,
-      show: false
+      show: false,
+      Name: '',
+      Phone: '',
+
+  
+      
     }
-
-
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -24,27 +27,61 @@ class EventClass extends React.Component {
 
   }
 
-  handleSubmit(event) {
+  handleSubmit(event,item) {console.log("secound parameter" ,this.state.items.attending)
     var obj = {
-      creatorName: this.state.host,
-      eventName: this.state.event,
-      des: this.state.description,
-      url: this.state.photo,
-      availableSeats: this.state.sets,
-      date: this.state.date,
-      eventLocation: this.state.location,
-      attending: []
+      Name: this.state.Name,
+      Phone: this.state.Phone,
     }
-    
+    var id=this.state.items._id
+    console.log('Name',this.state.Name)
+    console.log("my items ana wy7ya",id)
+    //var array =[obj]
+   //var array= this.state.items.attending
+   //getComputedStyle. 
+   this.state.items.attending.push(obj);
+   this.state.items.availableSeats=this.state.items.availableSeats
 
+   
+    var yahya=this.state.items
+     var y7ya ='/create/'+id;
+    
+    $.ajax({
+      type: "PUT",
+      url: '/create/'+id,
+      data:yahya,
+      success: function (data) {
+        console.log("my data",data)
+      }
+    });
+   
+
+
+
+    // alert(obj.eventName + ' saved !');
+
+    // $.ajax({
+    //   url: '/create',
+    //   success: (data) => {
+    //     console.log(data)
+    //     this.setState({
+    //       items: data
+    //     })
+    //   },
+    //   error: (err) => {
+    //     console.log('err', err);
+    //   }
+    // });
+    event.preventDefault();
   }
 
   render() {
-    console.log("my item", this.state.items)
+
 
 
     return (
       <div>
+     
+       
         <Modal
           show={this.state.show}
           onClose={this.showModal}>
@@ -52,26 +89,37 @@ class EventClass extends React.Component {
             <div className="Popup-images">
               <img src={this.state.items.url}></img></div>
             <div className="row">
+            <div className="col-sm-6">
               <div className="col-sm-3"> <p>Event Name</p></div>
               <div className="col-sm-3">{this.state.items.eventName}</div>
+              </div>
+              <div className="col-sm-6">
               <div className="col-sm-2">Name</div>
-              <div className="col-sm-4"><input type="text"></input></div>
+              <div className="col-sm-4"><input type="text" value={this.state.Name}
+                      onChange={e => this.setState({ Name: e.target.value })}></input></div></div>
             </div>
             <div className="row">
+            <div className="col-sm-6">
             <div className="col-sm-3"> <p>Event Description</p></div>
               <div className="col-sm-3">{this.state.items.des}</div>
-              <div className="col-sm-2">Phone</div>
-              <div className="col-sm-4"><input type="text"></input></div>
               </div>
+              <div className="col-sm-6">
+              <div className="col-sm-2">Phone</div>
+              <div className="col-sm-4"><input type="text" value={this.state.Phone}
+                      onChange={e => this.setState({ Phone: e.target.value })}></input></div>
+              </div></div>
               
               <div className="row">
+              <div className="col-sm-6">
             <div className="col-sm-3"> <p>Event Location</p></div>
               <div className="col-sm-3">{this.state.items.eventLocation}</div></div>
+              </div>
+              <button type="submit" onClick={this.handleSubmit}>submit</button>
           </div>
           
         </Modal>
         <div>
-          <div className="my-events">
+          <div id="events">
          
             <div className="images">
             
@@ -108,7 +156,7 @@ class EventClass extends React.Component {
          
           <div class="modal-footer justify-content-center flex-column flex-md-row">
             <span class="mr-4">Please Submit </span>
-            <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal" onClick={this.handleSubmit}>Close</button>
             <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4" data-dismiss="modal">Submit</button>
     
     
@@ -127,3 +175,4 @@ class EventClass extends React.Component {
   }
 }
 export default EventClass
+
