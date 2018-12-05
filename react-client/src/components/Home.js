@@ -15,16 +15,20 @@ const Home=(props)=>{
        <Vision/>
 			<div className="container-fluid" >
 			
-      	<div classnName="images">
+        <div classnName="images">
+        
         {
  props.items.map((item) =>{
    return(<div>
     <EventClass item={item}/>
+
+    
     </div>)
  
 })
 
         }  
+        <Slideshow items ={props.items}/>
         
 				</div>
 				
