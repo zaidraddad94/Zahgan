@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-
 import './App.css';
 import Nav from './components/Nav'
 import {BrowserRouter ,Route ,Switch} from 'react-router-dom'
-import Home from './components/Home'
+import HomeClass from './components/HomeClass'
 import About from './components/About'
 import Error from './components/Error'
 import Create from './components/create'
 import $ from 'jquery';
 import Signup from './components/Signup';
 import Signin from './components/Signin';
+import SignInCreator from './components/SignInCreator';
 import Slideshow from './components/Slider/Slideshow';
-import Info from './components/Info';
+
 import Footer from './components/Footer';
 import Mission from './components/pages/Mission';
 import location from './components/pages/location';
@@ -35,11 +35,11 @@ class App extends Component {
       url: '/create', 
       type:"GET",
       success: (data) => {
-        console.log("my app data",data)
+       
         this.setState({
           items: data
         })
-        console.log("this is my get data" ,this.state.items)
+        
       },
       error: (err) => {
         console.log('err', err);
@@ -56,18 +56,20 @@ class App extends Component {
     
       <div>
       
-      <Info/>
+     
       
       <Nav />
       
       <Switch>
-  <Route path='/Home' render={()=>{
+  <Route path='/HomeClass' render={()=>{
     return (
-      <Home items={this.state.items} />
+      
+      <HomeClass items={this.state.items} />
     )}}
   />
 <Route path='/About' component={About} />
-<Route path='/create' component={Create} />
+<Route path='/SignInCreator' component={SignInCreator} />
+<Route path='/Create' component={Create} />
 <Route path='/signup' component={Signup} />
 <Route path='/signin' component={Signin} />
 <Route path='/mission' component={Mission}/>

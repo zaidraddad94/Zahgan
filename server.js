@@ -7,6 +7,8 @@ const mongoose = require('mongoose');
 
 const User = require('./database-mongo/User');
 const UserSession = require('./database-mongo/UserSession');
+const Creator = require('./database-mongo/Creator');
+const CreatorSession = require('./database-mongo/CreatorSession');
 
 var app = express();
 app.use(bodyParser.json());
@@ -34,7 +36,8 @@ db.once('open', function () {
 
 // get a list for all events from the db
 app.get('/create', function (req, res, next) {
-  Event.find({}).then(function (events) {;
+  Event.find({}).then(function (events) {
+    ;
     res.send(events)
   }).catch(next)
 });
@@ -43,7 +46,8 @@ app.get('/create', function (req, res, next) {
 //add new event to the db
 app.post('/create', function (req, res, next) {
 
-  Event.create(req.body.obj).then(function (event) {;
+  Event.create(req.body.obj).then(function (event) {
+    ;
     res.send(event)
   }).catch(next)
 });
@@ -52,12 +56,14 @@ app.post('/create', function (req, res, next) {
 
 //update a event in the database
 app.put('/create/:id', function (req, res, next) {
+  console.log("hello world")
   Event.findByIdAndUpdate({
     _id: req.params.id
   }, req.body).then(function () {
     Event.findOne({
       _id: req.params.id
     }).then(function (event) {
+      console.log('eeee',event)
       res.send(event);
 
     })
@@ -67,6 +73,7 @@ app.put('/create/:id', function (req, res, next) {
 
 //delete a event in  the database
 app.delete('/create/:id', function (req, res, next) {
+
   Event.findByIdAndRemove({
     _id: req.params.id
   }).then(function (event) {
@@ -222,7 +229,7 @@ app.post('/account/signin', (req, res, next) => {
     }
 
     const user = users[0];
-    if(!user.validPassword(password)) {
+    if (!user.validPassword(password)) {
       return res.send({
         success: false,
         message: 'Error: Invalid Password.'
@@ -250,6 +257,40 @@ app.post('/account/signin', (req, res, next) => {
 
 // Verify User
 app.get('/account/verify', (req, res, next) => {
+  // Get the token
+  const { query } = req;
+  const { token } = query;
+  // ?token = test
+
+  // Verify the token is one of a kind and is not deleted
+
+  UserSession.find({
+    _id: token,
+    isDeleted: false
+  }, (err, sessions) => {
+    if (err) {
+      return res.send({
+        success: false,
+        message: 'Error: server error'
+      });
+    }
+
+    if (sessions.length != 1) {
+      return res.send({
+        success: false,
+        message: 'Error: Invalid'
+      });
+    } else {
+      return res.send({
+        success: true,
+        message: 'Good'
+      })
+    }
+  })
+});
+
+// User Logout
+app.get('/account/logout', (req, res, next) => {
 		// Get the token
 		const { query } = req;
 		const { token } = query;
@@ -257,7 +298,175 @@ app.get('/account/verify', (req, res, next) => {
 
 		// Verify the token is one of a kind and is not deleted
 
-		UserSession.find({
+		UserSession.findOneAndUpdate({
+			_id: token,
+			isDeleted: false
+		}, {
+			$set: {
+				isDeleted:true
+			}
+		}, null, (err, sessions) => {
+			if (err) {
+				return res.send({
+					success: false,
+					message: 'Error: server error'
+				});
+			}
+
+			return res.send({
+				success: true,
+				message: 'Good'
+			})
+
+		})
+  });
+
+
+// Signup Creator
+app.post('/creator/signup', (req, res, next) => {
+  // console.log(req.body);
+  const { body } = req;
+  const {
+    password
+  } = body;
+  let {
+    email
+  } = body;
+
+  if (!email) {
+    return res.send({
+      success: false,
+      message: 'Error: Email cannot be blank.'
+    });
+  }
+  if (!password) {
+    return res.send({
+      success: false,
+      message: 'Error: Password cannot be blank.'
+    });
+  }
+
+  console.log('here')
+
+  email = email.toLowerCase();
+
+  // Steps:
+  // 1. Verify email doesn't exist
+  // 2. Save
+  User.find({
+    email: email,
+  }, (err, previousUsers) => {
+    if (err) {
+      return res.send({
+        success: false,
+        message: 'Error: Server error.'
+      })
+    } else if (previousUsers.length > 0) {
+      return res.send({
+        success: false,
+        message: 'Error: Account already exists.'
+      });
+    }
+
+    // Save the new user
+    const newCreator = new Creator();
+
+    newCreator.email = email;
+    newCreator.password = newCreator.generateHash(password);
+    newCreator.save((err, user) => {
+      if (err) {
+        return res.send({
+          success: false,
+          message: 'Error: server error.'
+        });
+      }
+      return res.send({
+        success: true,
+        message: 'Signed up'
+      });
+    });
+  });
+});
+
+
+  // Signin Creator
+app.post('/creator/signin', (req, res, next) => {
+  const { body } = req;
+  const {
+    password
+  } = body;
+  let {
+    email
+  } = body;
+
+  if (!email) {
+    return res.send({
+      success: false,
+      message: 'Error: Email cannot be blank.'
+    });
+  }
+  if (!password) {
+    return res.send({
+      success: false,
+      message: 'Error: Password cannot be blank.'
+    });
+  }
+
+  email = email.toLowerCase();
+
+  Creator.find({
+    email: email
+  }, (err, creators) => {
+    if (err) {
+      return res.send({
+        success: false,
+        message: 'Error: server error.'
+      });
+    }
+    if (creators.length != 1) {
+      return res.send({
+        success: false,
+        message: 'Error: invalid.'
+      });
+    }
+
+    const creator = creators[0];
+    if(!creator.validPassword(password)) {
+      return res.send({
+        success: false,
+        message: 'Error: Invalid Password.'
+      });
+    }
+
+    // Otherwise correct user
+    const creatorSession = new CreatorSession();
+    creatorSession.userId = creator._id;
+    creatorSession.save((err, doc) => {
+      if (err) {
+        return res.send({
+          success: false,
+          message: 'Error: server error.'
+        });
+      }
+      return res.send({
+        success: true,
+        message: 'Valid sign in',
+        token: doc._id
+      });
+    })
+  });
+});
+
+// Verify Creator
+app.get('/account/verify', (req, res, next) => {
+		// Get the token
+		const { query } = req;
+		const { token } = query;
+		// ?token = test
+
+		// Verify the token is one of a kind and is not deleted
+
+		CreatorSession.find({
 			_id: token,
 			isDeleted: false
 		}, (err, sessions) => {
@@ -282,7 +491,7 @@ app.get('/account/verify', (req, res, next) => {
 		})
   });
   
-  // User Logout
+  // Creator Logout
 app.get('/account/logout', (req, res, next) => {
 		// Get the token
 		const { query } = req;
@@ -291,7 +500,7 @@ app.get('/account/logout', (req, res, next) => {
 
 		// Verify the token is one of a kind and is not deleted
 
-		UserSession.findOneAndUpdate({
+		CreatorSession.findOneAndUpdate({
 			_id: token,
 			isDeleted: false
 		}, {
