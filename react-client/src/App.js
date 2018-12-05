@@ -13,6 +13,9 @@ import Signin from './components/Signin';
 import Slideshow from './components/Slider/Slideshow';
 import Info from './components/Info';
 import Footer from './components/Footer';
+import SignInCreator from './components/SignInCreator';
+import SimpleMap from './components/map';
+
 
 class App extends Component {
 
@@ -62,11 +65,13 @@ class App extends Component {
       
       <Switch>
   <Route path='/Home' render={()=>{
-    return (
+    return (<div>
       <Home items={this.state.items} />
+      </div>
     )}}
   />
 <Route path='/About' component={About} />
+<Route path='/SignInCreator' component={SignInCreator} />
 <Route path='/create' component={Create} />
 <Route path='/signup' component={Signup} />
 <Route path='/signin' component={Signin} />

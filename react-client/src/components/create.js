@@ -1,6 +1,7 @@
 import React from 'react'
 import $ from 'jquery';
 import EventClass from './EventClass'
+import SimpleMap from './map';
 
 class Create extends React.Component {
   constructor(props) {
@@ -58,7 +59,7 @@ class Create extends React.Component {
         obj
       },
       success: function (xxx) {
-        console.log(xxx)
+    
       }
     });
 
@@ -111,7 +112,7 @@ class Create extends React.Component {
     var x = ""
 
     var c = function (i) {
-      console.log(i.availableSeats)
+    
       var xx = i.availableSeats - i.attending.length
 
       x = x + `${i.eventName} : ${xx}/${i.availableSeats}   `
@@ -238,7 +239,9 @@ class Create extends React.Component {
 
 
       </div>
+      <SimpleMap />
       </div>
+     
 
     );
   }

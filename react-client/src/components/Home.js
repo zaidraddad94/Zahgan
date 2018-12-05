@@ -6,33 +6,34 @@ import EventClass from './EventClass'
 import Create from './create'
 import Slideshow from './Slider/Slideshow';
 import Vision from './Vision';
-const Home=(props)=>{
-  console.log('hhhh',props.items)
+const Home = (props) => {
 
-    return(
-       
-  <div>
-			 <Slideshow />
-       <Vision/>
-			<div className="container-fluid" >
-			
-      	<div classnName="images">
-        {
- props.items.map((item) =>{
-   return(<div>
-    <EventClass item={item}/>
-    </div>)
- 
-})
+  return (
 
-        }  
-        
-				</div>
-				
-			</div>
-   
-              </div>
-    )
+    <div>
+      <Slideshow />
+      <Vision />
+      
+      <div className="container-fluid" >
+
+        <div classnName="images">
+          {
+            props.items.map((item) => {
+              return (
+                <div>
+                  <EventClass item={item} />
+                </div>)
+
+            })
+
+          }
+
+        </div>
+
+      </div>
+     
+    </div>
+  )
 }
 
 
