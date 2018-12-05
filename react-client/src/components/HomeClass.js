@@ -2,8 +2,8 @@ import React from 'react'
 import {BrowserRouter ,Route ,Switch} from 'react-router-dom'
 import About from './About'
 
-import EventClass from './EventClass'
-import Create from './create'
+import EventClassNew from './EventClassNew'
+import Create from './Creator/Create'
 import Slideshow from './Slider/Slideshow';
 import Vision from './Vision';
 
@@ -24,15 +24,15 @@ render(){
     return(
        
   <div>
-			 <Slideshow />
-       <Vision/>
+			<Slideshow/>
+            <Vision/>
 			<div className="container-fluid" >
 			
       	<div classsName="images">
         {
  this.props.items.map((item) =>{
    return(<div ref={this.myRef}>
-    <EventClass item={item}/>
+    <EventClassNew item={item}/>
     </div>)
  
 })

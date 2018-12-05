@@ -5,11 +5,11 @@ import {BrowserRouter ,Route ,Switch} from 'react-router-dom'
 import HomeClass from './components/HomeClass'
 import About from './components/About'
 import Error from './components/Error'
-import Create from './components/create'
+import Create from './components/Creator/Create'
 import $ from 'jquery';
 import Signup from './components/Signup';
 import Signin from './components/Signin';
-import SignInCreator from './components/SignInCreator';
+import SignInCreator from './components/Creator/SignInCreator';
 import Slideshow from './components/Slider/Slideshow';
 
 import Footer from './components/Footer';
@@ -83,7 +83,7 @@ class App extends Component {
 
 </Switch>
 </div>
-<Footer/>
+
 </div>
       </BrowserRouter>
     
