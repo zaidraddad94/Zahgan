@@ -94,18 +94,7 @@ class Create extends React.Component {
     return zz
   }
 
-  x(props) {
-    var t = props.state.items.length - 1
-    var z = props.state.items[t]
-    var zz = 0
-    for (var key in z) {
-      if (key === 'attending') {
 
-        zz = z[key].length
-      }
-    }
-    return zz
-  }
 
   viewlest(props) {
     var x = ""
@@ -122,17 +111,44 @@ class Create extends React.Component {
 
     return x
   }
+  appearCreate(){
+    $(document).ready(function(){
+      $("#createClick").click(function(){
+          $(".createEvent").toggle();
+      });
+  });
+  }
 
   render() {
     return (
+     
 <div className="container-fluid">
+
       <div className="row ">
-        <div className="col-md-7">
+      <div className="container">
+      <div className="col-md-6">
+         
+         <div class="list-group">
+           <h6 class="list-group-item active main-color-bg">
+             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
+           </h6>
+           <h6 className="list-group-item"><span className="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Number of your events : <h6 class="badge"> {this.state.items.length} </h6></h6>
+           <h6 className="list-group-item"><span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>Remaning seats for each event <h6 class="badge"> {this.viewlest(this)} </h6></h6>
+         </div>
+         </div>
+
+     </div>
+     
+        <div className="col-md-12">
+       
           <div className=" container border">
+          <h4 className="col-sm-3 border p-3 mb-2 bg-primary text-white" id="createClick" onClick={this.appearCreate}> Create a new event </h4>
             <div className=" row ">
-              <h4 className="col-sm-12 border p-3 mb-2 bg-primary text-white"> Create a new event </h4>
+             
             </div>
+           
             <form onSubmit={this.handleSubmit}>
+            <div className="createEvent">
               <div>
                 <div className="form-group row">
                   <label className="col-sm-2 col-form-label">User name:</label>
@@ -191,7 +207,7 @@ class Create extends React.Component {
                 </div>
               </div>
 
-
+ 
               <div>
                 <div className="form-group row">
                   <label className="col-sm-2 col-form-label"> Event location:</label>
@@ -216,23 +232,13 @@ class Create extends React.Component {
               <div className="row">
                 <button type="submit" value="create" className="btn btn-primary btn-lg btn-block" >create</button>
               </div>
+              </div>
               <br />
             </form >
           </div>
         </div>
 
-        <div className="col-md-4">
-         
-            <div class="list-group">
-              <h6 class="list-group-item active main-color-bg">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
-              </h6>
-              <h6 className="list-group-item"><span className="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Number of your events : <h6 class="badge"> {this.state.items.length} </h6></h6>
-              <h6 className="list-group-item"><span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>Remaning seats for each event <h6 class="badge"> {this.viewlest(this)} </h6></h6>
-            </div>
        
-
-        </div>
 
 
 
