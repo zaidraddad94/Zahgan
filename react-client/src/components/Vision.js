@@ -1,80 +1,91 @@
 import React from 'react'
 import zahgan from './zahgan.jpg';
+import Mission from './pages/Mission'
+import location from './pages/location'
+import vision from './pages/vision'
 
-const Vision=()=>{
 
-    return(
-   
-     
-      
-       
-            <section id="what-we-do">
-                <div class="container-fluid">
-                    <h2 class="section-title mb-2 h1">What we do</h2>
-                    <p class="text-center text-muted h5">Having and managing a correct marketing strategy is crucial in a fast moving market.</p>
-                    <div class="row mt-5">
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                            <div class="card">
-                                <div class="card-block block-1">
-                                    <h3 class="card-title">Special title</h3>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="javascript:void();" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
-                                </div>
+const Vision = () => {
+
+    return (
+
+
+        <div class="container">
+            <br />
+            <div class="row">
+                <div class="col-md-3 col-sm-6 ">
+                    <div class="service-box">
+                        <div class="service-icon red">
+                            <div class="front-content">
+                                <i class="glyphicon glyphicon-grain"></i>
+                                <h3>mission</h3>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                            <div class="card">
-                                <div class="card-block block-2">
-                                    <h3 class="card-title">Special title</h3>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="javascript:void();" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                            <div class="card">
-                                <div class="card-block block-3">
-                                    <h3 class="card-title">Special title</h3>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="javascript:void();" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
-                                </div>
-                            </div>
+                        <div class="service-content">
+                            <h3>mission</h3>
+                            <p>Our mission is to provide you with a tool to find the best events happening around you
+                        <br />
+                                <u> <a href="/Mission">read more</a></u>
+                            </p>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                            <div class="card">
-                                <div class="card-block block-4">
-                                    <h3 class="card-title">Special title</h3>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="javascript:void();" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
-                                </div>
+                </div>
+                <div class="col-md-3 col-sm-6 ">
+                    <div class="service-box">
+                        <div class="service-icon red">
+                            <div class="front-content">
+                                <i class="glyphicon glyphicon-globe	"></i>
+                                <h3>vision</h3>
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                            <div class="card">
-                                <div class="card-block block-5">
-                                    <h3 class="card-title">Special title</h3>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="javascript:void();" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
-                            <div class="card">
-                                <div class="card-block block-6">
-                                    <h3 class="card-title">Special title</h3>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="javascript:void();" title="Read more" class="read-more" >Read more<i class="fa fa-angle-double-right ml-2"></i></a>
-                                </div>
-                            </div>
+                        <div class="service-content">
+                            <h3>vision</h3>
+                            <p> We look forward to provide the best event management for both the hosts and visitors
+                        <br />
+                                <u>
+                                    <a href="/vision">read more</a>
+                                </u>
+                            </p>
                         </div>
                     </div>
-                </div>	
-            </section>
-           
-       
-   
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="service-box ">
+                        <div class="service-icon red">
+                            <div class="front-content">
+                                <i class="glyphicon glyphicon-map-marker"></i>
+                                <h3>location</h3>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>location</h3>
+                            <p>Our team will be happy to meet you
+                                <br /><u><a href="/location"> Our location</a></u>
+
+                            </p>                </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="service-box">
+                        <div class="service-icon red">
+                            <div class="front-content">
+                                <i class="glyphicon glyphicon-earphone"></i>
+                                <h3>Help</h3>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3>Help</h3>
+                            <p>
+                                Do you need help? <br /> Our team will be happy to help you contact us at
+                            <br />
+                                <u> 06-xxxxxxx </u>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     )
 }
