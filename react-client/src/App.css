@@ -52,14 +52,9 @@ ul{
   }
  
 
-  .images{
-    width:350px;
-    height: 200px;
-    float:left;
-    margin:10px;
-    box-shadow: rgba(34, 43, 55,0.5) 3px 0px 10px;
-    
-  }
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 
   .images img{
     width:100%;
@@ -252,4 +247,9 @@ h1{
 .mission h1{
   color: black;
   margin-top: 100px;
+}
+.modal-body{
+  margin:0 auto;
+  width:1500px;
+  height: 40px;
 }
