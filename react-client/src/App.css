@@ -219,6 +219,32 @@ h1{
  margin-bottom:10px;
  text-transform: uppercase;
 }
+.dash-row{
+	margin:0px;
+	height:auto;
+}
+.dash-row .data-box{
+	padding:0px 5px;
+	height:auto;
+	min-height:180px;
+}
+.dash-row .data-box > div{
+	display:inline-flex;
+	width:100%;
+	height:auto;
+	min-height:100%;
+	background-color:rgba(255,255,255,0.8);
+	justify-content: center;
+    align-items: center;
+}
+.dash-row .data-box > div h3{
+	font-size:15px;
+	color:rgba(62,77,96,1.00);
+}
+.dash-row .data-box > div h3 span{
+	font-size:32px;
+	color:rgba(47,88,139,1.00);
+}
 .service-box .service-content p {
  font-size: 13px;
  color: white;
@@ -248,8 +274,11 @@ h1{
   color: black;
   margin-top: 100px;
 }
-.modal-body{
-  margin:0 auto;
-  width:1500px;
-  height: 40px;
+.modal-content{
+  margin-top: 200px;
+ width:700px;
+ 
+  height: 600px;
+
 }
+
