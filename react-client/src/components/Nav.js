@@ -19,16 +19,18 @@ const ToAbout=()=>{
 }
 
 
+
 const Nav=()=>{
 
     return(
+        
       <div>
       <nav className="navbar navbar-expand-sm ">
   <ul className="navbar-nav">
             <li className="active"><a href="/homeClass">Home</a></li>
             
             <li><a href="#" onClick={ToAbout} id="clickAbout">About</a></li>
-            <li><a href="#">Contact us</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#myModal">Contact us</a></li>
             <img src={zahgan}></img>
             <li><a href="/SignInCreator">Create</a></li>
             <li><a href="/signin">Sign in</a></li>
@@ -39,6 +41,13 @@ const Nav=()=>{
           </ul>
        
       </nav>
+      
+
+
+
+
+
+
 
    </div>
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import $ from 'jquery';
-import EventClass from './EventClass'
+import EventClass from '../EventClass'
 
 class Create extends React.Component {
   constructor(props) {
@@ -119,13 +119,20 @@ class Create extends React.Component {
   });
   }
 
+  modal(){
+   $('#exampleModal').on('shown.bs.modal', function () {
+  $('#location-input').trigger('focus')
+})
+}
+  
+
   render() {
     return (
      
 <div className="container-fluid">
 
       <div className="row ">
-      <div className="container">
+   
       <div className="col-md-6">
          
          <div class="list-group">
@@ -141,7 +148,7 @@ class Create extends React.Component {
      
         <div className="col-md-12">
        
-          <div className=" container border">
+         
           <h4 className="col-sm-3 border p-3 mb-2 bg-primary text-white" id="createClick" onClick={this.appearCreate}> Create a new event </h4>
             <div className=" row ">
              
@@ -212,8 +219,8 @@ class Create extends React.Component {
                 <div className="form-group row">
                   <label className="col-sm-2 col-form-label"> Event location:</label>
                   <div class="col-sm-10">
-                    <input className="form-control" placeholder="city, street" value={this.state.location}
-                      onChange={e => this.setState({ location: e.target.value })} />
+                    <input id="location-input" className="form-control" placeholder="city, street" value={this.state.location}
+                      onChange={e => this.setState({ location: e.target.value })} onClick={this.modal} />
                   </div>
                 </div>
               </div>
@@ -235,15 +242,40 @@ class Create extends React.Component {
               </div>
               <br />
             </form >
-          </div>
+         
         </div>
 
        
+{/* location modal */}
 
 
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+test
+</button>
 
 
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+   
       </div>
 
     );

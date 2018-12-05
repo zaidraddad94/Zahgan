@@ -1,9 +1,10 @@
 import React from 'react'
 import $ from 'jquery';
 import Modal from './Modal/Modal'
+import './event.css';
 
 
-class EventClass extends React.Component {
+class EventClassNew extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -82,8 +83,6 @@ class EventClass extends React.Component {
 
     return (
       <div>
-     
-       
         <Modal
           show={this.state.show}
           onClose={this.showModal}>
@@ -120,23 +119,41 @@ class EventClass extends React.Component {
           </div>
           
         </Modal>
-        <div>
-          <div id="events">
+     <div id="events">
          
-            <div className="images">
-            
-              <a href="#" onClick={this.showModal}>
-                <img src={this.state.items.url}></img></a>
-              <div className="content">{this.state.items.eventName}</div>
-           
-              </div>
-          </div>
+         <div className="images">
+ 
+         <a href="#" onClick={this.showModal}>
+  <div class="card">
+    <figure class="front">
+      <img src={this.state.items.url} alt="front"/>
+      <div class="caption">
+        <h2>{this.state.items.eventName}</h2>
+        <p>{this.state.items.des}</p>
+        <a href="#">View more</a>
+      </div>			
+    </figure>
 
+    <figure class="back">
+       <img src={this.state.items.url} alt="back"/>
+        <div class="caption">
+          <dl>
+            <dt>Phone</dt>
+            <dd>012 345 6789</dd>
+            <dt>Email</dt>
+            <dd>johndoe@gmail.com</dd>
+            <dt>Web</dt>
+            <dd>www.johndoe.com</dd>
+          </dl>
         </div>
-        
-      </div>
+    </figure>
+  </div>
+ </a>
+</div>
+</div>
+</div>
     );
   }
 }
-export default EventClass
+export default EventClassNew
 
