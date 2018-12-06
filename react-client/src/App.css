@@ -148,7 +148,10 @@ height: 600px;
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css");
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
 
- 
+#aboutcontainer{
+  position: relative;
+  margin-top: 20px;
+}
 h1{
   font-size:25px;
   text-align: left;
