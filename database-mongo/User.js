@@ -29,9 +29,8 @@ const UserSchema = new mongoose.Schema({
   }
 });
 
-var User = mongoose.model('User', UserSchema);
 
-let getSpecificUser = (firstName, cb) => {
+ UserSchema.methods.getSpecificUser = (firstName, cb) => {
   User.find({firstName: name}, (err, result) => {
     if(err){
       return cb(err, null);
