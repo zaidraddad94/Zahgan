@@ -212,7 +212,7 @@ class Create extends React.Component {
 
           </div>
         </div>
-        <div className="container-fluid">
+        {/* <div className="container-fluid">
 
           <div className="row ">
 
@@ -229,7 +229,7 @@ class Create extends React.Component {
 
           </div>
 
-        </div>
+        </div> */}
 
         <div className="col-md-12">
 

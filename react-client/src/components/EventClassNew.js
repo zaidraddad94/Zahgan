@@ -13,8 +13,7 @@ class EventClassNew extends React.Component {
       show: false,
       Name: '',
       Phone: '',
-      numberOfAttendees:''
-
+      isLoggedIn: false
 
 
     }
@@ -23,6 +22,19 @@ class EventClassNew extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  componentDidMount() {
+		console.log('componentdidmount')
+		if(localStorage.getItem('token')){
+			this.setState({
+				isLoggedIn: true
+			});
+		} else {
+			this.setState({
+				isLoggedIn: false
+			});
+		}
+	}
 
   showModal = () => {
     this.setState({
@@ -37,7 +49,6 @@ class EventClassNew extends React.Component {
     var obj = {
       Name: this.state.Name,
       Phone: this.state.Phone,
-      numberOfAttendees:this.state.numberOfAttendees
     }
     var id = this.state.items._id
     console.log('Name', this.state.Name)
@@ -91,68 +102,94 @@ class EventClassNew extends React.Component {
         
           show={this.state.show}
           onClose={this.showModal}>
-        <div className="row">
-        <div className="col-sm-6">
-          <div className="container-fluid ">
-            <div className="Popup-images">
+      
+      <div className="row">
+      <div className="col-sm-6"><div className="Popup-images">
               <img src={this.state.items.url}></img></div>
-            <div className="row">
-              <div className="col-sm-6">
-                <div className="col-sm-3"> <p>Event Name</p></div>
-                <div className="col-sm-3">{this.state.items.eventName}</div>
-              </div>
-              <div className="col-sm-6">
-                <div className="col-sm-2">Name</div>
-                <div className="col-sm-4"><input type="text" value={this.state.Name}
-                  onChange={e => this.setState({ Name: e.target.value })}></input></div></div>
-            </div>
-            <div className="row">
-              <div className="col-sm-6">
-                <div className="col-sm-3"> <p>Event Description</p></div>
-                <div className="col-sm-3">{this.state.items.des}</div>
-              </div>
-              <div className="col-sm-6">
-                <div className="col-sm-2">Phone</div>
-                <div className="col-sm-4"><input type="text" value={this.state.Phone}
-                  onChange={e => this.setState({ Phone: e.target.value })}></input></div>
-              </div></div>
-              <div className="row">
-            <div className="col-sm-6">
-            <div className="col-sm-3"> <p>Event Cost</p></div>
-              <div className="col-sm-3">{this.state.items.cost}
-              </div></div>
-              <div className="col-sm-6">
-              <div className="col-sm-2">Attendees</div>
-              <div className="col-sm-4"><input type="text" value={this.state.numberOfAttendees}
-                      onChange={e => this.setState({ numberOfAttendees: e.target.value })}></input></div></div>
-              
-                 </div>
              
-              
               <div className="row">
-              <div className="col-sm-6">
-                <div className="col-sm-3"> <p>Event Location</p></div>
-                <div className="col-sm-3">Amman</div></div>
-            </div>
-            </div>
-           
-            <div>
-            </div>
-            </div>
+             
+              <div className="col-sm-2">
+              <p>Event Name</p>
+              </div>
+              <div className="col-sm-2">
+              {this.state.items.eventName}
+             
+              </div>
+              <div className="col-sm-2">
+              Name
+             
+              </div>
+              <div className="col-sm-2">
+              <input type="text" value={this.state.Name}
+                  onChange={e => this.setState({ Name: e.target.value })}></input>
+             
+              </div>
 
-
-                    
-        <div className="col-sm-6"> 
-        <div className="map">
-       
-             {/* <SimpleMap item={this.state.items} />  */}
+              </div>
+              <div className="row">
+             
+             <div className="col-sm-2">
+             <p>Event Description</p>
+             </div>
+             <div className="col-sm-2">
+             {this.state.items.des}
+            
+             </div>
+             <div className="col-sm-2">
+              Phone
+             
+              </div>
+              <div className="col-sm-2">
+              <input type="text" value={this.state.Phone}
+                  onChange={e => this.setState({ Phone: e.target.value })}></input>
+             
+              </div>
+             </div>
+             <div className="row">
+             
+             <div className="col-sm-2">
+             <p>Event Cost</p>
+             </div>
+             <div className="col-sm-2">
+             {this.state.items.cost}
+            
+             </div>
+             <button type="submit" onClick={this.handleSubmit} style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}}>submit</button>
+             </div>
           
-            </div>
-            <button type="submit" onClick={this.handleSubmit}>submit</button>
-          </div>
-         
-          </div>
+
+              
+              </div>
+      <div className="col-sm-5">   <div className="map">
+       
+       <SimpleMap item={this.state.items} /> 
+    
+      </div></div></div>
+     
+      
+      
+      
+      
+      
+    
+
+
+
+
+
+
+
+
+
+
+
+
+       
         </Modal>
+
+
+        
      <div id="events">
          
          <div className="images">
@@ -178,4 +215,3 @@ class EventClassNew extends React.Component {
   }
 }
 export default EventClassNew
-
