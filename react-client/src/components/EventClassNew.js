@@ -13,12 +13,7 @@ class EventClassNew extends React.Component {
       show: false,
       Name: '',
       Phone: '',
-<<<<<<< HEAD
       isLoggedIn: false
-=======
-      numberOfAttendees:''
-
->>>>>>> 35011583a83d3a156550f919bc9b399e80306d6d
 
 
     }
