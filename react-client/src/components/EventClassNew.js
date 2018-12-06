@@ -145,7 +145,7 @@ class EventClassNew extends React.Component {
         <div className="col-sm-6"> 
         <div className="map">
        
-             <SimpleMap item={this.state.items} /> 
+             {/* <SimpleMap item={this.state.items} />  */}
           
             </div>
             <button type="submit" onClick={this.handleSubmit}>submit</button>
