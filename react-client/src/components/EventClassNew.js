@@ -2,6 +2,7 @@ import React from 'react'
 import $ from 'jquery';
 import Modal from './Modal/Modal'
 import './event.css';
+import SimpleMap from './map'
 
 
 class EventClassNew extends React.Component {
@@ -13,8 +14,8 @@ class EventClassNew extends React.Component {
       Name: '',
       Phone: '',
 
-  
-      
+
+
     }
 
 
@@ -30,33 +31,34 @@ class EventClassNew extends React.Component {
 
   }
 
-  handleSubmit(event,item) {console.log("secound parameter" ,this.state.items.attending)
+  handleSubmit(event, item) {
+    console.log("secound parameter", this.state.items.attending)
     var obj = {
       Name: this.state.Name,
       Phone: this.state.Phone,
     }
-    var id=this.state.items._id
-    console.log('Name',this.state.Name)
-    console.log("my items ana wy7ya",id)
+    var id = this.state.items._id
+    console.log('Name', this.state.Name)
+    console.log("my items ana wy7ya", id)
     //var array =[obj]
-   //var array= this.state.items.attending
-   //getComputedStyle. 
-   this.state.items.attending.push(obj);
-   this.state.items.availableSeats=this.state.items.availableSeats
+    //var array= this.state.items.attending
+    //getComputedStyle. 
+    this.state.items.attending.push(obj);
+    this.state.items.availableSeats = this.state.items.availableSeats
 
-   
-    var yahya=this.state.items
-     var y7ya ='/create/'+id;
-    
+
+    var yahya = this.state.items
+    var y7ya = '/create/' + id;
+
     $.ajax({
       type: "PUT",
-      url: '/create/'+id,
-      data:yahya,
+      url: '/create/' + id,
+      data: yahya,
       success: function (data) {
-        console.log("my data",data)
+        console.log("my data", data)
       }
     });
-   
+
 
 
 
@@ -79,45 +81,48 @@ class EventClassNew extends React.Component {
 
   render() {
 
-
+    console.log('gele', this.state.items)
 
     return (
       <div>
-        <Modal
+        <Modal 
           show={this.state.show}
           onClose={this.showModal}>
-          <div className="container-fluid">
+          <div className="container-fluid ">
             <div className="Popup-images">
               <img src={this.state.items.url}></img></div>
             <div className="row">
-            <div className="col-sm-6">
-              <div className="col-sm-3"> <p>Event Name</p></div>
-              <div className="col-sm-3">{this.state.items.eventName}</div>
+              <div className="col-sm-6">
+                <div className="col-sm-3"> <p>Event Name</p></div>
+                <div className="col-sm-3">{this.state.items.eventName}</div>
               </div>
               <div className="col-sm-6">
-              <div className="col-sm-2">Name</div>
-              <div className="col-sm-4"><input type="text" value={this.state.Name}
-                      onChange={e => this.setState({ Name: e.target.value })}></input></div></div>
+                <div className="col-sm-2">Name</div>
+                <div className="col-sm-4"><input type="text" value={this.state.Name}
+                  onChange={e => this.setState({ Name: e.target.value })}></input></div></div>
             </div>
             <div className="row">
-            <div className="col-sm-6">
-            <div className="col-sm-3"> <p>Event Description</p></div>
-              <div className="col-sm-3">{this.state.items.des}</div>
+              <div className="col-sm-6">
+                <div className="col-sm-3"> <p>Event Description</p></div>
+                <div className="col-sm-3">{this.state.items.des}</div>
               </div>
               <div className="col-sm-6">
-              <div className="col-sm-2">Phone</div>
-              <div className="col-sm-4"><input type="text" value={this.state.Phone}
-                      onChange={e => this.setState({ Phone: e.target.value })}></input></div>
+                <div className="col-sm-2">Phone</div>
+                <div className="col-sm-4"><input type="text" value={this.state.Phone}
+                  onChange={e => this.setState({ Phone: e.target.value })}></input></div>
               </div></div>
-              
-              <div className="row">
+
+            <div className="row">
               <div className="col-sm-6">
-            <div className="col-sm-3"> <p>Event Location</p></div>
-              <div className="col-sm-3">{this.state.items.eventLocation}</div></div>
-              </div>
-              <button type="submit" onClick={this.handleSubmit}>submit</button>
+                <div className="col-sm-3"> <p>Event Location</p></div>
+                <div className="col-sm-3">Amman</div></div>
+            </div>
+            <div>
+              <SimpleMap item={this.state.items} />
+            </div>
+            <button type="submit" onClick={this.handleSubmit}>submit</button>
           </div>
-          
+
         </Modal>
      <div id="events">
          

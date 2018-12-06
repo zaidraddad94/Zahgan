@@ -1,9 +1,21 @@
 import React from 'react'
 import $ from 'jquery';
 import EventClassNew from '../EventClassNew'
+import GoogleMapReact from 'google-map-react';
 import SimpleMap from '../map';
+import MapForCreator from '../mapForCreator'
+
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class Create extends React.Component {
+  static defaultProps = {
+    center: {
+        lat: 33.7496844,
+        lng: -84.7516932,
+
+    },
+    zoom: 10
+};
   constructor(props) {
     super(props);
     this.state = {
@@ -18,10 +30,21 @@ class Create extends React.Component {
     };
 
 
+
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.allseats = this.allseats.bind(this);
   }
 
+  handleClickedMap = (e) => {
+    console.log(e)
+    let latitude = e.lat
+    let longtitude = e.lng
+    this.setState({
+      location: {latitude,longtitude}
+    })
+    console.log(latitude, longtitude)
+}
 
   componentDidMount() {
 
@@ -47,11 +70,11 @@ class Create extends React.Component {
       url: this.state.photo,
       availableSeats: this.state.sets,
       date: this.state.date,
-      eventLocation: this.state.location,
+      eventLocation: [this.state.location],
       attending: []
     }
 
-    console.log(obj)
+    console.log('yahyarashid',obj)
     $.ajax({
       type: "POST",
       url: '/create',
@@ -59,7 +82,7 @@ class Create extends React.Component {
         obj
       },
       success: function (xxx) {
-    
+
       }
     });
 
@@ -101,7 +124,7 @@ class Create extends React.Component {
     var x = ""
 
     var c = function (i) {
-    
+
       var xx = i.availableSeats - i.attending.length
 
       x = x + `${i.eventName} : ${xx}/${i.availableSeats}   `
@@ -112,22 +135,23 @@ class Create extends React.Component {
 
     return x
   }
-  appearCreate(){
-    $(document).ready(function(){
-      $("#createClick").click(function(){
-          $(".createEvent").toggle();
+  appearCreate() {
+    $(document).ready(function () {
+      $("#createClick").click(function () {
+        $(".createEvent").toggle();
       });
-  });
+    });
   }
 
-  modal(){
-   $('#exampleModal').on('shown.bs.modal', function () {
-  $('#location-input').trigger('focus')
-})
-}
-  
+  modal() {
+    $('#exampleModal').on('shown.bs.modal', function () {
+      $('#location-input').trigger('focus')
+    })
+  }
+
 
   render() {
+    console.log('yahya',this.state.location)
     return (
      <div>
        <div class="container-fluid page-cont">
@@ -166,22 +190,24 @@ class Create extends React.Component {
            <h6 className="list-group-item active main-color-bg">
              <span className="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
            </h6>
-           <h6 className="list-group-item"><span className="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Number of your events : <h6 class="badge"> {this.state.items.length} </h6></h6>
-           <h6 className="list-group-item"><span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>Remaning seats for each event <h6 class="badge"> {this.viewlest(this)} </h6></h6>
-         </div>
-         </div>
+              <h6 className="list-group-item"><span className="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Number of your events : <h6 class="badge"> {this.state.items.length} </h6></h6>
+              <h6 className="list-group-item"><span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>Remaning seats for each event <h6 class="badge"> {this.viewlest(this)} </h6></h6>
+            </div>
+          </div>
+
+        </div>
 
      </div> */}
      
         <div className="col-md-12">
-       
-         
+
+
           <h4 className="col-sm-3 border p-3 mb-2 bg-primary text-white" id="createClick" onClick={this.appearCreate}> Create a new event </h4>
-            <div className=" row ">
-             
-            </div>
-           
-            <form onSubmit={this.handleSubmit}>
+          <div className=" row ">
+
+          </div>
+
+          <form onSubmit={this.handleSubmit}>
             <div className="createEvent">
               <div>
                 <div className="form-group row">
@@ -241,13 +267,13 @@ class Create extends React.Component {
                 </div>
               </div>
 
- 
+
               <div>
                 <div className="form-group row">
                   <label className="col-sm-2 col-form-label"> Event location:</label>
                   <div class="col-sm-8">
                     <input id="location-input" className="form-control" placeholder="city, street" value={this.state.location}
-                      onChange={e => this.setState({ location: e.target.value })} onClick={this.modal} />
+                       onClick={this.modal} />
                   </div>
                   <div class="col-sm-2"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Map</button></div>
                 </div>
@@ -267,20 +293,20 @@ class Create extends React.Component {
               <div className="row">
                 <button type="submit" value="create" className="btn btn-primary btn-lg btn-block" >create</button>
               </div>
-              </div>
-              <br />
-            </form >
-         
+            </div>
+            <br />
+          </form >
+
         </div>
 
-       
-{/* location modal */}
 
+        {/* location modal */}
 
   
 
 
 
+       
 
 
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -288,7 +314,21 @@ class Create extends React.Component {
            <div class="modal-content">
 
              <div class="modal-body">
-               <SimpleMap />
+             <div style={{ height: '100vh', width: '100%' }}>
+                <GoogleMapReact onClick={this.handleClickedMap}
+                    bootstrapURLKeys={{ key: "AIzaSyD2IjGONmJ7Si4cNEZtNPNgPy5pVEt-_14" }}
+                    defaultCenter={this.props.center}
+                    defaultIcon={this.props.Marker}
+                    defaultZoom={this.props.zoom}
+                >
+                    <AnyReactComponent
+                        lat={33.7496844}
+                        lng={-84.7516932}
+                        text='Hello world'
+
+                    />
+                </GoogleMapReact>
+            </div>
              </div>
 
            </div>

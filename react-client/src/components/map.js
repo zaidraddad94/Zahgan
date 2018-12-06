@@ -1,50 +1,54 @@
 import React, { Component } from 'react';
-import GoogleMapReact from 'google-map-react';
- 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
- 
-class SimpleMap extends Component {
-  static defaultProps = {
-    center: {
-      lat: 41.882788232958994,
-      lng:-87.78338810258128,
-      icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-    },
-    zoom: 2
-  };
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 
-//   Google.maps.event.addListener(map, "click", function (e) {
+export class SimpleMap extends Component {
 
-//     //lat and lng is available in e object
-//     var latLng = e.latLng;
+    constructor(props) {
+        super(props)
 
-// });
+    }
 
-handleClickedMap = (e) => {
-    console.log(e)
-   let latitude = e.lat
-   let longtitude  = e.lng
-   console.log(latitude, longtitude)
+    handleClickedMap = (e) => {
+        console.log(e)
+        let latitude = e.initialCenter.lat
+        let longtitude = e.initialCenter.lng
+        console.log('yyy', latitude, longtitude)
+        //    let longtitude  = e.lng
+        //    console.log(latitude, longtitude)
+    }
+
+    mapClicked(mapProps, map, clickEvent) {
+        console.log('bala', mapProps)
+        console.log('map', map);
+        console.log('mapprops', mapProps)
+    }
+
+    render() {
+        console.log('hhh',this.props.item)
+        return (
+            <Map onClick={this.mapClicked} google={this.props.google}
+                initialCenter={{
+                    //                         lat={this.props.item.eventLocation[0].latitude}
+//                         lng={this.props.item.eventLocation[0].longtitude}
+//                         text='YAHYA'
+                    lat: this.props.item.eventLocation[0].latitude,
+                    lng: this.props.item.eventLocation[0].longtitude
+                }}
+                zoom={4}
+            >
+
+                <Marker
+                    name={'Current location'} />
+
+                <InfoWindow onClose={this.onInfoWindowClose}>
+
+                </InfoWindow>
+            </Map>
+        );
+    }
 }
 
-  render() {
-    return (
-      // Important! Always set the container height explicitly
-      <div style={{ height: '60vh', width: '100%' }}>
-        <GoogleMapReact onClick={this.handleClickedMap } 
-          bootstrapURLKeys={{ key:"AIzaSyD2IjGONmJ7Si4cNEZtNPNgPy5pVEt-_14"}}
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
-        >
-          <AnyReactComponent
-            lat={9.570833064972245}
-            lng={44.053840896358}
-            icon={'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'}
-          />
-        </GoogleMapReact>
-      </div>
-    );
-  }
-}
- 
-export default SimpleMap;
+export default GoogleApiWrapper({
+    apiKey: "AIzaSyD2IjGONmJ7Si4cNEZtNPNgPy5pVEt-_14"
+})(SimpleMap)
+
