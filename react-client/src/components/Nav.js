@@ -67,12 +67,15 @@ class Nav extends React.Component {
         success: (res) => {
 					console.log(res)
 					alert(res.message)
+					if (res.success){
 						localStorage.removeItem('token');
+					this.setState({
+						isLoggedIn: false
+					})
+					window.location.reload();
+				}
 				}
 			})
-			this.setState({
-				isLoggedIn: false
-			});
 			event.preventDefault();
 }
 
