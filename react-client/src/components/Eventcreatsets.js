@@ -117,7 +117,7 @@ delete(x){
                 <div className="row"><h3>{this.state.items.eventName}</h3></div>
                 <img className="row" style={{width:500,height:300}} src={this.state.items.url}></img>
               
-              <div> <h3>total number of sets :  {this.state.items.availableSeats}</h3></div>
+              <div> <h3> Remaining seats  :  {this.state.items.availableSeats - this.state.items.attending.length}</h3></div>
               
               <form>
               <button className="row btn alert-danger" onClick={this.delete}>delete event ! </button>

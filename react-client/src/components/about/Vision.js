@@ -1,9 +1,9 @@
 import React from 'react'
-import zahgan from './zahgan.jpg';
+import zahgan from '../zahgan.jpg';
 import location from './pages/location'
 import vision from './pages/vision'
 import './Vision.css';
-
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const Vision = () => {
 
@@ -18,25 +18,30 @@ const Vision = () => {
 			</div>
 			<div className="row">
 				<div className="col-md-4">
-					<div className="box">
+				<Link to = "/vision" >
+					<div className="box" >
 						<div className="box-icon"> <span className="glyphicon glyphicon-heart-empty "></span> </div>
 						<div className="info">
 							<h4 className="text-center">About</h4>
 							<p> Our mission is to provide you with a tool to find the best events happening around you <br/>
-				<u><a href="/vision">read more</a></u></p>
+							<u>read more</u></p>
 						</div>
 					</div>
+					</Link>
 				</div>
+				
 				<div className="col-md-4">
+				<Link to='/location'>
 					<div className="box">
 						<div className="box-icon"> <span className="glyphicon glyphicon-map-marker"></span> </div>
 						<div className="info">
 							<h4 className="text-center">Our location</h4>
 							<p>Our team will be happy to meet you
-            <br /><u><a href="/location"> Our location</a></u>
+            				<br /><u>Our location</u>
 							</p>
 						</div>
 					</div>
+					</Link>
 				</div>
 				<div className="col-md-4">
 					<div className="box">

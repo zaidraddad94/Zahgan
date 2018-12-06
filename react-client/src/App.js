@@ -3,7 +3,6 @@ import './App.css';
 import Nav from './components/Nav'
 import {BrowserRouter ,Route ,Switch} from 'react-router-dom'
 import HomeClass from './components/HomeClass'
-import About from './components/About'
 import Error from './components/Error'
 import Create from './components/Creator/Create'
 import $ from 'jquery';
@@ -15,8 +14,8 @@ import Eventcreatshow from './components/Eventcreatshow';
 import Eventsets from './components/Eventsets'
 import Reserved from './components/Reserved';
 import Footer from './components/Footer';
-import location from './components/pages/location';
-import vision from './components/pages/vision';
+import location from './components/about/pages/location';
+import vision from './components/about/pages/vision';
 
 
 class App extends Component {
@@ -72,7 +71,6 @@ class App extends Component {
       <HomeClass items={this.state.items} />
     )}}
   />
-<Route path='/About' component={About} />
 <Route path='/SignInCreator' component={SignInCreator} />
 <Route path='/Create' component={Create} />
 <Route path='/signup' component={Signup} />
