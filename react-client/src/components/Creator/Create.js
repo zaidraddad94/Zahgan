@@ -3,6 +3,8 @@ import $ from 'jquery';
 import EventClassNew from '../EventClassNew'
 import SimpleMap from '../map';
 
+
+import Eventcreat from '../Eventcreat'
 class Create extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +16,7 @@ class Create extends React.Component {
       sets: '',
       date: '',
       location: '',
-      items: '',
+      items: [],
     };
 
 
@@ -132,13 +134,14 @@ class Create extends React.Component {
      
 <div className="container-fluid">
 
+
       <div className="row ">
    
       <div className="col-md-6">
          
          <div className="list-group">
            <h6 className="list-group-item active main-color-bg">
-             <span className="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
+             <span className="glyphicon glyphicon-cog" aria-hidden="true" ></span> Dashboard
            </h6>
            <h6 className="list-group-item"><span className="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Number of your events : <h6 class="badge"> {this.state.items.length} </h6></h6>
            <h6 className="list-group-item"><span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>Remaning seats for each event <h6 class="badge"> {this.viewlest(this)} </h6></h6>
@@ -267,7 +270,18 @@ class Create extends React.Component {
     </div>
   </div>
 </div>
+<div>
+        
+{
+this.state.items.map((item) =>{
+return(<div >
+<Eventcreat item={item}/>
+</div>)
 
+})
+
+}  
+</div>
      </div>
 
     );
