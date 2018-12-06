@@ -3,8 +3,11 @@ import $ from 'jquery';
 import EventClassNew from '../EventClassNew'
 import GoogleMapReact from 'google-map-react';
 import SimpleMap from '../map';
+import Eventcreat from '../Eventcreat'
 import MapForCreator from '../mapForCreator'
 
+import Eventcreatshow from '../Eventcreatshow'
+import {BrowserRouter ,Route ,Switch} from 'react-router-dom'
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class Create extends React.Component {
@@ -27,7 +30,7 @@ class Create extends React.Component {
       sets: '',
       date: '',
       location: '',
-      items: '',
+      items: [],
     };
 
 
@@ -183,9 +186,28 @@ class Create extends React.Component {
 
 
   render() {
-    console.log('yahya', this.state.location)
+
     return (
       <div>
+      <BrowserRouter>  
+      <div className="App">
+     
+    
+      <div>
+      
+     
+      
+      
+      
+      <Switch>
+
+<Route path='/Eventcreatshow' component={Eventcreatshow}/>
+
+</Switch>
+</div>
+
+</div>
+      </BrowserRouter>
         <div class="container-fluid page-cont">
           <h6 className="list-group-item active main-color-bg">
             <span className="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
@@ -194,7 +216,7 @@ class Create extends React.Component {
 
             <div class="col-4 data-box">
               <div>
-                <h3><span>{this.state.items.length}</span> Number of your events</h3>
+                <h3><span>{this.state.items.length}</span> <a href="/Eventcreatshow"> Number of your events</a></h3>
               </div>
             </div>
 
@@ -212,24 +234,7 @@ class Create extends React.Component {
 
           </div>
         </div>
-        <div className="container-fluid">
-
-          <div className="row ">
-
-            <div className="col-md-6">
-
-              <div className="list-group">
-                <h6 className="list-group-item active main-color-bg">
-                  <span className="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
-           </h6>
-                <h6 className="list-group-item"><span className="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Number of your events : <h6 class="badge"> {this.state.items.length} </h6></h6>
-                <h6 className="list-group-item"><span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>Remaning seats for each event <h6 class="badge"> {this.viewlest(this)} </h6></h6>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
+        
 
         <div className="col-md-12">
 
@@ -376,6 +381,8 @@ class Create extends React.Component {
           </div>
         </div>
 
+
+        
       </div>
 
 
