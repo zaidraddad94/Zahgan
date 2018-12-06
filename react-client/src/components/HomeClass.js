@@ -29,10 +29,11 @@ render(){
     return(
        
   <div>
-			<Slideshow/>
-            <Vision/>
-			<div className="container-fluid" >
 			
+          
+			<div className="container-fluid" >
+         <Slideshow/>
+            <Vision/>
       	<div classsName="images">
         {
  this.props.items.map((item) =>{

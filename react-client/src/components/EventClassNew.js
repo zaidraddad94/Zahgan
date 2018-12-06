@@ -134,19 +134,7 @@ class EventClassNew extends React.Component {
       </div>			
     </figure>
 
-    <figure class="back">
-       <img src={this.state.items.url} alt="back"/>
-        <div class="caption">
-          <dl>
-            <dt>Phone</dt>
-            <dd>012 345 6789</dd>
-            <dt>Email</dt>
-            <dd>johndoe@gmail.com</dd>
-            <dt>Web</dt>
-            <dd>www.johndoe.com</dd>
-          </dl>
-        </div>
-    </figure>
+
   </div>
  </a>
 </div>

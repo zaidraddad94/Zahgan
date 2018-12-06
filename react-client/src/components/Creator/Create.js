@@ -129,10 +129,36 @@ class Create extends React.Component {
 
   render() {
     return (
-     
+     <div>
+       <div class="container-fluid page-cont">
+       <h6 className="list-group-item active main-color-bg">
+             <span className="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
+           </h6>
+		<div class="row dash-row">
+			
+			<div class="col-4 data-box">
+				<div>
+					<h3><span>{this.state.items.length}</span> Number of your events</h3>
+				</div>
+			</div>
+			
+			<div class="col-4 data-box">
+				<div>
+					<h3><span>{this.viewlest(this).length}</span> Remaning seats for each event</h3>
+				</div>
+			</div>
+			
+			<div class="col-4 data-box">
+				<div>
+					<h3><span>0</span> test</h3>
+				</div>
+			</div>
+			
+		</div>
+	</div>
 <div className="container-fluid">
 
-      <div className="row ">
+      {/* <div className="row ">
    
       <div className="col-md-6">
          
@@ -145,7 +171,7 @@ class Create extends React.Component {
          </div>
          </div>
 
-     </div>
+     </div> */}
      
         <div className="col-md-12">
        
@@ -219,10 +245,11 @@ class Create extends React.Component {
               <div>
                 <div className="form-group row">
                   <label className="col-sm-2 col-form-label"> Event location:</label>
-                  <div class="col-sm-10">
+                  <div class="col-sm-8">
                     <input id="location-input" className="form-control" placeholder="city, street" value={this.state.location}
                       onChange={e => this.setState({ location: e.target.value })} onClick={this.modal} />
                   </div>
+                  <div class="col-sm-2"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Map</button></div>
                 </div>
               </div>
 
@@ -250,23 +277,26 @@ class Create extends React.Component {
 {/* location modal */}
 
 
-
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-
-</button>
-
-
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
   
-      <div class="modal-body">
-      <SimpleMap/>
-      </div>
-    
-    </div>
-  </div>
+
+
+
+
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+           <div class="modal-content">
+
+             <div class="modal-body">
+               <SimpleMap />
+             </div>
+
+           </div>
+         </div>
+       </div>
+
 </div>
+
 
      </div>
 
