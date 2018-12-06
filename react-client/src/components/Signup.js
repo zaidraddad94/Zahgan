@@ -1,5 +1,6 @@
 import React from 'react'
 import $ from 'jquery';
+import {Redirect} from 'react-router-dom'
 import './Signin.css';
 
 class Signup extends React.Component {
@@ -9,7 +10,8 @@ class Signup extends React.Component {
         firstName: '',
         lastName: '',
         email: '',
-        password: ''
+        password: '',
+        isSignedUp: false
       };
 
 
@@ -34,9 +36,14 @@ class Signup extends React.Component {
           email: obj.email,
           password: obj.password
         },
-        success: function (res) {
+        success: (res) => {
           console.log(res)
           alert(res.message)
+          if (res.success){
+          this.setState({
+              isSignedUp: true
+          })
+        }
         }
       });
 
@@ -45,6 +52,11 @@ class Signup extends React.Component {
     
 
   render() {
+    if (this.state.isSignedUp) {
+      return  <Redirect to={{
+          pathname: '/signin',
+        }} />
+    }
     return (
       <div className="wrapper">
       <form className="form-signin" onSubmit={this.handleSubmit}>       

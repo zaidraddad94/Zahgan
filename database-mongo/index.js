@@ -6,8 +6,16 @@ const EventSchema = new Schema({
         type: String,
         required: [true, 'Name Field is Required']
     },
+
+   
+
     eventName: {
         type: String,
+        required: [true, 'Name Field is Required']
+    },
+
+    cost:{
+        type:Number,
         required: [true, 'Name Field is Required']
     },
     des: {
@@ -28,12 +36,12 @@ const EventSchema = new Schema({
 
     },
     eventLocation: {
-        type: String,
+        type: Array,
         required: [true, 'Name Field is Required']
     },
     attending: {
         type: Array
-    }
+    },
 });
 
 var Event = mongoose.model('Event', EventSchema);
