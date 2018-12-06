@@ -45,7 +45,7 @@ app.get('/create', function (req, res, next) {
 
 //add new event to the db
 app.post('/create', function (req, res, next) {
-
+console.log("hi y7ya")
   Event.create(req.body.obj).then(function (event) {
     ;
     res.send(event)
@@ -236,9 +236,10 @@ app.post('/account/signin', (req, res, next) => {
       });
     }
 
+    var token = user.generateJwt();
     // Otherwise correct user
     const userSession = new UserSession();
-    userSession.userId = user._id;
+    userSession.userId = token;
     userSession.save((err, doc) => {
       if (err) {
         return res.send({
@@ -249,7 +250,7 @@ app.post('/account/signin', (req, res, next) => {
       return res.send({
         success: true,
         message: 'Valid sign in',
-        token: doc._id
+        token: token
       });
     })
   });
@@ -290,16 +291,17 @@ app.get('/account/verify', (req, res, next) => {
 });
 
 // User Logout
-app.get('/account/logout', (req, res, next) => {
+app.post('/account/logout', (req, res, next) => {
 		// Get the token
-		const { query } = req;
-		const { token } = query;
+    const { body } = req;
+    const { headers } = req;
+		const { token } = headers;
 		// ?token = test
 
 		// Verify the token is one of a kind and is not deleted
 
 		UserSession.findOneAndUpdate({
-			_id: token,
+			userId: token,
 			isDeleted: false
 		}, {
 			$set: {
@@ -319,6 +321,20 @@ app.get('/account/logout', (req, res, next) => {
 			})
 
 		})
+  });
+
+  //Get firstName of User
+  app.get('/getSpecificUser', function(req, res, next) {
+    var firstName = req.query.name;
+    // console.log('currency Name:', req.query)
+    User.getSpecificCurrency(name, (err, result) => {
+      let response = result.map(val => {
+        return {
+          firstName: val.firstName
+        };
+      });
+      res.send(response);
+    });
   });
 
 
@@ -368,7 +384,7 @@ app.post('/creator/signup', (req, res, next) => {
       });
     }
 
-    // Save the new user
+    // Save the new creator
     const newCreator = new Creator();
 
     newCreator.email = email;
@@ -438,7 +454,7 @@ app.post('/creator/signin', (req, res, next) => {
       });
     }
 
-    // Otherwise correct user
+    // Otherwise correct creator
     const creatorSession = new CreatorSession();
     creatorSession.userId = creator._id;
     creatorSession.save((err, doc) => {

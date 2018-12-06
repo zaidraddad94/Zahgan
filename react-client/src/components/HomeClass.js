@@ -11,8 +11,13 @@ class HomeClass extends React.Component {
 constructor(props){
     super(props)
     this.myRef = React.createRef();
+
+    
     
 }
+
+
+
 scrollToMyRef = () => {
     window.scrollTo({
         top:this.myRef.current.offsetTop, 
@@ -26,7 +31,7 @@ render(){
   <div>
 			
           
-			<div className="container-fluid" >
+			<div className="container-fluid " >
          <Slideshow/>
             <Vision/>
       	<div classsName="images">
