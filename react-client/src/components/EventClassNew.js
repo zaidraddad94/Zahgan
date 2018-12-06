@@ -124,39 +124,27 @@ class EventClassNew extends React.Component {
           </div>
 
         </Modal>
-        <div id="events">
+     <div id="events">
+         
+         <div className="images">
+ 
+         <a href="#" onClick={this.showModal}>
+  <div class="card">
+    <figure class="front">
+      <img src={this.state.items.url} alt="front"/>
+      <div class="caption">
+        <h2>{this.state.items.eventName}</h2>
+        <p>{this.state.items.des}</p>
+        <a href="#">View more</a>
+      </div>			
+    </figure>
 
-          <div className="images">
 
-            <a href="#" onClick={this.showModal}>
-              <div class="card">
-                <figure class="front">
-                  <img src={this.state.items.url} alt="front" />
-                  <div class="caption">
-                    <h2>{this.state.items.eventName}</h2>
-                    <p>{this.state.items.des}</p>
-                    <a href="#">View more</a>
-                  </div>
-                </figure>
-
-                <figure class="back">
-                  <img src={this.state.items.url} alt="back" />
-                  <div class="caption">
-                    <dl>
-                      <dt>Phone</dt>
-                      <dd>012 345 6789</dd>
-                      <dt>Email</dt>
-                      <dd>johndoe@gmail.com</dd>
-                      <dt>Web</dt>
-                      <dd>www.johndoe.com</dd>
-                    </dl>
-                  </div>
-                </figure>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
+  </div>
+ </a>
+</div>
+</div>
+</div>
     );
   }
 }
