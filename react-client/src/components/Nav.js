@@ -3,19 +3,19 @@ import zahgan from './zahgan.jpg';
 import $ from 'jquery';
 
 const ToEvents=()=>{
-    $("#clickEvent").click(function() {
-        $('html, body').animate({
-            scrollTop: $("#events").offset().top
-        }, 2000);
-    });
+   $("#clickEvent").click(function() {
+       $('html, body').animate({
+           scrollTop: $("#events").offset().top
+       }, 2000);
+   });
 }
 
 const ToAbout=()=>{
-    $("#clickAbout").click(function() {
-        $('html, body').animate({
-            scrollTop: $("#about").offset().top
-        }, 2000);
-    });
+   $("#clickAbout").click(function() {
+       $('html, body').animate({
+           scrollTop: $("#about").offset().top
+       }, 2000);
+   });
 }
 
 
