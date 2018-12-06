@@ -30,12 +30,14 @@ class Signin extends React.Component {
           password: obj.password
         },
         success: (res) => {
-          console.log(res)
+          console.log('res')
           alert(res.message)
           if (res.success){
+              localStorage.setItem('token', res.token);
             this.setState({
                 isLoggedIn: true
             })
+            window.location.reload();
           }
         }
       });
@@ -55,7 +57,7 @@ class Signin extends React.Component {
     <div className="wrapper">
     <form className="form-signin" onSubmit={this.handleSubmit}>       
       <h2 className="form-signin-heading">Please login</h2>
-      <input type="text" className="form-control" name="email" placeholder="Email Address" required="" autofocus="" value={this.state.email} onChange={e=>this.setState({email:e.target.value})} />
+      <input type="text" className="form-control" name="email" placeholder="Email Address" required="" autoFocus="" value={this.state.email} onChange={e=>this.setState({email:e.target.value})} />
       <input type="password" className="form-control" name="password" placeholder="Password" required="" value={this.state.password} onChange={e=>this.setState({password:e.target.value})}/>      
       <button className="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
     </form>
