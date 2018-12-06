@@ -1,3 +1,5 @@
+
+
 .navbar{
   overflow: hidden;
   background-color: white;
@@ -226,6 +228,82 @@ h1{
  text-transform: uppercase;
 }
 .dash-row{
+  margin:15px;
+  height:auto;
+  
+}
+.dash-row .data-box{
+  padding:0px 5px;
+  height:auto;
+  min-height:180px;
+}
+.dash-row .data-box > div{
+  display:inline-flex;
+  width:100%;
+  height:auto;
+  min-height:100%;
+  background-color:rgba(255,255,255,0.8);
+  justify-content: center;
+    align-items: center;
+}
+.dash-row .data-box > div h3{
+  font-size:15px;
+  color:rgba(62,77,96,1.00);
+}
+.dash-row .data-box > div h3 span{
+  font-size:32px;
+  color:rgba(47,88,139,1.00);
+}
+.service-box .service-content p {
+ font-size: 13px;
+ color: white;
+ margin:0;
+}
+.red{
+  background-color: #b50900;
+}
+
+.service-box:hover .service-icon{
+ opacity: 0;
+ -webkit-transform: translateY(-110px) rotateX(90deg);
+ -moz-transform: translateY(-110px) rotateX(90deg);
+ -ms-transform: translateY(-110px) rotateX(90deg);
+ -o-transform: translateY(-110px) rotateX(90deg);
+ transform: translateY(-110px) rotateX(90deg);
+}
+.service-box:hover .service-content {
+ opacity: 1;
+ -webkit-transform: rotateX(0);
+ -moz-transform: rotateX(0);
+ -ms-transform: rotateX(0);
+ -o-transform: rotateX(0);
+ transform: rotateX(0);
+}
+.mission h1{
+  color: black;
+  margin-top: 100px;
+}
+
+
+.map{
+  width:30px;
+  height: auto;
+}
+.service-box .service-icon .front-content h3 {
+ font-size: 15px;
+ color: white;
+ text-align: center;
+ margin-bottom: 15px;
+ text-transform: uppercase;
+}
+.service-box .service-content h3 {
+ font-size: 15px;
+ font-weight: 700;
+ color: white;
+ margin-bottom:10px;
+ text-transform: uppercase;
+}
+.dash-row{
 	margin:15px;
   height:auto;
   
@@ -281,5 +359,4 @@ h1{
   color: black;
   margin-top: 100px;
 }
-
 

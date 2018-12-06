@@ -24,17 +24,17 @@ class EventClassNew extends React.Component {
   }
 
   componentDidMount() {
-		console.log('componentdidmount')
-		if(localStorage.getItem('token')){
-			this.setState({
-				isLoggedIn: true
-			});
-		} else {
-			this.setState({
-				isLoggedIn: false
-			});
-		}
-	}
+    console.log('componentdidmount')
+    if (localStorage.getItem('token')) {
+      this.setState({
+        isLoggedIn: true
+      });
+    } else {
+      this.setState({
+        isLoggedIn: false
+      });
+    }
+  }
 
   showModal = () => {
     this.setState({
@@ -98,8 +98,8 @@ class EventClassNew extends React.Component {
 
     return (
       <div>
-        <Modal 
-        
+        <Modal
+
           show={this.state.show}
           onClose={this.showModal}>
       
