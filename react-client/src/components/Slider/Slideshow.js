@@ -3,9 +3,13 @@ import { Fade } from 'react-slideshow-image';
 import $ from 'jquery';
 
 const fadeImages = [
-  'http://www.okcsos.org/wp-content/uploads/2017/09/about-us.jpg',
-  'https://image.shutterstock.com/image-vector/banner-sign-now-260nw-1080843443.jpg',
-  'https://t3.ftcdn.net/jpg/00/35/05/98/240_F_35059814_35v530XQqkaFnc1fRBV2nfO2WvkzBi25.jpg'
+  'https://www.bellshakespeare.com.au/wp-content/uploads/2016/08/2017-Events-916x261.jpg',
+  'https://financesonline.com/uploads/2017/10/ev.jpg',
+  'http://www.fairact.in/wp-content/uploads/2018/04/events-bg.jpg',
+  'https://qualifyme.com/wp-content/uploads/2015/10/img-corporate-event.jpg',
+  'http://www.leedstrinity.ac.uk/SiteCollectionImages/hero-images/Events_HERO.jpg',
+  'https://www.lofoten-aktiv.no/images/fjellturer/fjellturIMG_2779.jpg',
+  'https://financesonline.com/uploads/2017/10/ev.jpg'
 ];
 
 const fadeProperties = {
@@ -55,24 +59,58 @@ class Slideshow extends React.Component {
             <img src={fadeImages[0]} />
             </a>
           </div>
-
         </div>
+
         <div className="each-fade">
           <div className="image-container">
           <a href="http://localhost:3000/signin">
             <img src={fadeImages[1]} />
             </a>
           </div>
-
         </div>
+
         <div className="each-fade">
           <div className="image-container">
           <a href="http://localhost:3000/signin">
             <img src={fadeImages[2]} />
             </a>
           </div>
-
         </div>
+
+        <div className="each-fade">
+          <div className="image-container">
+          <a href="http://localhost:3000/signin">
+            <img src={fadeImages[3]} />
+            </a>
+          </div>
+        </div>
+
+
+        <div className="each-fade">
+          <div className="image-container">
+          <a href="http://localhost:3000/signin">
+            <img src={fadeImages[4]} />
+            </a>
+          </div>
+        </div>
+
+        <div className="each-fade">
+          <div className="image-container">
+          <a href="http://localhost:3000/signin">
+            <img src={fadeImages[5]} />
+            </a>
+          </div>
+        </div>
+
+        <div className="each-fade">
+          <div className="image-container">
+          <a href="http://localhost:3000/signin">
+            <img src={fadeImages[6]} />
+            </a>
+          </div>
+        </div>
+
+
       </Fade>
     )
   }
