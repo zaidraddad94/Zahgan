@@ -60,20 +60,6 @@ class EventClass extends React.Component {
 
 
 
-    // alert(obj.eventName + ' saved !');
-
-    // $.ajax({
-    //   url: '/create',
-    //   success: (data) => {
-    //     console.log(data)
-    //     this.setState({
-    //       items: data
-    //     })
-    //   },
-    //   error: (err) => {
-    //     console.log('err', err);
-    //   }
-    // });
     event.preventDefault();
   }
 
@@ -91,7 +77,6 @@ class EventClass extends React.Component {
 
           <div className='row'>
             <div className="container">
-
               <div className="Popup-images">
                 <img src={this.state.items.url}></img>
               </div>
@@ -103,7 +88,7 @@ class EventClass extends React.Component {
                     Event Name
                 </label>
                   <div className=" form-control col-sm-8 border">
-                    {this.state.items.eventName}
+                  {this.state.items.eventName}
                   </div>
                 </div>
 
@@ -182,7 +167,8 @@ class EventClass extends React.Component {
             </div>
           </div>
         </div>
-      </div >
+        
+      </div>
     );
   }
 }
