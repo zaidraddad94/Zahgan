@@ -323,6 +323,20 @@ app.post('/account/logout', (req, res, next) => {
 		})
   });
 
+  //Get firstName of User
+  app.get('/getSpecificUser', function(req, res, next) {
+    var firstName = req.query.name;
+    // console.log('currency Name:', req.query)
+    User.getSpecificCurrency(name, (err, result) => {
+      let response = result.map(val => {
+        return {
+          firstName: val.firstName
+        };
+      });
+      res.send(response);
+    });
+  });
+
 
 // Signup Creator
 app.post('/creator/signup', (req, res, next) => {

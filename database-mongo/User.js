@@ -29,6 +29,19 @@ const UserSchema = new mongoose.Schema({
   }
 });
 
+var User = mongoose.model('User', UserSchema);
+
+let getSpecificUser = (firstName, cb) => {
+  User.find({firstName: name}, (err, result) => {
+    if(err){
+      return cb(err, null);
+    }else{
+      return cb(null, result);
+    }
+  })
+}
+
+
 UserSchema.methods.generateHash = function(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
