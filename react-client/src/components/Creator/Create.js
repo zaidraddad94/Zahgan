@@ -9,6 +9,7 @@ class Create extends React.Component {
     this.state = {
       host: '',
       event: '',
+      cost:'',
       description: '',
       photo: '',
       sets: '',
@@ -43,6 +44,7 @@ class Create extends React.Component {
     var obj = {
       creatorName: this.state.host,
       eventName: this.state.event,
+      cost:this.state.cost,
       des: this.state.description,
       url: this.state.photo,
       availableSeats: this.state.sets,
@@ -51,15 +53,15 @@ class Create extends React.Component {
       attending: []
     }
 
-    console.log(obj)
+    console.log("myobj",obj)
     $.ajax({
       type: "POST",
       url: '/create',
       data: {
         obj
       },
-      success: function (xxx) {
-    
+      success: function (data) {
+    console.log("ajax data",data)
       }
     });
 
@@ -71,7 +73,7 @@ class Create extends React.Component {
     $.ajax({
       url: '/create',
       success: (data) => {
-        console.log(data)
+        console.log("my data",data)
         this.setState({
           items: data
         })
@@ -112,6 +114,36 @@ class Create extends React.Component {
 
     return x
   }
+
+  allSeats(props){
+    var x = 0
+
+    var c = function (i) {
+    
+
+      x = x + i.availableSeats
+    }
+    for (var i = 0; i < props.state.items.length; i++) {
+      c(props.state.items[i])
+    }
+
+    return x
+  }
+
+  reservedSeats(props){
+    var x = 0
+
+    var c = function (i) {
+    
+
+      x = x + i.attending.length
+    }
+    for (var i = 0; i < props.state.items.length; i++) {
+      c(props.state.items[i])
+    }
+
+    return x
+  }
   appearCreate(){
     $(document).ready(function(){
       $("#createClick").click(function(){
@@ -144,13 +176,13 @@ class Create extends React.Component {
 			
 			<div class="col-4 data-box">
 				<div>
-					<h3><span>{this.viewlest(this).length}</span> Remaning seats for each event</h3>
+					<h3><span>{this.allSeats(this)}</span> Remaning seats for all events</h3>
 				</div>
 			</div>
 			
 			<div class="col-4 data-box">
 				<div>
-					<h3><span>0</span> test</h3>
+					<h3><span>{this.reservedSeats(this)}</span> Reserved seats for all events </h3>
 				</div>
 			</div>
 			
@@ -158,7 +190,7 @@ class Create extends React.Component {
 	</div>
 <div className="container-fluid">
 
-      {/* <div className="row ">
+      <div className="row ">
    
       <div className="col-md-6">
          
@@ -171,7 +203,7 @@ class Create extends React.Component {
          </div>
          </div>
 
-     </div> */}
+     </div>
      
         <div className="col-md-12">
        
@@ -185,7 +217,7 @@ class Create extends React.Component {
             <div className="createEvent">
               <div>
                 <div className="form-group row">
-                  <label className="col-sm-2 col-form-label">User name:</label>
+                  <label className="col-sm-2 col-form-label">User Name:</label>
                   <div className="col-sm-10">
                     <input className="form-control" placeholder="user name" value={this.state.host}
                       onChange={e => this.setState({ host: e.target.value })} />
@@ -196,7 +228,7 @@ class Create extends React.Component {
 
               <div>
                 <div className="form-group row">
-                  <label className="col-sm-2 col-form-label">Event name: </label>
+                  <label className="col-sm-2 col-form-label">Event Name: </label>
                   <div className="col-sm-10">
                     <input className="form-control" placeholder="event name" value={this.state.event}
                       onChange={e => this.setState({ event: e.target.value })} />
@@ -204,6 +236,15 @@ class Create extends React.Component {
                 </div>
               </div>
 
+<div>
+                <div className="form-group row">
+                  <label className="col-sm-2 col-form-label">Event Cost: </label>
+                  <div className="col-sm-10">
+                    <input className="form-control" placeholder="cost" value={this.state.cost}
+                      onChange={e => this.setState({ cost: e.target.value })} />
+                  </div>
+                </div>
+              </div>
 
 
 

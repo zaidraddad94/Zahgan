@@ -12,6 +12,7 @@ class EventClassNew extends React.Component {
       show: false,
       Name: '',
       Phone: '',
+      numberOfAttendees:''
 
   
       
@@ -34,6 +35,7 @@ class EventClassNew extends React.Component {
     var obj = {
       Name: this.state.Name,
       Phone: this.state.Phone,
+      numberOfAttendees:this.state.numberOfAttendees
     }
     var id=this.state.items._id
     console.log('Name',this.state.Name)
@@ -109,6 +111,18 @@ class EventClassNew extends React.Component {
               <div className="col-sm-4"><input type="text" value={this.state.Phone}
                       onChange={e => this.setState({ Phone: e.target.value })}></input></div>
               </div></div>
+              <div className="row">
+            <div className="col-sm-6">
+            <div className="col-sm-3"> <p>Event Cost</p></div>
+              <div className="col-sm-3">{this.state.items.cost}
+              </div></div>
+              <div className="col-sm-6">
+              <div className="col-sm-2">Attendees</div>
+              <div className="col-sm-4"><input type="text" value={this.state.numberOfAttendees}
+                      onChange={e => this.setState({ numberOfAttendees: e.target.value })}></input></div></div>
+              
+                 </div>
+             
               
               <div className="row">
               <div className="col-sm-6">
