@@ -1,5 +1,5 @@
 import React from 'react'
-import zahgan from './zahgan.jpg';
+import zahgan from '../zahgan.jpg';
 import location from './pages/location'
 import vision from './pages/vision'
 import './Vision.css';
@@ -31,7 +31,7 @@ const Vision = () => {
 				</div>
 				
 				<div className="col-md-4">
-				<Link to='/location"'>
+				<Link to='/location'>
 					<div className="box">
 						<div className="box-icon"> <span className="glyphicon glyphicon-map-marker"></span> </div>
 						<div className="info">

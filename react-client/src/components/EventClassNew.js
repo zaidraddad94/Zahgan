@@ -149,7 +149,7 @@ class EventClassNew extends React.Component {
             </div>
            
             <div>
-              {/* <SimpleMap item={this.state.items} /> */}
+              <SimpleMap item={this.state.items} />
             </div>
             <button type="submit" onClick={this.handleSubmit} style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}}>submit</button>
           </div>
