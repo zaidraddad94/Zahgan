@@ -1,3 +1,5 @@
+
+
 .navbar{
   overflow: hidden;
   background-color: white;
@@ -74,6 +76,7 @@ text-align: center;
     background-color: rgba(0,0,0,0.3);
     padding: 50px;
     z-index: 1;
+    margin-top: 120px;
   }
   .modalStyle {
     background-color: #fff;
@@ -223,30 +226,31 @@ h1{
  text-transform: uppercase;
 }
 .dash-row{
-	margin:0px;
-	height:auto;
+  margin:15px;
+  height:auto;
+  
 }
 .dash-row .data-box{
-	padding:0px 5px;
-	height:auto;
-	min-height:180px;
+  padding:0px 5px;
+  height:auto;
+  min-height:180px;
 }
 .dash-row .data-box > div{
-	display:inline-flex;
-	width:100%;
-	height:auto;
-	min-height:100%;
-	background-color:rgba(255,255,255,0.8);
-	justify-content: center;
+  display:inline-flex;
+  width:100%;
+  height:auto;
+  min-height:100%;
+  background-color:rgba(255,255,255,0.8);
+  justify-content: center;
     align-items: center;
 }
 .dash-row .data-box > div h3{
-	font-size:15px;
-	color:rgba(62,77,96,1.00);
+  font-size:15px;
+  color:rgba(62,77,96,1.00);
 }
 .dash-row .data-box > div h3 span{
-	font-size:32px;
-	color:rgba(47,88,139,1.00);
+  font-size:32px;
+  color:rgba(47,88,139,1.00);
 }
 .service-box .service-content p {
  font-size: 13px;
@@ -277,17 +281,12 @@ h1{
   color: black;
   margin-top: 100px;
 }
-.modal-content{
-  margin-top: 200px;
- width:700px;
- 
-  height: 600px;
 
-}
+
 .map{
   width:30px;
+  height: auto;
 
 }
-
 
 

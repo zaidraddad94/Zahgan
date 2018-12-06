@@ -13,8 +13,7 @@ class EventClassNew extends React.Component {
       show: false,
       Name: '',
       Phone: '',
-      numberOfAttendees:''
-
+      isLoggedIn: false
 
 
     }
@@ -23,6 +22,19 @@ class EventClassNew extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  componentDidMount() {
+		console.log('componentdidmount')
+		if(localStorage.getItem('token')){
+			this.setState({
+				isLoggedIn: true
+			});
+		} else {
+			this.setState({
+				isLoggedIn: false
+			});
+		}
+	}
 
   showModal = () => {
     this.setState({
@@ -137,18 +149,9 @@ class EventClassNew extends React.Component {
             </div>
            
             <div>
+              {/* <SimpleMap item={this.state.items} /> */}
             </div>
-            </div>
-
-
-                    
-        <div className="col-sm-6"> 
-        <div className="map">
-       
-             <SimpleMap item={this.state.items} /> 
-          
-            </div>
-            <button type="submit" onClick={this.handleSubmit}>submit</button>
+            <button type="submit" onClick={this.handleSubmit} style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}}>submit</button>
           </div>
          
           </div>
@@ -178,4 +181,3 @@ class EventClassNew extends React.Component {
   }
 }
 export default EventClassNew
-

@@ -87,11 +87,12 @@ class Nav extends React.Component {
             <li><a href="#" onClick={this.ToAbout} id="clickAbout">About</a></li>
             <li><a href="#" data-toggle="modal" data-target="#myModal">Contact us</a></li>
             <img src={zahgan}></img>
-            <li><a href="/SignInCreator">Create</a></li>
+            <li style={{'display': this.state.isLoggedIn === false ? 'block': 'none'}}><a href="/SignInCreator">Create</a></li>
             <li><a href="javascript:void(0);" onClick={this.ToEvents} id="clickEvent">Events</a></li>
             <li style={{'display': this.state.isLoggedIn === false ? 'block': 'none'}}><a href="/signin">Sign in</a></li>
             <li style={{'display': this.state.isLoggedIn === false ? 'block': 'none'}}><a href="/signup">Sign up</a></li>
             <li style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}}><a href="javascript:void(0);" onClick={this.signOut}>Log out</a></li>
+						<li><p></p></li>
           </ul>
       </nav>
    </div>
