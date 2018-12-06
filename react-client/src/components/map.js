@@ -10,7 +10,7 @@ class SimpleMap extends Component {
       lng:-87.78338810258128,
       icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
     },
-    zoom: 11
+    zoom: 2
   };
 
 //   Google.maps.event.addListener(map, "click", function (e) {
@@ -30,7 +30,7 @@ handleClickedMap = (e) => {
   render() {
     return (
       // Important! Always set the container height explicitly
-      <div style={{ height: '100vh', width: '70%' }}>
+      <div style={{ height: '60vh', width: '100%' }}>
         <GoogleMapReact onClick={this.handleClickedMap } 
           bootstrapURLKeys={{ key:"AIzaSyD2IjGONmJ7Si4cNEZtNPNgPy5pVEt-_14"}}
           defaultCenter={this.props.center}

@@ -282,7 +282,7 @@ figure a{
   height: 100%;
 }
 
-@media (min-width: 450px) {
+@media (min-width: 250px) {
   .container{
     left: 50%;
     margin-left:-225px;
@@ -290,6 +290,9 @@ figure a{
 }
 .images
 {
-  float:left;
+  float: left;
+  width: 30%;
+  margin: 0 25px;
+
  
 }  
