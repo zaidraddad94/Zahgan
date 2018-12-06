@@ -19,7 +19,7 @@ class Eventcreat extends React.Component {
 
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.zaid = this.zaid.bind(this);
+    this.delete = this.delete.bind(this);
   }
 
   showModal = () => {
@@ -79,7 +79,7 @@ class Eventcreat extends React.Component {
   }
 
 
-zaid(x){
+delete(x){
     alert("ar u sure u want to delet :" + this.state.items.eventName)
 
     var id =  this.state.items._id
@@ -136,7 +136,7 @@ zaid(x){
                     }  
               </div>
               <form>
-              <button className="row btn alert-danger" onClick={this.zaid}>delete </button>
+              <button className="row btn alert-danger" onClick={this.delete}>delete </button>
               </form>
             </div>
           </div>
