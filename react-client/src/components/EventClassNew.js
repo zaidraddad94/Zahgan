@@ -88,8 +88,11 @@ class EventClassNew extends React.Component {
     return (
       <div>
         <Modal 
+        
           show={this.state.show}
           onClose={this.showModal}>
+        <div className="row">
+        <div className="col-sm-6">
           <div className="container-fluid ">
             <div className="Popup-images">
               <img src={this.state.items.url}></img></div>
@@ -131,12 +134,24 @@ class EventClassNew extends React.Component {
                 <div className="col-sm-3"> <p>Event Location</p></div>
                 <div className="col-sm-3">Amman</div></div>
             </div>
+            </div>
+           
             <div>
-              <SimpleMap item={this.state.items} />
+            </div>
+            </div>
+
+
+                    
+        <div className="col-sm-6"> 
+        <div className="map">
+       
+             <SimpleMap item={this.state.items} /> 
+          
             </div>
             <button type="submit" onClick={this.handleSubmit}>submit</button>
           </div>
-
+         
+          </div>
         </Modal>
      <div id="events">
          

@@ -10,18 +10,18 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 class Create extends React.Component {
   static defaultProps = {
     center: {
-        lat: 33.7496844,
-        lng: -84.7516932,
+      lat: 33.7496844,
+      lng: -84.7516932,
 
     },
     zoom: 10
-};
+  };
   constructor(props) {
     super(props);
     this.state = {
       host: '',
       event: '',
-      cost:'',
+      cost: '',
       description: '',
       photo: '',
       sets: '',
@@ -42,10 +42,10 @@ class Create extends React.Component {
     let latitude = e.lat
     let longtitude = e.lng
     this.setState({
-      location: {latitude,longtitude}
+      location: { latitude, longtitude }
     })
     console.log(latitude, longtitude)
-}
+  }
 
   componentDidMount() {
 
@@ -67,7 +67,7 @@ class Create extends React.Component {
     var obj = {
       creatorName: this.state.host,
       eventName: this.state.event,
-      cost:this.state.cost,
+      cost: this.state.cost,
       des: this.state.description,
       url: this.state.photo,
       availableSeats: this.state.sets,
@@ -76,24 +76,15 @@ class Create extends React.Component {
       attending: []
     }
 
-<<<<<<< HEAD
-    console.log("myobj",obj)
-=======
-    console.log('yahyarashid',obj)
->>>>>>> 61d0f2801f7f6a6d772bdd81485a6262e6a64611
+    console.log("myobj", obj)
     $.ajax({
       type: "POST",
       url: '/create',
       data: {
         obj
       },
-<<<<<<< HEAD
       success: function (data) {
-    console.log("ajax data",data)
-=======
-      success: function (xxx) {
-
->>>>>>> 61d0f2801f7f6a6d772bdd81485a6262e6a64611
+        console.log("ajax data", data)
       }
     });
 
@@ -105,7 +96,7 @@ class Create extends React.Component {
     $.ajax({
       url: '/create',
       success: (data) => {
-        console.log("my data",data)
+        console.log("my data", data)
         this.setState({
           items: data
         })
@@ -146,13 +137,12 @@ class Create extends React.Component {
 
     return x
   }
-<<<<<<< HEAD
 
-  allSeats(props){
+  allSeats(props) {
     var x = 0
 
     var c = function (i) {
-    
+
 
       x = x + i.availableSeats
     }
@@ -163,11 +153,11 @@ class Create extends React.Component {
     return x
   }
 
-  reservedSeats(props){
+  reservedSeats(props) {
     var x = 0
 
     var c = function (i) {
-    
+
 
       x = x + i.attending.length
     }
@@ -177,16 +167,10 @@ class Create extends React.Component {
 
     return x
   }
-  appearCreate(){
-    $(document).ready(function(){
-      $("#createClick").click(function(){
-          $(".createEvent").toggle();
-=======
   appearCreate() {
     $(document).ready(function () {
       $("#createClick").click(function () {
         $(".createEvent").toggle();
->>>>>>> 61d0f2801f7f6a6d772bdd81485a6262e6a64611
       });
     });
   }
@@ -199,54 +183,54 @@ class Create extends React.Component {
 
 
   render() {
-    console.log('yahya',this.state.location)
+    console.log('yahya', this.state.location)
     return (
-     <div>
-       <div class="container-fluid page-cont">
-       <h6 className="list-group-item active main-color-bg">
-             <span className="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
+      <div>
+        <div class="container-fluid page-cont">
+          <h6 className="list-group-item active main-color-bg">
+            <span className="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
            </h6>
-		<div class="row dash-row">
-			
-			<div class="col-4 data-box">
-				<div>
-					<h3><span>{this.state.items.length}</span> Number of your events</h3>
-				</div>
-			</div>
-			
-			<div class="col-4 data-box">
-				<div>
-					<h3><span>{this.allSeats(this)}</span> Remaning seats for all events</h3>
-				</div>
-			</div>
-			
-			<div class="col-4 data-box">
-				<div>
-					<h3><span>{this.reservedSeats(this)}</span> Reserved seats for all events </h3>
-				</div>
-			</div>
-			
-		</div>
-	</div>
-<div className="container-fluid">
+          <div class="row dash-row">
 
-      <div className="row ">
-   
-      <div className="col-md-6">
-         
-         <div className="list-group">
-           <h6 className="list-group-item active main-color-bg">
-             <span className="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
-           </h6>
-              <h6 className="list-group-item"><span className="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Number of your events : <h6 class="badge"> {this.state.items.length} </h6></h6>
-              <h6 className="list-group-item"><span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>Remaning seats for each event <h6 class="badge"> {this.viewlest(this)} </h6></h6>
+            <div class="col-4 data-box">
+              <div>
+                <h3><span>{this.state.items.length}</span> Number of your events</h3>
+              </div>
             </div>
+
+            <div class="col-4 data-box">
+              <div>
+                <h3><span>{this.allSeats(this)}</span> Remaning seats for all events</h3>
+              </div>
+            </div>
+
+            <div class="col-4 data-box">
+              <div>
+                <h3><span>{this.reservedSeats(this)}</span> Reserved seats for all events </h3>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div className="container-fluid">
+
+          <div className="row ">
+
+            <div className="col-md-6">
+
+              <div className="list-group">
+                <h6 className="list-group-item active main-color-bg">
+                  <span className="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
+           </h6>
+                <h6 className="list-group-item"><span className="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Number of your events : <h6 class="badge"> {this.state.items.length} </h6></h6>
+                <h6 className="list-group-item"><span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>Remaning seats for each event <h6 class="badge"> {this.viewlest(this)} </h6></h6>
+              </div>
+            </div>
+
           </div>
 
         </div>
 
-     </div>
-     
         <div className="col-md-12">
 
 
@@ -278,7 +262,7 @@ class Create extends React.Component {
                 </div>
               </div>
 
-<div>
+              <div>
                 <div className="form-group row">
                   <label className="col-sm-2 col-form-label">Event Cost: </label>
                   <div className="col-sm-10">
@@ -330,7 +314,7 @@ class Create extends React.Component {
                   <label className="col-sm-2 col-form-label"> Event location:</label>
                   <div class="col-sm-8">
                     <input id="location-input" className="form-control" placeholder="city, street" value={this.state.location}
-                       onClick={this.modal} />
+                      onClick={this.modal} />
                   </div>
                   <div class="col-sm-2"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Map</button></div>
                 </div>
@@ -359,43 +343,43 @@ class Create extends React.Component {
 
         {/* location modal */}
 
-  
 
 
 
-       
+
+
 
 
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-           <div class="modal-content">
+          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
 
-             <div class="modal-body">
-             <div style={{ height: '100vh', width: '100%' }}>
-                <GoogleMapReact onClick={this.handleClickedMap}
+              <div class="modal-body">
+                <div style={{ height: '100vh', width: '100%' }}>
+                  <GoogleMapReact onClick={this.handleClickedMap}
                     bootstrapURLKeys={{ key: "AIzaSyD2IjGONmJ7Si4cNEZtNPNgPy5pVEt-_14" }}
                     defaultCenter={this.props.center}
                     defaultIcon={this.props.Marker}
                     defaultZoom={this.props.zoom}
-                >
+                  >
                     <AnyReactComponent
-                        lat={33.7496844}
-                        lng={-84.7516932}
-                        text='Hello world'
+                      lat={33.7496844}
+                      lng={-84.7516932}
+                      text='Hello world'
 
                     />
-                </GoogleMapReact>
+                  </GoogleMapReact>
+                </div>
+              </div>
+
             </div>
-             </div>
+          </div>
+        </div>
 
-           </div>
-         </div>
-       </div>
-
-</div>
+      </div>
 
 
-     </div>
+
 
     );
   }
