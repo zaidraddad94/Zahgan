@@ -26,7 +26,7 @@ render(){
   <div>
 			
           
-			<div className="container-fluid" >
+			<div className="container-fluid " >
          <Slideshow/>
             <Vision/>
       	<div classsName="images">
