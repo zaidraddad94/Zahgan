@@ -10,7 +10,9 @@ import Signup from './components/Signup';
 import Signin from './components/Signin';
 import SignInCreator from './components/Creator/SignInCreator';
 import Slideshow from './components/Slider/Slideshow';
-
+import Eventcreatshow from './components/Eventcreatshow';
+import Eventsets from './components/Eventsets'
+import Reserved from './components/Reserved';
 import Footer from './components/Footer';
 import location from './components/about/pages/location';
 import vision from './components/about/pages/vision';
@@ -76,7 +78,9 @@ class App extends Component {
 <Route path='/location' component={location}/>
 <Route path='/vision' component={vision}/>
 
-
+<Route path='/Eventcreatshow' component={Eventcreatshow}/>
+<Route path='/Eventsets' component={Eventsets}/>
+<Route path='/Reserved' component={Reserved}/>
 </Switch>
 </div>
 
