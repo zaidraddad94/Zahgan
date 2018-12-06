@@ -95,7 +95,7 @@ text-align: center;
   .Popup-images{
     
    
-    margin: auto;
+    
     width: 70%;
    
   }
@@ -284,4 +284,10 @@ h1{
   height: 600px;
 
 }
+.map{
+  width:30px;
+
+}
+
+
 

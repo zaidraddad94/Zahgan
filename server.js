@@ -45,7 +45,7 @@ app.get('/create', function (req, res, next) {
 
 //add new event to the db
 app.post('/create', function (req, res, next) {
-
+console.log("hi y7ya")
   Event.create(req.body.obj).then(function (event) {
     ;
     res.send(event)
