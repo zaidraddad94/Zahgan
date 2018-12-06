@@ -5,7 +5,7 @@ import GoogleMapReact from 'google-map-react';
 import SimpleMap from '../map';
 import Eventcreat from '../Eventcreat'
 import MapForCreator from '../mapForCreator'
-
+import Eventsets from '../Eventsets'
 import Eventcreatshow from '../Eventcreatshow'
 import {BrowserRouter ,Route ,Switch} from 'react-router-dom'
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
@@ -147,7 +147,11 @@ class Create extends React.Component {
     var c = function (i) {
 
 
-      x = x + i.availableSeats
+      var xx = i.availableSeats - i.attending.length
+
+      x = x + xx 
+
+
     }
     for (var i = 0; i < props.state.items.length; i++) {
       c(props.state.items[i])
@@ -202,7 +206,7 @@ class Create extends React.Component {
       <Switch>
 
 <Route path='/Eventcreatshow' component={Eventcreatshow}/>
-
+<Route path='/Eventsets' component={Eventsets}/>
 </Switch>
 </div>
 
@@ -222,13 +226,13 @@ class Create extends React.Component {
 
             <div class="col-4 data-box">
               <div>
-                <h3><span>{this.allSeats(this)}</span> Remaning seats for all events</h3>
+                <h3><span>{this.allSeats(this)}</span><a href="/Eventsets">  Remaining seats for all events </a></h3>
               </div>
             </div>
 
             <div class="col-4 data-box">
               <div>
-                <h3><span>{this.reservedSeats(this)}</span> Reserved seats for all events </h3>
+                <h3><span>{this.reservedSeats(this)}</span><a href="/Reserved"> Reserved seats for all events </a></h3>
               </div>
             </div>
 
