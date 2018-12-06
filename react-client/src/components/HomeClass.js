@@ -1,11 +1,9 @@
 import React from 'react'
 import {BrowserRouter ,Route ,Switch} from 'react-router-dom'
-import About from './About'
-
 import EventClassNew from './EventClassNew'
 import Create from './Creator/Create'
 import Slideshow from './Slider/Slideshow';
-import Vision from './Vision';
+import Vision from './about/Vision';
 
 class HomeClass extends React.Component {
 constructor(props){
