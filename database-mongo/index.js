@@ -36,12 +36,12 @@ const EventSchema = new Schema({
 
     },
     eventLocation: {
-        type: String,
+        type: Array,
         required: [true, 'Name Field is Required']
     },
     attending: {
         type: Array
-    }
+    },
 });
 
 var Event = mongoose.model('Event', EventSchema);
