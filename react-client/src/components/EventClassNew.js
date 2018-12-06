@@ -178,4 +178,3 @@ class EventClassNew extends React.Component {
   }
 }
 export default EventClassNew
-
