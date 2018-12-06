@@ -232,7 +232,7 @@ class Create extends React.Component {
 
             <div class="col-4 data-box">
               <div>
-                <h3><span>{this.reservedSeats(this)}</span> Reserved seats for all events </h3>
+                <h3><span>{this.reservedSeats(this)}</span> <a href="/Reserved"> Reserved seats for all events </a> </h3>
               </div>
             </div>
 
