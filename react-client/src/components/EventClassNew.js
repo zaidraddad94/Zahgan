@@ -13,7 +13,12 @@ class EventClassNew extends React.Component {
       show: false,
       Name: '',
       Phone: '',
+<<<<<<< HEAD
       isLoggedIn: false
+=======
+      numberOfAttendees:''
+
+>>>>>>> 35011583a83d3a156550f919bc9b399e80306d6d
 
 
     }
@@ -49,6 +54,7 @@ class EventClassNew extends React.Component {
     var obj = {
       Name: this.state.Name,
       Phone: this.state.Phone,
+      numberOfAttendees:this.state.numberOfAttendees
     }
     var id = this.state.items._id
     console.log('Name', this.state.Name)
@@ -99,8 +105,11 @@ class EventClassNew extends React.Component {
     return (
       <div>
         <Modal 
+        
           show={this.state.show}
           onClose={this.showModal}>
+        <div className="row">
+        <div className="col-sm-6">
           <div className="container-fluid ">
             <div className="Popup-images">
               <img src={this.state.items.url}></img></div>
@@ -124,18 +133,33 @@ class EventClassNew extends React.Component {
                 <div className="col-sm-4"><input type="text" value={this.state.Phone}
                   onChange={e => this.setState({ Phone: e.target.value })}></input></div>
               </div></div>
-
-            <div className="row">
+              <div className="row">
+            <div className="col-sm-6">
+            <div className="col-sm-3"> <p>Event Cost</p></div>
+              <div className="col-sm-3">{this.state.items.cost}
+              </div></div>
+              <div className="col-sm-6">
+              <div className="col-sm-2">Attendees</div>
+              <div className="col-sm-4"><input type="text" value={this.state.numberOfAttendees}
+                      onChange={e => this.setState({ numberOfAttendees: e.target.value })}></input></div></div>
+              
+                 </div>
+             
+              
+              <div className="row">
               <div className="col-sm-6">
                 <div className="col-sm-3"> <p>Event Location</p></div>
                 <div className="col-sm-3">Amman</div></div>
             </div>
+            </div>
+           
             <div>
               {/* <SimpleMap item={this.state.items} /> */}
             </div>
             <button type="submit" onClick={this.handleSubmit} style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}}>submit</button>
           </div>
-
+         
+          </div>
         </Modal>
      <div id="events">
          
