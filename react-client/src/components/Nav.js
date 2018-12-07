@@ -21,19 +21,22 @@ class Nav extends React.Component {
 			this.setState({
 				isLoggedIn: true
 			});
+			this.setState({
+				userName: jwtDecode(localStorage.getItem('token')).firstName
+			})
 		} else {
 			this.setState({
 				isLoggedIn: false
 			});
 		}
 	}
-	componentDidMount() {
-		if(localStorage.getItem('token')){
-		this.setState({
-			userName: jwtDecode(localStorage.getItem('token')).firstName
-		})
-	}
-	}
+	// componentWillMount() {
+	// 	if(localStorage.getItem('token')){
+	// 	this.setState({
+	// 		userName: jwtDecode(localStorage.getItem('token')).firstName
+	// 	})
+	// }
+	// }
 
  ToEvents = () => {
     $("#clickEvent").click(function() {
