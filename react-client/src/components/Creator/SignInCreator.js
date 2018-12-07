@@ -47,7 +47,7 @@ class SignInCreator extends React.Component {
   render() {
       if (this.state.isLoggedIn) {
         return  <Redirect to={{
-            pathname: '/create',
+            pathname: '/creator',
           }} />
       }
     return (
