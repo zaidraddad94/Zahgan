@@ -92,7 +92,9 @@ delete(x){
       });
 
 
+
 }
+
 
 
   render() {
@@ -110,15 +112,15 @@ delete(x){
           <table class="table table-striped primary">
          
   <thead>
-    <tr class="danger">
-      <th scope="col">#</th>
+    <tr class="bg-primary ">
+      <th scope="col ">#</th>
       <th scope="col">Event Name</th>
       <th scope="col">attendees Number</th>
       <th scope="col">attendees Data</th>
     </tr>
   </thead>
   <tbody>
-    <tr class="secondary">
+    <tr className="primary">
       <th scope="row"></th>
       <td>{this.state.items.eventName}</td>
       <td>{this.state.items.attending.length} / {this.state.items.availableSeats}</td>
@@ -128,7 +130,7 @@ delete(x){
                     return(<div className="row" >
                        
                      <div class="col-lg-4">name : {item.Name  } </div>
-                     
+                     <div class="row"></div>
                      <div class="col-lg-4">
                      phone : {item.Phone}
                     </div>

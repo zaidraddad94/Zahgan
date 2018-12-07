@@ -104,15 +104,20 @@ class EventClassNew extends React.Component {
           onClose={this.showModal}>
       
       <div className="row">
-      <div className="col-sm-6"><div className="Popup-images">
-              <img src={this.state.items.url}></img></div>
-             
+     
+      <div className="col-sm-12">
+      <div className="Popup-images">
+              <img src={this.state.items.url}></img>
+              </div>
+              </div></div>
+
               <div className="row">
              
-              <div className="col-sm-2">
+              <div className="col-sm-6">
+              <div className="row"> <div className="col-sm-3">
               <p>Event Name</p>
               </div>
-              <div className="col-sm-2">
+              <div className="col-sm-3">
               {this.state.items.eventName}
              
               </div>
@@ -124,15 +129,11 @@ class EventClassNew extends React.Component {
               <input type="text" value={this.state.Name}
                   onChange={e => this.setState({ Name: e.target.value })}></input>
              
-              </div>
-
-              </div>
-              <div className="row">
-             
-             <div className="col-sm-2">
+              </div></div>
+              <div className="row">     <div className="col-sm-3">
              <p>Event Description</p>
              </div>
-             <div className="col-sm-2">
+             <div className="col-sm-3">
              {this.state.items.des}
             
              </div>
@@ -144,29 +145,30 @@ class EventClassNew extends React.Component {
               <input type="text" value={this.state.Phone}
                   onChange={e => this.setState({ Phone: e.target.value })}></input>
              
-              </div>
-             </div>
-             <div className="row">
-             
-             <div className="col-sm-2">
+              </div></div>
+              <div className="row">
+             <div className="col-sm-3">
              <p>Event Cost</p>
              </div>
-             <div className="col-sm-2">
+             <div className="col-sm-3">
              {this.state.items.cost}
             
-             </div>
+             </div></div>
+              <div className="row"></div>
+             
+        
              <button type="submit" onClick={this.handleSubmit} style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}}>submit</button>
+           
              </div>
-          
-
-              
-              </div>
-      <div className="col-sm-5">   <div className="map">
+             <div className="col-sm-6">   <div className="map">
        
        <SimpleMap item={this.state.items} /> 
     
-      </div></div></div>
-     
+      </div></div>
+             </div>
+          
+             
+       
       
       
       

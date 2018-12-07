@@ -26,6 +26,7 @@ export class SimpleMap extends Component {
     render() {
         console.log('hhh',this.props.item)
         return (
+        
             <Map onClick={this.mapClicked} google={this.props.google}
                 initialCenter={{
                     //                         lat={this.props.item.eventLocation[0].latitude}
@@ -44,6 +45,7 @@ export class SimpleMap extends Component {
 
                 </InfoWindow>
             </Map>
+          
         );
     }
 }
