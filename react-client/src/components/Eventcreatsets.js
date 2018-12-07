@@ -19,7 +19,7 @@ class Eventcreatsets extends React.Component {
 
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.delete = this.delete.bind(this);
+ 
   }
 
   showModal = () => {
@@ -79,20 +79,7 @@ class Eventcreatsets extends React.Component {
   }
 
 
-delete(x){
-    alert("ar u sure u want to delet :" + this.state.items.eventName)
 
-    var id =  this.state.items._id
-    $.ajax({
-        type: "DELETE",
-        url: '/create/' + id,
-        success: function (data) {
-         alert( "deleted" )
-        }
-      });
-
-
-}
 
 
   render() {
@@ -100,33 +87,33 @@ delete(x){
 
 
     return (
-      <div style={{ width:1000 , textAlign:"center"}}>
+  
+       <div className="container-fluid">
+      <table class="table table-striped primary">
+         
+      <thead>
+        <tr class="bg-primary ">
+          <th scope="col " className="th-evenName">#</th>
+          <th scope="col" className="th-evenName">Event Name</th>
+          <th scope="col" className="th-evenName">Remaining Seats </th>
+       
+        </tr>
+      </thead>
+      <tbody>
+        <tr className="primary">
+          <th scope="row"></th>
+          <td>{this.state.items.eventName}</td>
+          <td>{this.state.items.availableSeats - this.state.items.attending.length}</td>
+  </tr>
+    
+      </tbody>
+    </table>
 
-
-
-
-        <div>
-          <div>
-
-            <div style={{ width:300,border: 50,
-                padding: 50,
-                margin: 50,
-                textAlign:"center"
-            }}>
-
-                <div className="row"><h3>{this.state.items.eventName}</h3></div>
-                <img className="row" style={{width:500,height:300}} src={this.state.items.url}></img>
-              
-              <div> <h3> Remaining seats  :  {this.state.items.availableSeats - this.state.items.attending.length}</h3></div>
-              
-              <form>
-              <button className="row btn alert-danger" onClick={this.delete}>delete event ! </button>
-              </form>
-            </div>
-          </div>
-        </div>
+   
+   </div>
         
-      </div>
+        
+     
     );
   }
 }

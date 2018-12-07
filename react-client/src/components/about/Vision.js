@@ -10,7 +10,7 @@ const Vision = () => {
 	return (
 
 
-		<div >
+		<div id="about">
 			<div className="row">
 				<div className="col-md-12">
 					<p className="main_title"><span>About Us</span></p>
