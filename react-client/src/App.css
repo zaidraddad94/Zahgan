@@ -76,21 +76,22 @@ text-align: center;
     right: 0;
     background-color: rgba(0,0,0,0.3);
     padding: 50px;
-    z-index: 1;
-    margin-top: 120px;
+    z-index: 3;
+    margin-top: 15px;
   }
   .modalStyle {
     background-color: #fff;
     border-radius: 5px;
    padding:10px;
-    height: 600px;
-    width: 50%;
+    height: 530px;
+    width: 60%;
     margin: 0 auto;
     position: relative;
     z-index: 1;
     box-shadow:5px 5px 5px rgb(97, 93, 93);
     font-size: 15px;
     font-weight: bold;
+    overflow: hidden;
     
   }
 
@@ -112,7 +113,7 @@ text-align: center;
     width:100%;
     height: 250px;
     border-radius: 5px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     box-shadow:2px 2px 2px rgb(107, 104, 104);
   }
   .container-fluid{
@@ -290,17 +291,17 @@ h1{
 }
 
 
-.map{
+.mapModal{
   width:100%;
   height: auto;
 }
-.map div:first-child {
+.mapModal div:first-child {
 width: 80% !important;
 min-height:200px;
 border-radius: 5px;
 margin-left:20px;
 }
-.map div:nth-child(2) {
+.mapModal div:nth-child(2) {
 display: none !important;
 }
 .service-box .service-icon .front-content h3 {
@@ -376,7 +377,7 @@ display: none !important;
 
 
 table{
-  margin:0 auto;
+
   font-size: 20px;
   width:100%
 }
@@ -386,5 +387,17 @@ table{
   margin: 0 auto;
 }
 
+.th-evenName{
+  width:20%;
+}
 
+.th-atendees{
+  width:30%;
+}
+table tr{
+  width:100%;
+}
+table{
+  width:100%;
+}
 

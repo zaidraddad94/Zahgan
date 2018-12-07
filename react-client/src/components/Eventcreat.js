@@ -113,10 +113,11 @@ delete(x){
          
   <thead>
     <tr class="bg-primary ">
-      <th scope="col ">#</th>
-      <th scope="col">Event Name</th>
-      <th scope="col">attendees Number</th>
-      <th scope="col">attendees Data</th>
+      <th scope="col " className="th-evenName">#</th>
+      <th scope="col" className="th-evenName">Event Name</th>
+      <th scope="col" className="th-evenName">attendees Number</th>
+      <th scope="col" className="th-atendees">attendees Data</th>
+      <th scope="col" className="th-atendees"></th>
     </tr>
   </thead>
   <tbody>
@@ -147,7 +148,7 @@ delete(x){
 </table>
 
        
-
+  
 
               
               

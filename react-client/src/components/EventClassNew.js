@@ -130,13 +130,13 @@ class EventClassNew extends React.Component {
                   onChange={e => this.setState({ Name: e.target.value })}></input>
              
               </div></div>
-              <div className="row">     <div className="col-sm-3">
-             <p>Event Description</p>
+              <div className="row">   <div className="col-sm-3">
+             <p>Event Cost</p>
              </div>
              <div className="col-sm-3">
-             {this.state.items.des}
+             {this.state.items.cost}
             
-             </div>
+             </div>   
              <div className="col-sm-2">
               Phone
              
@@ -147,20 +147,21 @@ class EventClassNew extends React.Component {
              
               </div></div>
               <div className="row">
-             <div className="col-sm-3">
-             <p>Event Cost</p>
+              <div className="col-sm-3">
+             <p>Event Description</p>
              </div>
-             <div className="col-sm-3">
-             {this.state.items.cost}
+             <div className="col-sm-9">
+             {this.state.items.des}
             
-             </div></div>
+             </div>
+            </div>
               <div className="row"></div>
              
         
              <button type="submit" onClick={this.handleSubmit} style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}}>submit</button>
            
              </div>
-             <div className="col-sm-6">   <div className="map">
+             <div className="col-sm-6">   <div className="mapModal">
        
        <SimpleMap item={this.state.items} /> 
     
