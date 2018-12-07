@@ -291,8 +291,12 @@ figure a{
 .images
 {
   float: left;
-  width: 30%;
-  margin: 0 25px;
+ 
+  
 
  
 }  
+
+#events{
+  margin-left:40px;
+}
