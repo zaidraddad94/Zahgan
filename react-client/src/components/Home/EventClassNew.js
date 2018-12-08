@@ -14,12 +14,8 @@ class EventClassNew extends React.Component {
       Name: '',
       Phone: '',
       isLoggedIn: false,
-      attended: false
-
 
     }
-
-
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -72,14 +68,13 @@ class EventClassNew extends React.Component {
       success: function (data) {
         console.log("my data", data)
         alert("successfully attended")
+        document.getElementById("name").value = ''
+        document.getElementById("phone").value = ''
       }
     });
-    this.setState({
-      attended: true
-    })
+    
+    
 
-    document.getElementById('name').value = ''
-    document.getElementById('phone').value = ''
 
     // alert(obj.eventName + ' saved !');
 
@@ -173,32 +168,10 @@ class EventClassNew extends React.Component {
       
       </div></div>
              </div>
-          
-             
-       
-      
-      
-      
-      
-      
-    
 
-
-
-
-
-
-
-
-
-
-
-
-       
         </Modal>
 
 
-        
      <div id="events">
          
          <div className="images">
