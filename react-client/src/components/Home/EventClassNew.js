@@ -70,6 +70,7 @@ class EventClassNew extends React.Component {
       data: yahya,
       success: function (data) {
         console.log("my data", data)
+        alert("successfully attended")
       }
     });
 
@@ -128,7 +129,7 @@ class EventClassNew extends React.Component {
               </div>
               <div className="col-sm-2">
               <input type="text" value={this.state.Name}
-                  onChange={e => this.setState({ Name: e.target.value })}></input>
+                  onChange={e => this.setState({ Name: e.target.value })} ref={el => this.inputTitle = el}></input>
              
               </div></div>
               <div className="row">   <div className="col-sm-3">
@@ -165,7 +166,7 @@ class EventClassNew extends React.Component {
              <div className="col-sm-5">   <div className="mapModal">
        
        <SimpleMap item={this.state.items} /> 
-    
+      
       </div></div>
              </div>
           
