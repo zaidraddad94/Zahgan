@@ -71,6 +71,7 @@ class EventClassNew extends React.Component {
       data: yahya,
       success: function (data) {
         console.log("my data", data)
+        alert("successfully attended")
       }
     });
     this.setState({
@@ -168,7 +169,7 @@ class EventClassNew extends React.Component {
              <div className="col-sm-5">   <div className="mapModal">
        
        <SimpleMap item={this.state.items} /> 
-    
+      
       </div></div>
              </div>
           
