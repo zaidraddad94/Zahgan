@@ -13,7 +13,8 @@ class EventClassNew extends React.Component {
       show: false,
       Name: '',
       Phone: '',
-      isLoggedIn: false
+      isLoggedIn: false,
+      attended: false
 
 
     }
@@ -72,7 +73,9 @@ class EventClassNew extends React.Component {
         console.log("my data", data)
       }
     });
-
+    this.setState({
+      attended: true
+    })
 
 
 
@@ -122,12 +125,12 @@ class EventClassNew extends React.Component {
               {this.state.items.eventName}
              
               </div>
-              <div className="col-sm-2">
+              <div style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}} className="col-sm-2">
               Name
              
               </div>
               <div className="col-sm-2">
-              <input type="text" value={this.state.Name}
+              <input style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}} type="text" value={this.state.Name}
                   onChange={e => this.setState({ Name: e.target.value })}></input>
              
               </div></div>
@@ -138,12 +141,12 @@ class EventClassNew extends React.Component {
              {this.state.items.cost}
             
              </div>   
-             <div className="col-sm-2">
+             <div style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}} className="col-sm-2">
               Phone
              
               </div>
               <div className="col-sm-2">
-              <input type="text" value={this.state.Phone}
+              <input style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}} type="text" value={this.state.Phone}
                   onChange={e => this.setState({ Phone: e.target.value })}></input>
              
               </div></div>
