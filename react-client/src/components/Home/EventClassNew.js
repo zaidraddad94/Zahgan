@@ -1,8 +1,8 @@
 import React from 'react'
 import $ from 'jquery';
-import Modal from './Modal/Modal'
+import Modal from '../Modal/Modal'
 import './event.css';
-import SimpleMap from './map'
+import SimpleMap from '../Creator/map'
 
 
 class EventClassNew extends React.Component {
@@ -35,7 +35,7 @@ class EventClassNew extends React.Component {
       });
     }
   }
-
+// to toggle the modal
   showModal = () => {
     this.setState({
       ...this.state,
@@ -43,6 +43,7 @@ class EventClassNew extends React.Component {
     });
 
   }
+  // take the data when its submit
 
   handleSubmit(event, item) {
     console.log("secound parameter", this.state.items.attending)
@@ -69,6 +70,7 @@ class EventClassNew extends React.Component {
       data: yahya,
       success: function (data) {
         console.log("my data", data)
+        alert("successfully attended")
       }
     });
 
@@ -127,7 +129,7 @@ class EventClassNew extends React.Component {
               </div>
               <div className="col-sm-2">
               <input type="text" value={this.state.Name}
-                  onChange={e => this.setState({ Name: e.target.value })}></input>
+                  onChange={e => this.setState({ Name: e.target.value })} ref={el => this.inputTitle = el}></input>
              
               </div></div>
               <div className="row">   <div className="col-sm-3">
@@ -146,11 +148,11 @@ class EventClassNew extends React.Component {
                   onChange={e => this.setState({ Phone: e.target.value })}></input>
              
               </div></div>
-              <div className="row">
+              <div className="row" >
               <div className="col-sm-3">
-             <p>Event Description</p>
+             <p >Event Description</p>
              </div>
-             <div className="col-sm-9">
+             <div className="col-sm-9" >
              {this.state.items.des}
             
              </div>
@@ -158,13 +160,13 @@ class EventClassNew extends React.Component {
               <div className="row"></div>
              
         
-             <button type="submit" onClick={this.handleSubmit} style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}}>submit</button>
+             <button type="submit" onClick={this.handleSubmit} style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}}>Attend</button>
            
              </div>
-             <div className="col-sm-6">   <div className="mapModal">
-       <form>
+             <div className="col-sm-5">   <div className="mapModal">
+       
        <SimpleMap item={this.state.items} /> 
-       </form>
+      
       </div></div>
              </div>
           

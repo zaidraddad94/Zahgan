@@ -13,7 +13,6 @@ class Modal extends React.Component {
             return null
         }
         return (<div className="backdropStyle">
-        <form>
             <div className='modalStyle'>
 
                 {this.props.children}
@@ -22,7 +21,6 @@ class Modal extends React.Component {
                     > Close </button></div>
                     
             </div>
-            </form>
         </div>
         )
     }

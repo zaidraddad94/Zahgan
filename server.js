@@ -47,7 +47,6 @@ app.get('/create', function (req, res, next) {
 app.post('/create', function (req, res, next) {
 console.log("hi y7ya")
   Event.create(req.body.obj).then(function (event) {
-    
     res.send(event)
   }).catch(next)
 });
@@ -235,7 +234,7 @@ app.post('/account/signin', (req, res, next) => {
         message: 'Error: Invalid Password.'
       });
     }
-
+    // Generate random JSON Webtoken to be saved in local storage
     var token = user.generateJwt();
     // Otherwise correct user
     const userSession = new UserSession();
@@ -305,7 +304,7 @@ app.post('/account/logout', (req, res, next) => {
 			isDeleted: false
 		}, {
 			$set: {
-				isDeleted:true
+				isDeleted: true
 			}
 		}, null, (err, sessions) => {
 			if (err) {
@@ -317,7 +316,7 @@ app.post('/account/logout', (req, res, next) => {
 
 			return res.send({
 				success: true,
-				message: 'Good'
+				message: 'Good bye! Please come again!'
 			})
 
 		})
