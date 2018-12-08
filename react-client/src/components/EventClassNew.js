@@ -162,9 +162,9 @@ class EventClassNew extends React.Component {
            
              </div>
              <div className="col-sm-6">   <div className="mapModal">
-       
+       <form>
        <SimpleMap item={this.state.items} /> 
-    
+       </form>
       </div></div>
              </div>
           
