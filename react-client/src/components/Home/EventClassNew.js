@@ -78,7 +78,8 @@ class EventClassNew extends React.Component {
       attended: true
     })
 
-
+    document.getElementById('name').value = ''
+    document.getElementById('phone').value = ''
 
     // alert(obj.eventName + ' saved !');
 
@@ -131,7 +132,7 @@ class EventClassNew extends React.Component {
              
               </div>
               <div className="col-sm-2">
-              <input style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}} type="text" value={this.state.Name}
+              <input id="name" style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}} type="text" value={this.state.Name}
                   onChange={e => this.setState({ Name: e.target.value })}></input>
              
               </div></div>
@@ -147,7 +148,7 @@ class EventClassNew extends React.Component {
              
               </div>
               <div className="col-sm-2">
-              <input style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}} type="text" value={this.state.Phone}
+              <input id="phone" style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}} type="text" value={this.state.Phone}
                   onChange={e => this.setState({ Phone: e.target.value })}></input>
              
               </div></div>
