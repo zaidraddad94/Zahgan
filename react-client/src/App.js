@@ -73,7 +73,7 @@ class App extends Component {
   />
 
 <Route path='/SignInCreator' component={SignInCreator} />
-<Route path='/creator' component={Create} />
+<Route path='/Creator' component={Create} />
 <Route path='/signup' component={Signup} />
 <Route path='/signin' component={Signin} />
 <Route path='/location' component={location}/>
