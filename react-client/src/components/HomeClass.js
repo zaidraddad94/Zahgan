@@ -33,6 +33,7 @@ render(){
          <Slideshow/>
             <Vision/>
       	<div classsName="images">
+          <p className="main_title"><span>Events</span></p>
         {
  this.props.items.map((item) =>{
    return(<div ref={this.myRef}>

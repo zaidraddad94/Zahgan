@@ -146,11 +146,11 @@ class EventClassNew extends React.Component {
                   onChange={e => this.setState({ Phone: e.target.value })}></input>
              
               </div></div>
-              <div className="row">
+              <div className="row" >
               <div className="col-sm-3">
-             <p>Event Description</p>
+             <p >Event Description</p>
              </div>
-             <div className="col-sm-9">
+             <div className="col-sm-9" >
              {this.state.items.des}
             
              </div>
@@ -158,7 +158,7 @@ class EventClassNew extends React.Component {
               <div className="row"></div>
              
         
-             <button type="submit" onClick={this.handleSubmit} style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}}>submit</button>
+             <button type="submit" onClick={this.handleSubmit} style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}}>Attend</button>
            
              </div>
              <div className="col-sm-6">   <div className="mapModal">
