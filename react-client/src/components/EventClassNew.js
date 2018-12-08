@@ -49,7 +49,6 @@ class EventClassNew extends React.Component {
     var obj = {
       Name: this.state.Name,
       Phone: this.state.Phone,
-      numberOfAttendees: this.state.numberOfAttendees
     }
     var id = this.state.items._id
     console.log('Name', this.state.Name)
@@ -103,80 +102,118 @@ class EventClassNew extends React.Component {
 
           show={this.state.show}
           onClose={this.showModal}>
-          <div className="row">
-            <div className="col-sm-6">
-              <div className="container-fluid ">
-                <div className="Popup-images">
-                  <img src={this.state.items.url}></img></div>
-                <div className="row">
-                  <div className="col-sm-6">
-                    <div className="col-sm-3"> <p>Event Name</p></div>
-                    <div className="col-sm-3">{this.state.items.eventName}</div>
-                  </div>
-                  <div className="col-sm-6">
-                    <div className="col-sm-2">Name</div>
-                    <div className="col-sm-4"><input type="text" value={this.state.Name}
-                      onChange={e => this.setState({ Name: e.target.value })}></input></div></div>
-                </div>
-                <div className="row">
-                  <div className="col-sm-6">
-                    <div className="col-sm-3"> <p>Event Description</p></div>
-                    <div className="col-sm-3">{this.state.items.des}</div>
-                  </div>
-                  <div className="col-sm-6">
-                    <div className="col-sm-2">Phone</div>
-                    <div className="col-sm-4"><input type="text" value={this.state.Phone}
-                      onChange={e => this.setState({ Phone: e.target.value })}></input></div>
-                  </div></div>
-                <div className="row">
-                  <div className="col-sm-6">
-                    <div className="col-sm-3"> <p>Event Cost</p></div>
-                    <div className="col-sm-3">{this.state.items.cost}
-                    </div></div>
-                  <div className="col-sm-6">
-                    <div className="col-sm-2">Attendees</div>
-                    <div className="col-sm-4"><input type="text" value={this.state.numberOfAttendees}
-                      onChange={e => this.setState({ numberOfAttendees: e.target.value })}></input></div></div>
-
-                </div>
-
-
-                <div className="row">
-                  <div className="col-sm-6">
-                    <div className="col-sm-3"> <p>Event Location</p></div>
-                    <div className="col-sm-3">Amman</div></div>
-                </div>
+      
+      <div className="row">
+     
+      <div className="col-sm-12">
+      <div className="Popup-images">
+              <img src={this.state.items.url}></img>
               </div>
-              <SimpleMap item={this.state.items} />
-              <div>
-                
+              </div></div>
+
+              <div className="row">
+             
+              <div className="col-sm-6">
+              <div className="row"> <div className="col-sm-3">
+              <p>Event Name</p>
               </div>
-              <button type="submit" onClick={this.handleSubmit} style={{ 'display': this.state.isLoggedIn === true ? 'block' : 'none' }}>submit</button>
+              <div className="col-sm-3">
+              {this.state.items.eventName}
+             
+              </div>
+              <div className="col-sm-2">
+              Name
+             
+              </div>
+              <div className="col-sm-2">
+              <input type="text" value={this.state.Name}
+                  onChange={e => this.setState({ Name: e.target.value })}></input>
+             
+              </div></div>
+              <div className="row">   <div className="col-sm-3">
+             <p>Event Cost</p>
+             </div>
+             <div className="col-sm-3">
+             {this.state.items.cost}
+            
+             </div>   
+             <div className="col-sm-2">
+              Phone
+             
+              </div>
+              <div className="col-sm-2">
+              <input type="text" value={this.state.Phone}
+                  onChange={e => this.setState({ Phone: e.target.value })}></input>
+             
+              </div></div>
+              <div className="row">
+              <div className="col-sm-3">
+             <p>Event Description</p>
+             </div>
+             <div className="col-sm-9">
+             {this.state.items.des}
+            
+             </div>
             </div>
+              <div className="row"></div>
+             
+        
+             <button type="submit" onClick={this.handleSubmit} style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}}>submit</button>
+           
+             </div>
+             <div className="col-sm-6">   <div className="mapModal">
+       
+       <SimpleMap item={this.state.items} /> 
+    
+      </div></div>
+             </div>
+          
+             
+       
+      
+      
+      
+      
+      
+    
 
-          </div>
+
+
+
+
+
+
+
+
+
+
+
+       
         </Modal>
-        <div id="events">
-
-          <div className="images">
-
-            <a href="#" onClick={this.showModal}>
-              <div class="card">
-                <figure class="front">
-                  <img src={this.state.items.url} alt="front" />
-                  <div class="caption">
-                    <h2>{this.state.items.eventName}</h2>
-                    <p>{this.state.items.des}</p>
-                    <a href="#">View more</a>
-                  </div>
-                </figure>
 
 
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
+        
+     <div id="events">
+         
+         <div className="images">
+ 
+         <a href="#" onClick={this.showModal}>
+  <div class="card">
+    <figure class="front">
+      <img src={this.state.items.url} alt="front"/>
+      <div class="caption">
+        <h2>{this.state.items.eventName}</h2>
+        <p>{this.state.items.des}</p>
+        <a href="#">View more</a>
+      </div>			
+    </figure>
+
+
+  </div>
+ </a>
+</div>
+</div>
+</div>
     );
   }
 }

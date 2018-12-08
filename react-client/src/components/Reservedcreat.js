@@ -100,47 +100,52 @@ delete(x){
 
 
     return (
-      <div style={{ width:1000 , textAlign:"center"}}>
-
-
-
-
-        <div>
-          <div>
-
-            <div style={{ width:300,border: 50,
-                padding: 50,
-                margin: 50,
-                textAlign:"center"
-            }}>
-
-                <div className="row"><h3>{this.state.items.eventName}</h3></div>
-                <img className="row" style={{width:500,height:300}} src={this.state.items.url}></img>
-              
-              <div> <h3>Reserved seats  : {this.state.items.attending.length}</h3></div>
-              <div>
-                  <h4> atinding data:</h4>                  
-                {
+      <div className="container-fluid">
+      <table class="table table-striped primary">
+         
+      <thead>
+        <tr class="bg-primary ">
+          <th scope="col " className="th-evenName">#</th>
+          <th scope="col" className="th-evenName">Event Name</th>
+          <th scope="col" className="th-evenName">Reserved Seats </th>
+          <th scope="col" className="th-evenName">Attending Data  </th>
+       
+        </tr>
+      </thead>
+      <tbody>
+        <tr className="primary">
+          <th scope="row"></th>
+          <td>{this.state.items.eventName}</td>
+          <td>{this.state.items.attending.length}</td>
+          <td>    {
                     this.state.items.attending.map((item) =>{
                     return(<div className="row" >
-                        <div>
-                     -name : {item.Name  }  - 
+                       <div class="col-lg-6">
+
+                      {item.Name  }  
                      </div>
-                     <div>
-                     phone : {item.Phone}
+                     <div class="col-lg-6">
+                      
+                     {item.Phone}
                     </div>
                     </div>)
                     
                     })
                     
-                    }  
-              </div>
-              <form>
-              <button className="row btn alert-danger" onClick={this.delete}>delete </button>
-              </form>
-            </div>
-          </div>
-        </div>
+                    }  </td>
+  </tr>
+    
+      </tbody>
+    </table>
+
+   
+
+
+             
+              
+             
+                               
+      
         
       </div>
     );
