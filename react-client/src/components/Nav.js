@@ -1,6 +1,8 @@
 import React from 'react'
 import zahgan from './zahgan.jpg';
 import $ from 'jquery';
+const jwtDecode = require('jwt-decode');
+
 
 class Nav extends React.Component {
 	constructor(props) {
@@ -8,6 +10,7 @@ class Nav extends React.Component {
 
 		this.state = {
 			isLoggedIn: false,
+			userName: ''
 		}
 		this.signOut = this.signOut.bind(this);
 	}
@@ -18,12 +21,22 @@ class Nav extends React.Component {
 			this.setState({
 				isLoggedIn: true
 			});
+			this.setState({
+				userName: jwtDecode(localStorage.getItem('token')).firstName
+			})
 		} else {
 			this.setState({
 				isLoggedIn: false
 			});
 		}
 	}
+	// componentWillMount() {
+	// 	if(localStorage.getItem('token')){
+	// 	this.setState({
+	// 		userName: jwtDecode(localStorage.getItem('token')).firstName
+	// 	})
+	// }
+	// }
 
  ToEvents = () => {
     $("#clickEvent").click(function() {
@@ -79,6 +92,9 @@ class Nav extends React.Component {
 			event.preventDefault();
 }
 
+ jsUcfirst = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+ }
 
 
 	render(){
@@ -95,7 +111,7 @@ class Nav extends React.Component {
             <li style={{'display': this.state.isLoggedIn === false ? 'block': 'none'}}><a href="/signin">Sign in</a></li>
             <li style={{'display': this.state.isLoggedIn === false ? 'block': 'none'}}><a href="/signup">Sign up</a></li>
             <li style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}}><a href="javascript:void(0);" onClick={this.signOut}>Log out</a></li>
-						<li><p></p></li>
+						<li style={{'display': this.state.isLoggedIn === true ? 'block': 'none'}}><a href="javascript:void(0);">Welcome {this.jsUcfirst(this.state.userName)}</a></li>
           </ul>
       </nav>
    </div>
