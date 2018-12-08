@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import Signup from './components/Signup'
 import Signin from './components/Signin'
-import About from './components/About'
+// import About from './components/About'
 import SignInCreator from './components/Creator/SigninCreator'
 //import EventClassNew from './components/EventClassNew'
 import SimpleMap from './components/map'
@@ -26,11 +26,11 @@ it('renders Singin without crashing', () => {
   ReactDOM.unmountComponentAtNode(div);
 });
 
-it('renders About without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<About />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+// it('renders About without crashing', () => {
+//   const div = document.createElement('div');
+//   ReactDOM.render(<About />, div);
+//   ReactDOM.unmountComponentAtNode(div);
+// });
 
 it('renders SignInCreator without crashing', () => {
   const div = document.createElement('div');
