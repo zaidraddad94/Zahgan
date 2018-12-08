@@ -71,6 +71,7 @@ class App extends Component {
       <HomeClass items={this.state.items} />
     )}}
   />
+
 <Route path='/SignInCreator' component={SignInCreator} />
 <Route path='/creator' component={Create} />
 <Route path='/signup' component={Signup} />
