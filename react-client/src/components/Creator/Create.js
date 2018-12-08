@@ -65,7 +65,7 @@ class Create extends React.Component {
       }
     });
   }
-
+ 
   handleSubmit(event) {
     var obj = {
       creatorName: this.state.host,
@@ -232,13 +232,30 @@ class Create extends React.Component {
 
             <div class="col-4 data-box">
               <div>
-                <h3><span>{this.reservedSeats(this)}</span><a href="/Reserved"> Reserved seats for all events </a></h3>
+                <h3><span>{this.reservedSeats(this)}</span> <a href="/Reserved"> Reserved seats for all events </a> </h3>
               </div>
             </div>
 
           </div>
         </div>
-        
+        {/* <div className="container-fluid">
+
+          <div className="row ">
+
+            <div className="col-md-6">
+
+              <div className="list-group">
+                <h6 className="list-group-item active main-color-bg">
+                  <span className="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
+           </h6>
+                <h6 className="list-group-item"><span className="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Number of your events : <h6 class="badge"> {this.state.items.length} </h6></h6>
+                <h6 className="list-group-item"><span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>Remaning seats for each event <h6 class="badge"> {this.viewlest(this)} </h6></h6>
+              </div>
+            </div>
+
+          </div>
+
+        </div> */}
 
         <div className="col-md-12">
 

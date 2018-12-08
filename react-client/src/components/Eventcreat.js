@@ -92,7 +92,9 @@ delete(x){
       });
 
 
+
 }
+
 
 
   render() {
@@ -100,49 +102,66 @@ delete(x){
 
 
     return (
-      <div style={{ width:1000 , textAlign:"center"}}>
+
+     
 
 
 
 
-        <div>
-          <div>
-
-            <div style={{ width:300,border: 50,
-                padding: 50,
-                margin: 50,
-                textAlign:"center"
-            }}>
-
-                <div className="row"><h3>{this.state.items.eventName}</h3></div>
-                <img className="row" style={{width:500,height:300}} src={this.state.items.url}></img>
-              
-              <div> <h3>attending : {this.state.items.attending.length} / {this.state.items.availableSeats}</h3></div>
-              <div>
-                  <h4> atinding data:</h4>                  
+       
+          <table class="table table-striped primary">
+         
+  <thead>
+    <tr class="bg-primary ">
+      <th scope="col " className="th-evenName">#</th>
+      <th scope="col" className="th-evenName">Event Name</th>
+      <th scope="col" className="th-evenName">attendees Number</th>
+      <th scope="col" className="th-atendees">attendees Data</th>
+      <th scope="col" className="th-atendees"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr className="primary">
+      <th scope="row"></th>
+      <td>{this.state.items.eventName}</td>
+      <td>{this.state.items.attending.length} / {this.state.items.availableSeats}</td>
+      <td>                  
                 {
                     this.state.items.attending.map((item) =>{
                     return(<div className="row" >
-                        <div>
-                     -name : {item.Name  }  - 
-                     </div>
-                     <div>
+                       
+                     <div class="col-lg-4">name : {item.Name  } </div>
+                     <div class="row"></div>
+                     <div class="col-lg-4">
                      phone : {item.Phone}
                     </div>
                     </div>)
                     
-                    })
+                  
+                    })}</td>
+                    <td> <form>
+              <button className="row btn alert-danger" id="deletbutton" onClick={this.delete}>delete </button>
+              </form></td>
+    </tr>
+
+  </tbody>
+</table>
+
+       
+  
+
+              
+              
+            
+              
                     
-                    }  
-              </div>
-              <form>
-              <button className="row btn alert-danger" onClick={this.delete}>delete </button>
-              </form>
-            </div>
-          </div>
-        </div>
+                    
+             
+       
+       
+      
         
-      </div>
+    
     );
   }
 }

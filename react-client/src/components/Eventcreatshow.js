@@ -47,9 +47,10 @@ class Eventcreatshow extends React.Component {
   render() {
    
     return (
-      <div>
-      
-        <div>
+      <div class="container-fluid">
+ 
+
+        <div class="container-fluid">
         
 {
 this.state.items.map((item) =>{

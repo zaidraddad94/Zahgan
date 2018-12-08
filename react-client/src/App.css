@@ -68,6 +68,7 @@ text-align: center;
   }
 
   .backdropStyle{
+    margin: 0 auto;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -75,18 +76,22 @@ text-align: center;
     right: 0;
     background-color: rgba(0,0,0,0.3);
     padding: 50px;
-    z-index: 1;
-    margin-top: 120px;
+    z-index: 3;
+    margin-top: 15px;
   }
   .modalStyle {
     background-color: #fff;
     border-radius: 5px;
-   
-    height: 500px;
-    width: 80%;
+   padding:10px;
+    height: 530px;
+    width: 60%;
     margin: 0 auto;
     position: relative;
     z-index: 1;
+    box-shadow:5px 5px 5px rgb(97, 93, 93);
+    font-size: 15px;
+    font-weight: bold;
+    overflow: hidden;
     
   }
 
@@ -99,19 +104,21 @@ text-align: center;
     
    
     
-    width: 70%;
+    width: 100%;
+    margin:0 auto;
    
   }
 
   .Popup-images img{
     width:100%;
     height: 250px;
-    margin-top: 5px;
-    
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow:2px 2px 2px rgb(107, 104, 104);
   }
   .container-fluid{
     width:100%;
-    margin-top:120px;
+    margin-top:100px;
   }
   .each-fade{
 height: 600px;
@@ -131,9 +138,9 @@ height: 600px;
     width: 70%;
   }
  
-  .createEvent{
+  /* .createEvent{
     display :none;
-  }
+  } */
   
 
   
@@ -228,6 +235,7 @@ h1{
 .dash-row{
   margin:15px;
   height:auto;
+
   
 }
 .dash-row .data-box{
@@ -283,10 +291,113 @@ h1{
 }
 
 
-.map{
-  width:30px;
+.mapModal{
+  width:100%;
   height: auto;
-
+}
+.mapModal div:first-child {
+width: 80% !important;
+min-height:200px;
+border-radius: 5px;
+margin-left:20px;
+}
+.mapModal div:nth-child(2) {
+display: none !important;
+}
+.service-box .service-icon .front-content h3 {
+ font-size: 15px;
+ color: white;
+ text-align: center;
+ margin-bottom: 15px;
+ text-transform: uppercase;
+}
+.service-box .service-content h3 {
+ font-size: 15px;
+ font-weight: 700;
+ color: white;
+ margin-bottom:10px;
+ text-transform: uppercase;
+}
+.dash-row{
+	margin:15px;
+  height:auto;
+  
+}
+.dash-row .data-box{
+	padding:0px 5px;
+	height:auto;
+	min-height:180px;
+}
+.dash-row .data-box > div{
+	display:inline-flex;
+	width:100%;
+	height:auto;
+	min-height:100%;
+	background-color:rgba(255,255,255,0.8);
+	justify-content: center;
+    align-items: center;
+}
+.dash-row .data-box > div h3{
+	font-size:15px;
+	color:rgba(62,77,96,1.00);
+}
+.dash-row .data-box > div h3 span{
+	font-size:32px;
+	color:rgba(47,88,139,1.00);
+}
+.service-box .service-content p {
+ font-size: 13px;
+ color: white;
+ margin:0;
+}
+.red{
+  background-color: #b50900;
 }
 
+.service-box:hover .service-icon{
+ opacity: 0;
+ -webkit-transform: translateY(-110px) rotateX(90deg);
+ -moz-transform: translateY(-110px) rotateX(90deg);
+ -ms-transform: translateY(-110px) rotateX(90deg);
+ -o-transform: translateY(-110px) rotateX(90deg);
+ transform: translateY(-110px) rotateX(90deg);
+}
+.service-box:hover .service-content {
+ opacity: 1;
+ -webkit-transform: rotateX(0);
+ -moz-transform: rotateX(0);
+ -ms-transform: rotateX(0);
+ -o-transform: rotateX(0);
+ transform: rotateX(0);
+}
+.mission h1{
+  color: black;
+  margin-top: 100px;
+}
+
+
+table{
+
+  font-size: 20px;
+  width:100%
+}
+
+.eventName{
+  text-align: center;
+  margin: 0 auto;
+}
+
+.th-evenName{
+  width:20%;
+}
+
+.th-atendees{
+  width:30%;
+}
+table tr{
+  width:100%;
+}
+table{
+  width:100%;
+}
 
