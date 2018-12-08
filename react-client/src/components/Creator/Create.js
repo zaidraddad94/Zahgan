@@ -39,7 +39,7 @@ class Create extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.allseats = this.allseats.bind(this);
   }
-
+// this function to show the map to pic place in creator pAGE 
   handleClickedMap = (e) => {
     console.log(e)
     let latitude = e.lat
@@ -49,7 +49,8 @@ class Create extends React.Component {
     })
     console.log(latitude, longtitude)
   }
-
+// this function to git all the data from data base befor render the bage 
+//silf envok function 
   componentDidMount() {
 
     $.ajax({
@@ -65,7 +66,8 @@ class Create extends React.Component {
       }
     });
   }
- 
+ //this function will take the data from props and send them to the data base to creat event 
+ //
   handleSubmit(event) {
     var obj = {
       creatorName: this.state.host,
@@ -79,7 +81,7 @@ class Create extends React.Component {
       attending: []
     }
 
-    console.log("myobj", obj)
+  // pst requst using ajax 
     $.ajax({
       type: "POST",
       url: '/create',
@@ -95,7 +97,7 @@ class Create extends React.Component {
 
 
     alert(obj.eventName + ' saved !');
-
+// after post we use ajux to get the data agean so the creataer page always will be updated 
     $.ajax({
       url: '/create',
       success: (data) => {
@@ -110,6 +112,7 @@ class Create extends React.Component {
     });
     event.preventDefault();
   }
+  //colect all event sets 
   allseats(props) {
     var lastindex = props.state.items.length - 1
     var z = props.state.items[lastindex]
@@ -124,56 +127,58 @@ class Create extends React.Component {
   }
 
 
+////////////////////////////////////////////////////
+  // viewlest(props) {
+  //   var x = ""
 
-  viewlest(props) {
-    var x = ""
+  //   var c = function (i) {
 
-    var c = function (i) {
+  //     var xx = i.availableSeats - i.attending.length
 
-      var xx = i.availableSeats - i.attending.length
+  //     x = x + `${i.eventName} : ${xx}/${i.availableSeats}   `
+  //   }
+  //   for (var i = 0; i < props.state.items.length; i++) {
+  //     c(props.state.items[i])
+  //   }
 
-      x = x + `${i.eventName} : ${xx}/${i.availableSeats}   `
-    }
-    for (var i = 0; i < props.state.items.length; i++) {
-      c(props.state.items[i])
-    }
-
-    return x
-  }
-
+  //   return x
+  // }
+  /////////////////////////////////////////////////////
+// colect the number of sets empty 
   allSeats(props) {
-    var x = 0
+    var total = 0
 
-    var c = function (i) {
+    var totalfun = function (i) {
 
 
-      var xx = i.availableSeats - i.attending.length
+      var empty = i.availableSeats - i.attending.length
 
-      x = x + xx 
+      total = total + empty 
 
 
     }
     for (var i = 0; i < props.state.items.length; i++) {
-      c(props.state.items[i])
+      totalfun(props.state.items[i])
     }
 
-    return x
+    return total
   }
-
+// to colect all resolved sets
   reservedSeats(props) {
-    var x = 0
+    var total = 0
 
-    var c = function (i) {
+    var totalfun = function (i) {
 
 
-      x = x + i.attending.length
+      total = total + i.attending.length
     }
     for (var i = 0; i < props.state.items.length; i++) {
-      c(props.state.items[i])
+      totalfun(props.state.items[i])
     }
 
-    return x
+    return total
   }
+  //to hide and show the create event part
   appearCreate() {
     $(document).ready(function () {
       $("#createClick").click(function () {
