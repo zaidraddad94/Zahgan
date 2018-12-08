@@ -75,8 +75,8 @@ class EventClassNew extends React.Component {
     });
 
 
-
-
+   document.getElementById('name').value = ''
+   document.getElementById('phone').value = ''
     // alert(obj.eventName + ' saved !');
 
     // $.ajax({
@@ -128,8 +128,8 @@ class EventClassNew extends React.Component {
              
               </div>
               <div className="col-sm-2">
-              <input type="text" value={this.state.Name}
-                  onChange={e => this.setState({ Name: e.target.value })} ref={el => this.inputTitle = el}></input>
+              <input id="name" type="text" value={this.state.Name}
+                  onChange={e => this.setState({ Name: e.target.value })}></input>
              
               </div></div>
               <div className="row">   <div className="col-sm-3">
@@ -144,7 +144,7 @@ class EventClassNew extends React.Component {
              
               </div>
               <div className="col-sm-2">
-              <input type="text" value={this.state.Phone}
+              <input id="phone" type="text" value={this.state.Phone}
                   onChange={e => this.setState({ Phone: e.target.value })}></input>
              
               </div></div>
